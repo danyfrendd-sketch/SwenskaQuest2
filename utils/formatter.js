@@ -42,6 +42,7 @@ function formatProfile(u) {
   lines.push(`👤 ${avatar} <b>${name}</b>`);
   if (u.age) lines.push(`🎂 Возраст: <b>${u.age}</b>`);
   lines.push(`🏅 Уровень: <b>${u.level || 1}</b>`);
+  lines.push(`🌦️ Сезон: уровень <b>${u.season_level || 1}</b> • XP <b>${Number(u.season_xp || 0).toLocaleString()}</b>`);
   lines.push(`🪙 Монеты: <b>${Number(u.coins || 0).toLocaleString()}</b>`);
   lines.push(`💠 Токены: <b>${Number(u.tokens || 0).toLocaleString()}</b>`);
   lines.push(`📘 Прогресс: урок <b>${u.current_lesson || 1}</b>, шаг <b>${u.current_task || 0}</b>`);
@@ -76,9 +77,8 @@ function formatLeaderboard(rows) {
   list.forEach((u, i) => {
     const avatar = esc(u.avatar || "🙂");
     const name = esc(u.name || "Player");
-    const lvl = Number(u.level || 1);
-    const coins = Number(u.coins || 0).toLocaleString();
-    const tokens = Number(u.tokens || 0).toLocaleString();
+    const lesson = Number(u.current_lesson || 1);
+    const seasonXp = Number(u.season_xp || 0).toLocaleString();
 
     const synced = energy.syncEnergy(u.energy, u.energy_ts);
     const eText = `${synced.energy}/${energy.MAX_ENERGY}`;
@@ -96,9 +96,7 @@ function formatLeaderboard(rows) {
         equipIcon("🍀", inv, eq.charm),
       ].join("  ");
 
-    lines.push(
-      `${i + 1}. ${avatar} <b>${name}</b> — lvl <b>${lvl}</b> • 🪙 <b>${coins}</b> • 💠 <b>${tokens}</b> • ⚡ <b>${eText}</b>\n${gear}`
-    );
+    lines.push(`${i + 1}. ${avatar} <b>${name}</b> — 📘 урок <b>${lesson}</b> • ✨ сезон XP <b>${seasonXp}</b> • ⚡ <b>${eText}</b>\n${gear}`);
   });
 
   return lines.join("\n");
