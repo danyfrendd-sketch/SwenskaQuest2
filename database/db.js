@@ -44,6 +44,8 @@ db.serialize(() => {
     level INTEGER DEFAULT 1,
     current_lesson INTEGER DEFAULT 1,
     current_task INTEGER DEFAULT 0,
+    season_level INTEGER DEFAULT 1,
+    season_xp INTEGER DEFAULT 0,
     chests TEXT DEFAULT '[]',
     keys TEXT DEFAULT '[]',
     accessories TEXT DEFAULT '[]',
@@ -73,6 +75,7 @@ db.serialize(() => {
   });
 
   // ===== SEASON SYSTEM (NEW) =====
+  addColumnIfMissing("users", "season_level", "season_level INTEGER DEFAULT 1");
   addColumnIfMissing("users", "season_xp", "season_xp INTEGER DEFAULT 0");
   addColumnIfMissing("users", "last_season_reward", "last_season_reward INTEGER DEFAULT 0");
 
