@@ -366,6 +366,7 @@ function botDoLesson(db, userId) {
     if (taskIndex >= tasks.length) {
       const coinsAdd = rint(35, 70);
       const xpAdd = rint(8, 16);
+      const seasonXpAdd = xpAdd;
 
       let c = safeParse(u.chests, []);
       let k = safeParse(u.keys, []);
@@ -380,8 +381,8 @@ function botDoLesson(db, userId) {
       }
 
       db.run(
-        "UPDATE users SET current_lesson=current_lesson+1, current_task=0, level=level+1, coins=coins+?, xp=xp+?, chests=?, keys=? WHERE id=?",
-        [coinsAdd, xpAdd, JSON.stringify(c), JSON.stringify(k), userId],
+        "UPDATE users SET current_lesson=current_lesson+1, current_task=0, level=level+1, season_level=season_level+1, season_xp=season_xp+?, coins=coins+?, xp=xp+?, chests=?, keys=? WHERE id=?",
+        [seasonXpAdd, coinsAdd, xpAdd, JSON.stringify(c), JSON.stringify(k), userId],
         () => activity.log(userId, "lesson_complete", { lesson: lessonNum, coinsAdd, xpAdd })
       );
       return;
