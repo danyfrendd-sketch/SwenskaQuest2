@@ -17,8 +17,19 @@ const equipment = require("./handlers/equipmentHandler");
 // ✅ наши NPC из папки bots/
 const { startBots } = require("./bots/aiBots");
 
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
-const ADMIN_ID = parseInt(process.env.ADMIN_ID, 10);
+// --- FIX: защита от криво заданного BOT_TOKEN ("BOT_TOKEN=....") ---
+const RAW_TOKEN = process.env.BOT_TOKEN || "";
+const BOT_TOKEN = RAW_TOKEN.replace(/^BOT_TOKEN=/, "").trim();
+
+if (!BOT_TOKEN || !BOT_TOKEN.includes(":")) {
+  console.log("❌ BOT_TOKEN не задан или задан неправильно.");
+  console.log("❗ В переменной BOT_TOKEN должно быть только значение токена вида 123:ABC..., без 'BOT_TOKEN='.");
+  process.exit(1);
+}
+
+const bot = new TelegramBot(BOT_TOKEN, { polling: true });
+
+const ADMIN_ID = parseInt(String(process.env.ADMIN_ID || "0"), 10) || 0;
 const userState = {};
 
 // ✅ запускаем NPC (они работают только с DB, не пишут в чат)
@@ -117,3 +128,14 @@ bot.on("callback_query", (q) => {
 });
 
 console.log("✅ SuomiQuestBot активен!");
+
+// --- FIX: healthcheck для Koyeb Web Service (иначе убивает SIGTERM) ---
+const http = require("http");
+const PORT = parseInt(String(process.env.PORT || "8000"), 10) || 8000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("ok");
+}).listen(PORT, () => {
+  console.log("✅ Health server on port", PORT);
+});
