@@ -168,8 +168,8 @@ function renderPickSell(bot, id, userState, prefix) {
     const lines = items.slice(0, 25).map((it, i) => {
       const sys = priceToSystem(it.id, it.d);
       const sp = shopPrice(it.id);
-      const cap = sp ? `, shop≈${sp}` : "";
-      return `${i + 1}. ${formatLine(it.id, it.d)}\n   system=${sys}${cap}`;
+      const shopText = sp ? ` • магазин: ${sp}` : "";
+      return `${i + 1}. ${formatLine(it.id, it.d)}\n   💰 Системная цена: ${sys}${shopText}`;
     });
 
     const ik = items.slice(0, 25).map((_, i) => [
@@ -195,7 +195,7 @@ function renderPickCurrency(bot, id, userState, prefix, item) {
   bot.sendMessage(
     id,
     `💰 <b>Выставление лота</b>\n\nПредмет: ${formatLine(item.id, item.d)}\n\n` +
-      `Правила цены:\n• не дешевле системной: <b>${sys}</b> 🪙\n• не дороже магазина: <b>${sp ?? "нет"}</b>\n\n` +
+      `Подсказка: системная цена <b>${sys}</b> 🪙${sp ? `, магазин <b>${sp}</b>` : ""}\n\n` +
       `Выбери валюту лота:`,
     {
       parse_mode: "HTML",
@@ -356,16 +356,6 @@ function handleInput(bot, msg, userState) {
   const d = Number(item.d || 10);
   const sys = priceToSystem(item.id, d);
   const sp = shopPrice(item.id);
-
-  // логика цены: не ниже системной, не выше магазина (если есть)
-  if (price < sys) {
-    bot.sendMessage(id, `❌ Слишком дёшево. Системная цена за это: <b>${sys}</b>`, { parse_mode: "HTML" });
-    return true;
-  }
-  if (sp && price > sp) {
-    bot.sendMessage(id, `❌ Слишком дорого. В магазине стоит: <b>${sp}</b>`, { parse_mode: "HTML" });
-    return true;
-  }
 
   // снимаем предмет из инвентаря и создаём лот
   db.get("SELECT accessories FROM users WHERE id=?", [id], (e1, u) => {
