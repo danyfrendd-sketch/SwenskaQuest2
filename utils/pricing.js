@@ -15,6 +15,13 @@ function itemRarity(id) {
   return SHOP.find((x) => x && x.id === id)?.rarity || "common";
 }
 
+function shopPrice(id) {
+  const item = SHOP.find((x) => x && x.id === id);
+  if (!item) return null;
+  const price = parseInt(String(item.price ?? 0), 10);
+  return Number.isFinite(price) && price > 0 ? price : null;
+}
+
 function priceToSystem(id, durability = 10) {
   const r = itemRarity(id);
   const base = (
@@ -28,4 +35,4 @@ function priceToSystem(id, durability = 10) {
   return Math.max(1, Math.round(base * mult));
 }
 
-module.exports = { priceToSystem, itemRarity };
+module.exports = { priceToSystem, itemRarity, shopPrice };
