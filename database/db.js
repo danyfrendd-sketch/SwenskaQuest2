@@ -30,7 +30,8 @@ function addColumnIfMissing(table, colName, colDefSql, onDone = null) {
 }
 
 db.serialize(() => {
-  // users
+
+  // ===== USERS =====
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY,
     name TEXT UNIQUE,
@@ -63,20 +64,34 @@ db.serialize(() => {
 
   // energy
   addColumnIfMissing("users", "energy", "energy INTEGER DEFAULT 30");
-  // ALTER TABLE can’t use DEFAULT strftime(...) -> default 0 then backfill
   addColumnIfMissing("users", "energy_ts", "energy_ts INTEGER DEFAULT 0", (added) => {
     if (added) {
       db.run(
-        "UPDATE users SET energy_ts = CAST(strftime('%s','now') AS INTEGER) WHERE energy_ts IS NULL OR energy_ts = 0",
-        (e) => {
-          if (e) console.error("energy_ts backfill error:", e);
-          else console.log("✅ Backfilled users.energy_ts with current timestamp");
-        }
+        "UPDATE users SET energy_ts = CAST(strftime('%s','now') AS INTEGER) WHERE energy_ts IS NULL OR energy_ts = 0"
       );
     }
   });
 
-  // promo
+  // ===== SEASON SYSTEM (NEW) =====
+  addColumnIfMissing("users", "season_xp", "season_xp INTEGER DEFAULT 0");
+  addColumnIfMissing("users", "last_season_reward", "last_season_reward INTEGER DEFAULT 0");
+
+  db.run(`CREATE TABLE IF NOT EXISTS seasons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    start_ts INTEGER,
+    end_ts INTEGER,
+    processed INTEGER DEFAULT 0
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS season_rewards (
+    season_id INTEGER,
+    user_id INTEGER,
+    rank INTEGER,
+    tokens INTEGER,
+    PRIMARY KEY (season_id, user_id)
+  )`);
+
+  // ===== PROMO =====
   db.run(`CREATE TABLE IF NOT EXISTS promo_codes (
     code TEXT PRIMARY KEY,
     value INTEGER DEFAULT 0,
@@ -91,7 +106,7 @@ db.serialize(() => {
     PRIMARY KEY (user_id, code)
   )`);
 
-  // market (важно: currency + item_d)
+  // ===== MARKET =====
   db.run(`CREATE TABLE IF NOT EXISTS market (
     lot_id INTEGER PRIMARY KEY AUTOINCREMENT,
     seller_id INTEGER,
