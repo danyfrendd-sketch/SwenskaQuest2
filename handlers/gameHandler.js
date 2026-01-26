@@ -94,11 +94,22 @@ function makeToolGuardKey(id, lesson, task) {
   return `${id}:${lesson}:${task}`;
 }
 const toolUsed = new Set();
+const lessonToolUsed = new Set();
 
 // ---- retry guard (2nd try) ----
 const retryGranted = new Set(); // key: id:lesson:task
 function makeRetryKey(id, lesson, task) {
   return `${id}:${lesson}:${task}`;
+}
+
+function makeLessonToolKey(id, lesson) {
+  return `${id}:${lesson}`;
+}
+
+function calcSeasonXp(baseXp, effects, usedTool) {
+  const hasXpBuff = (effects?.xpBonusPct || 0) > 0;
+  const penalty = hasXpBuff || usedTool ? 0.5 : 1;
+  return Math.max(1, Math.round(baseXp * penalty));
 }
 
 // ---- build keyboards ----
@@ -177,7 +188,7 @@ const gameHandler = {
   },
 
   sendLeaderboard(bot, id) {
-    db.all("SELECT * FROM users ORDER BY level DESC, coins DESC LIMIT 10", [], (err, rows) => {
+    db.all("SELECT * FROM users ORDER BY current_lesson DESC, season_xp DESC LIMIT 10", [], (err, rows) => {
       bot.sendMessage(id, fmt.formatLeaderboard(rows), { parse_mode: "HTML" });
     });
   },
@@ -326,6 +337,8 @@ const gameHandler = {
 
       const coinRes = applyCoinsBonus(baseStageCoins, effects);
       const xpRes = applyXpBonus(baseStageXp, effects);
+      const lessonToolKey = makeLessonToolKey(id, u.current_lesson);
+      const seasonXpAdd = calcSeasonXp(baseStageXp, effects, lessonToolUsed.has(lessonToolKey));
 
       let c = safeParse(u.chests);
       let k = safeParse(u.keys);
@@ -360,8 +373,8 @@ const gameHandler = {
       }
 
       db.run(
-        "UPDATE users SET current_lesson=current_lesson+1, current_task=0, level=level+1, coins=coins+?, xp=xp+?, chests=?, keys=?, accessories=? WHERE id=?",
-        [coinRes.total, xpRes.total, JSON.stringify(c), JSON.stringify(k), JSON.stringify(inv), id],
+        "UPDATE users SET current_lesson=current_lesson+1, current_task=0, level=level+1, season_level=season_level+1, season_xp=season_xp+?, coins=coins+?, xp=xp+?, chests=?, keys=?, accessories=? WHERE id=?",
+        [seasonXpAdd, coinRes.total, xpRes.total, JSON.stringify(c), JSON.stringify(k), JSON.stringify(inv), id],
         () => {
           const coinBonusLine = coinRes.bonus > 0 ? ` (бонус +${coinRes.bonus} 🪙)` : "";
           const xpBonusLine = xpRes.bonus > 0 ? ` (бонус +${xpRes.bonus} XP)` : "";
@@ -372,6 +385,7 @@ const gameHandler = {
             { parse_mode: "HTML" }
           );
 
+          lessonToolUsed.delete(lessonToolKey);
           this.sendLessonTask(bot, id);
         }
       );
@@ -412,6 +426,7 @@ const gameHandler = {
           return bot.answerCallbackQuery(q.id, { text: "✅ Уже использовано на этом вопросе." }).catch(() => {});
         }
 
+        lessonToolUsed.add(makeLessonToolKey(id, lesson));
         const it = inv.find((x) => x && x.id === toolId);
         const d = it ? (Number.isFinite(it.d) ? it.d : 10) : 0;
         if (d <= 0) return bot.answerCallbackQuery(q.id, { text: "🧰 Инструмент сломан." }).catch(() => {});
