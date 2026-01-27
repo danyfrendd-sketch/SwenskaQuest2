@@ -1,6 +1,7 @@
 // handlers/equipmentHandler.js
 const db = require("../database/db");
 const kb = require("../ui/keyboards");
+const { t, getUserLang, resolveLang } = require("../utils/i18n");
 
 const { normalizeInv, normalizeEquipped } = require("../utils/inventory");
 const { formatLine } = require("../utils/itemCard");
@@ -35,24 +36,25 @@ function slotLabel(slot) {
 }
 
 function sendEquipMenu(bot, id, userState) {
-  db.get("SELECT accessories, equipped FROM users WHERE id=?", [id], (err, u) => {
+  db.get("SELECT accessories, equipped, lang FROM users WHERE id=?", [id], (err, u) => {
     if (!u) return;
+    const lang = resolveLang(u.lang);
 
     const inv = normalizeInv(u.accessories);
     const eq = normalizeEquipped(u.equipped);
 
-    const headText = eq.head ? formatLine(eq.head, durOf(inv, eq.head)) : "(пусто)";
-    const bodyText = eq.body ? formatLine(eq.body, durOf(inv, eq.body)) : "(пусто)";
-    const toolText = eq.tool ? formatLine(eq.tool, durOf(inv, eq.tool)) : "(пусто)";
-    const charmText = eq.charm ? formatLine(eq.charm, durOf(inv, eq.charm)) : "(пусто)";
+    const headText = eq.head ? formatLine(eq.head, durOf(inv, eq.head)) : t(lang, "profile.empty");
+    const bodyText = eq.body ? formatLine(eq.body, durOf(inv, eq.body)) : t(lang, "profile.empty");
+    const toolText = eq.tool ? formatLine(eq.tool, durOf(inv, eq.tool)) : t(lang, "profile.empty");
+    const charmText = eq.charm ? formatLine(eq.charm, durOf(inv, eq.charm)) : t(lang, "profile.empty");
 
     const text =
-      `🎒 <b>ЭКИПИРОВКА</b>\n\n` +
+      `${t(lang, "equipment.title")}\n\n` +
       `🧢 HEAD: ${headText}\n` +
       `🧥 BODY: ${bodyText}\n` +
       `🧰 TOOL: ${toolText}\n` +
       `🍀 CHARM: ${charmText}\n\n` +
-      `Выбери слот:`;
+      `${t(lang, "common.choose")}`;
 
     const ik = [
       [
@@ -63,7 +65,7 @@ function sendEquipMenu(bot, id, userState) {
         { text: "🧰 TOOL", callback_data: "eq_slot_tool" },
         { text: "🍀 CHARM", callback_data: "eq_slot_charm" },
       ],
-      [{ text: "🔙 В меню", callback_data: "eq_back" }],
+      [{ text: t(lang, "menu.back"), callback_data: "eq_back" }],
     ];
 
     bot.sendMessage(id, text, { parse_mode: "HTML", reply_markup: { inline_keyboard: ik } });
@@ -71,8 +73,9 @@ function sendEquipMenu(bot, id, userState) {
 }
 
 function renderSlotPick(bot, id, userState, slot) {
-  db.get("SELECT accessories, equipped FROM users WHERE id=?", [id], (err, u) => {
+  db.get("SELECT accessories, equipped, lang FROM users WHERE id=?", [id], (err, u) => {
     if (!u) return;
+    const lang = resolveLang(u.lang);
 
     const inv = normalizeInv(u.accessories);
     const eq = normalizeEquipped(u.equipped);
@@ -90,15 +93,15 @@ function renderSlotPick(bot, id, userState, slot) {
 
     const header =
       `🎒 <b>${slotLabel(slot)}</b>\n\n` +
-      `Сейчас: ${currentId ? formatLine(currentId, durOf(inv, currentId)) : "(пусто)"}\n\n` +
-      `Выбери предмет для экипировки:`;
+      `${t(lang, "equipment.current")}: ${currentId ? formatLine(currentId, durOf(inv, currentId)) : t(lang, "profile.empty")}\n\n` +
+      `${t(lang, "equipment.choose_item")}`;
 
     if (!pool.length) {
       const ik0 = [
-        [{ text: "❌ Снять предмет", callback_data: `eq_unequip_${slot}` }],
-        [{ text: "🔙 Назад", callback_data: "eq_menu" }],
+        [{ text: t(lang, "equipment.unequip"), callback_data: `eq_unequip_${slot}` }],
+        [{ text: t(lang, "common.back"), callback_data: "eq_menu" }],
       ];
-      return bot.sendMessage(id, header + `\n\n(Нет подходящих предметов в инвентаре)`, {
+      return bot.sendMessage(id, header + `\n\n${t(lang, "equipment.empty")}`, {
         parse_mode: "HTML",
         reply_markup: { inline_keyboard: ik0 },
       });
@@ -108,10 +111,10 @@ function renderSlotPick(bot, id, userState, slot) {
     st.pick = { slot, items: pool };
 
     const lines = pool.slice(0, 25).map((it, i) => `${i + 1}. ${formatLine(it.id, it.d)}`);
-    const ik = pool.slice(0, 25).map((_, i) => [{ text: `Надеть #${i + 1}`, callback_data: `eq_pick_${i}` }]);
+    const ik = pool.slice(0, 25).map((_, i) => [{ text: `${t(lang, "equipment.equip")} #${i + 1}`, callback_data: `eq_pick_${i}` }]);
 
-    ik.unshift([{ text: "❌ Снять предмет", callback_data: `eq_unequip_${slot}` }]);
-    ik.push([{ text: "🔙 Назад", callback_data: "eq_menu" }]);
+    ik.unshift([{ text: t(lang, "equipment.unequip"), callback_data: `eq_unequip_${slot}` }]);
+    ik.push([{ text: t(lang, "common.back"), callback_data: "eq_menu" }]);
 
     bot.sendMessage(id, `${header}\n\n${lines.join("\n")}`, {
       parse_mode: "HTML",
@@ -137,7 +140,9 @@ function handleCallbacks(bot, q, userState) {
 
   // menu/back
   if (data === "eq_menu") return sendEquipMenu(bot, id, userState);
-  if (data === "eq_back") return bot.sendMessage(id, "🎮 Меню:", kb.mainMenu);
+  if (data === "eq_back") {
+    return getUserLang(db, id).then((lang) => bot.sendMessage(id, t(lang, "menu.main_title"), kb.mainMenu(lang)));
+  }
 
   // open slot picker
   if (data === "eq_slot_head") return renderSlotPick(bot, id, userState, "head");
@@ -151,7 +156,7 @@ function handleCallbacks(bot, q, userState) {
     if (!["head", "body", "tool", "charm"].includes(slot)) return;
 
     setEquippedSlot(id, slot, null, () => {
-      bot.answerCallbackQuery(q.id, { text: "✅ Снято" }).catch(() => {});
+      getUserLang(db, id).then((lang) => bot.answerCallbackQuery(q.id, { text: t(lang, "equipment.unset") }).catch(() => {}));
       sendEquipMenu(bot, id, userState);
     });
     return;
@@ -171,16 +176,16 @@ function handleCallbacks(bot, q, userState) {
 
     // защита на слот tool
     if (slot === "tool" && !isToolId(it.id)) {
-      bot.answerCallbackQuery(q.id, { text: "❌ В TOOL можно только инструменты." }).catch(() => {});
+      getUserLang(db, id).then((lang) => bot.answerCallbackQuery(q.id, { text: t(lang, "equipment.tool_only") }).catch(() => {}));
       return;
     }
     if (slot !== "tool" && isToolId(it.id)) {
-      bot.answerCallbackQuery(q.id, { text: "❌ Инструменты надеваются только в TOOL." }).catch(() => {});
+      getUserLang(db, id).then((lang) => bot.answerCallbackQuery(q.id, { text: t(lang, "equipment.tool_slot_only") }).catch(() => {}));
       return;
     }
 
     setEquippedSlot(id, slot, it.id, () => {
-      bot.answerCallbackQuery(q.id, { text: "✅ Надето" }).catch(() => {});
+      getUserLang(db, id).then((lang) => bot.answerCallbackQuery(q.id, { text: t(lang, "equipment.set") }).catch(() => {}));
       sendEquipMenu(bot, id, userState);
     });
     return;
