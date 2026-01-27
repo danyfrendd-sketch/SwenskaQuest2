@@ -53,6 +53,7 @@ db.serialize(() => {
     audio_enabled INTEGER DEFAULT 1,
     practice_rewards TEXT DEFAULT '{}',
     reg_step TEXT,
+    lang TEXT DEFAULT 'ru',
     energy INTEGER DEFAULT 30,
     energy_ts INTEGER DEFAULT (strftime('%s','now'))
   )`);
@@ -63,6 +64,7 @@ db.serialize(() => {
   addColumnIfMissing("users", "practice_rewards", "practice_rewards TEXT DEFAULT '{}'");
   addColumnIfMissing("users", "equipped", "equipped TEXT DEFAULT '{}'");
   addColumnIfMissing("users", "accessories", "accessories TEXT DEFAULT '[]'");
+  addColumnIfMissing("users", "lang", "lang TEXT DEFAULT 'ru'");
 
   // energy
   addColumnIfMissing("users", "energy", "energy INTEGER DEFAULT 30");
