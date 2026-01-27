@@ -4,6 +4,7 @@ const TelegramBot = require("node-telegram-bot-api");
 
 const db = require("./database/db");
 const kb = require("./ui/keyboards");
+const { t, getUserLang, matchesLocaleText, resolveLang } = require("./utils/i18n");
 
 const game = require("./handlers/gameHandler");
 const states = require("./handlers/stateHandler");
@@ -41,12 +42,30 @@ bot.on("polling_error", (e) => {
   console.log("POLLING_ERROR_FULL:", e);
 });
 
+function detectLang(from) {
+  const code = String(from?.language_code || "").toLowerCase();
+  if (code.startsWith("en")) return "en";
+  if (code.startsWith("ru")) return "ru";
+  return "ru";
+}
+
 bot.onText(/\/start/, (msg) => {
   const id = msg.chat.id;
-  db.get("SELECT id FROM users WHERE id=?", [id], (err, row) => {
-    if (row) return bot.sendMessage(id, "🎮 Меню:", kb.mainMenu);
-    userState[id] = { step: "reg_name" };
-    bot.sendMessage(id, "👋 Привет! Напиши своё имя:", kb.cancelMenu);
+  db.get("SELECT id, lang FROM users WHERE id=?", [id], (err, row) => {
+    if (row) {
+      const lang = resolveLang(row.lang);
+      return bot.sendMessage(id, t(lang, "menu.main_title"), kb.mainMenu(lang));
+    }
+    const lang = detectLang(msg.from);
+    userState[id] = { step: "reg_name", lang };
+    bot.sendMessage(id, t(lang, "register.hello"), kb.cancelMenu(lang));
+  });
+});
+
+bot.onText(/\/lang/, (msg) => {
+  const id = msg.chat.id;
+  getUserLang(db, id).then((lang) => {
+    bot.sendMessage(id, t(lang, "lang.title"), { parse_mode: "HTML", reply_markup: kb.languageMenu(lang) });
   });
 });
 
@@ -55,7 +74,10 @@ bot.on("message", (msg) => {
   const text = msg.text || "";
 
   if (text === "/admin") {
-    if (id !== ADMIN_ID) return bot.sendMessage(id, "⛔️ Нет доступа.");
+    if (id !== ADMIN_ID) {
+      getUserLang(db, id).then((lang) => bot.sendMessage(id, t(lang, "errors.no_access")));
+      return;
+    }
     return admin.showPanel(bot, id, userState);
   }
 
@@ -75,28 +97,28 @@ bot.on("message", (msg) => {
     return states.handle(bot, msg, userState);
   }
 
-  switch (text) {
-    case "📘 Уроки": return game.sendLessonTask(bot, id);
-    case "👤 Профиль": return game.sendProfile(bot, id);
-    case "🛒 Магазин": return shopFilter.sendShop(bot, id, userState);
-    case "🎁 Сундуки": return game.sendChestsMenu(bot, id);
-    case "🎒 Экипировка": return equipment.sendEquipMenu(bot, id);
+  if (matchesLocaleText(text, "menu.learn")) return game.sendLessonTask(bot, id);
+  if (matchesLocaleText(text, "menu.profile")) return game.sendProfile(bot, id);
+  if (matchesLocaleText(text, "menu.shop")) return shopFilter.sendShop(bot, id, userState);
+  if (matchesLocaleText(text, "menu.chests")) return game.sendChestsMenu(bot, id);
+  if (matchesLocaleText(text, "menu.inventory")) return equipment.sendEquipMenu(bot, id);
+  if (matchesLocaleText(text, "menu.market")) return market.sendMarketMenu(bot, id, userState);
+  if (matchesLocaleText(text, "menu.leaderboard")) return game.sendLeaderboard(bot, id);
+  if (matchesLocaleText(text, "menu.settings")) return game.sendSettings(bot, id);
 
-    case "💰 Рынок":
-      return market.sendMarketMenu(bot, id, userState);
-
-    case "🏆 Лидеры": return game.sendLeaderboard(bot, id);
-    case "⚙️ Настройки": return game.sendSettings(bot, id);
-
-    case "🔙 В меню": return bot.sendMessage(id, "🎮 Меню:", kb.mainMenu);
-
-    case "❌ Отмена":
-      delete userState[id];
-      return bot.sendMessage(id, "🎮 Меню:", kb.mainMenu);
-
-    default:
-      return bot.sendMessage(id, "Выбери действие из меню 👇", kb.mainMenu);
+  if (matchesLocaleText(text, "menu.back")) {
+    getUserLang(db, id).then((lang) => bot.sendMessage(id, t(lang, "menu.main_title"), kb.mainMenu(lang)));
+    return;
   }
+
+  if (matchesLocaleText(text, "menu.cancel")) {
+    delete userState[id];
+    getUserLang(db, id).then((lang) => bot.sendMessage(id, t(lang, "menu.main_title"), kb.mainMenu(lang)));
+    return;
+  }
+
+  getUserLang(db, id).then((lang) => bot.sendMessage(id, t(lang, "menu.pick_action"), kb.mainMenu(lang)));
+  return;
 });
 
 bot.on("callback_query", (q) => {
