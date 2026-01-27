@@ -15,6 +15,7 @@ const { normalizeInv, normalizeEquipped, addItem, decDurability } = require("../
 const { calcEffects, applyCoinsBonus, applyXpBonus, applyBossLuck } = require("../utils/buffsEngine");
 const { formatLine } = require("../utils/itemCard");
 const energy = require("../utils/energy");
+const { t, resolveLang } = require("../utils/i18n");
 
 function safeParse(v) {
   try {
@@ -177,30 +178,31 @@ const gameHandler = {
         db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [synced.energy, synced.energy_ts, id]);
       }
 
+      const lang = resolveLang(u.lang);
       const next =
         synced.energy >= energy.MAX_ENERGY
           ? ""
-          : ` (next: ${energy.formatWait(energy.secondsToNext(synced.energy, synced.energy_ts))})`;
-      const extra = `\n⚡ Энергия: <b>${synced.energy}</b>/<b>${energy.MAX_ENERGY}</b>${next}`;
+          : t(lang, "profile.energy_next", { next: energy.formatWait(energy.secondsToNext(synced.energy, synced.energy_ts)) });
+      const extra = `\n${t(lang, "profile.energy_line", { cur: synced.energy, max: energy.MAX_ENERGY, next })}`;
 
-      bot.sendMessage(id, fmt.formatProfile(u) + extra, { parse_mode: "HTML" });
+      bot.sendMessage(id, fmt.formatProfile(u, lang) + extra, { parse_mode: "HTML" });
     });
   },
 
   sendLeaderboard(bot, id) {
-    db.all("SELECT * FROM users ORDER BY current_lesson DESC, season_xp DESC LIMIT 10", [], (err, rows) => {
-      bot.sendMessage(id, fmt.formatLeaderboard(rows), { parse_mode: "HTML" });
+    db.get("SELECT lang FROM users WHERE id=?", [id], (err, u) => {
+      const lang = resolveLang(u?.lang);
+      db.all("SELECT * FROM users ORDER BY current_lesson DESC, season_xp DESC LIMIT 10", [], (e2, rows) => {
+        bot.sendMessage(id, fmt.formatLeaderboard(rows, lang), { parse_mode: "HTML" });
+      });
     });
   },
 
   sendSettings(bot, id) {
     db.get("SELECT * FROM users WHERE id=?", [id], (err, u) => {
-      const btns = [
-        [{ text: "✏️ Имя", callback_data: "set_name" }, { text: "🙂 Аватар", callback_data: "set_avatar" }],
-        [{ text: u?.audio_enabled ? "🔊 Звук: ВКЛ" : "🔇 Звук: ВЫКЛ", callback_data: "toggle_audio" }],
-        [{ text: "🎫 Промокод", callback_data: "use_promo" }],
-      ];
-      bot.sendMessage(id, "⚙️ <b>НАСТРОЙКИ</b>", { parse_mode: "HTML", reply_markup: { inline_keyboard: btns } });
+      const lang = resolveLang(u?.lang);
+      const menu = kb.settingsMenu(lang, !!u?.audio_enabled);
+      bot.sendMessage(id, t(lang, "settings.title"), { parse_mode: "HTML", reply_markup: menu });
     });
   },
 
@@ -230,20 +232,21 @@ const gameHandler = {
         })
         .join(" ");
 
-      let text = `🎁 <b>ХРАНИЛИЩЕ</b>\n\n`;
-      text += `🔑 <b>КЛЮЧИ:</b>\n`;
+      const lang = resolveLang(u.lang);
+      let text = `${t(lang, "chests.storage")}\n\n`;
+      text += `${t(lang, "chests.keys")}\n`;
       text += order.map((r) => `${rarities?.[r]?.icon || ""} <b>${keyCounts[r] || 0}</b>`).join(" ");
-      text += `\n\nШАНСЫ: ${chanceLine}\n\n`;
+      text += `\n\n${t(lang, "chests.chances", { chances: chanceLine })}\n\n`;
 
       text += c.length
         ? c.map((x, i) => `${i + 1}. 🎁 <b>${safeUpper(x?.r)}</b>`).join("\n")
-        : "Пока пусто.";
+        : t(lang, "chests.empty");
 
       const kbInline = { inline_keyboard: [] };
       if (c.length) {
         c.forEach((x, i) => {
           kbInline.inline_keyboard.push([
-            { text: `Открыть ${i + 1} (${safeUpper(x?.r)})`, callback_data: `open_ch_${i}` },
+            { text: t(lang, "chests.open_button", { index: i + 1, rarity: safeUpper(x?.r) }), callback_data: `open_ch_${i}` },
           ]);
         });
       }
@@ -262,11 +265,12 @@ const gameHandler = {
       }
 
       const tasks = lessons[String(u.current_lesson)];
+      const lang = resolveLang(u.lang);
       if (!Array.isArray(tasks) || tasks.length === 0) {
         console.error("LESSON NOT FOUND:", u.current_lesson);
         return bot.sendMessage(
           id,
-          `❌ Урок <b>${u.current_lesson}</b> не найден в lessons.js`,
+          t(lang, "lessons.not_found", { lesson: u.current_lesson }),
           { parse_mode: "HTML" }
         );
       }
@@ -276,7 +280,7 @@ const gameHandler = {
           const wait = energy.formatWait(energy.secondsToNext(synced.energy, synced.energy_ts));
           return bot.sendMessage(
             id,
-            `⚡ Энергия закончилась.\nСледующая через: <b>${wait}</b>\n\nЗайди в 🛒 Магазин чтобы купить энергию.`,
+            `${t(lang, "errors.no_energy")}\n${t(lang, "energy.wait", { wait })}\n\n${t(lang, "energy.menu_hint")}`,
             { parse_mode: "HTML" }
           );
         }
@@ -284,7 +288,7 @@ const gameHandler = {
         const task = tasks[u.current_task];
         if (!task) {
           console.error("TASK NOT FOUND:", u.current_lesson, u.current_task);
-          return bot.sendMessage(id, "❌ Вопрос не найден. Открой урок заново.");
+          return bot.sendMessage(id, t(lang, "lessons.task_not_found"));
         }
 
         const inv = normalizeInv(u.accessories);
@@ -305,7 +309,7 @@ const gameHandler = {
 
         if (canUseTool) {
           inline_keyboard.push([
-            { text: "🧰 Использовать инструмент", callback_data: `usebuff_${u.current_lesson}_${u.current_task}` },
+            { text: t(lang, "tool.use_button"), callback_data: `usebuff_${u.current_lesson}_${u.current_task}` },
           ]);
         }
 
@@ -317,7 +321,8 @@ const gameHandler = {
         bot.sendMessage(
           id,
           `⚡ <b>${synced.energy}</b>/<b>${energy.MAX_ENERGY}</b>${next}\n\n` +
-            `📘 <b>УРОК ${u.current_lesson}</b>\n🧠 Вопрос ${u.current_task + 1}/${tasks.length}\n\nСлово: <code>${task.word}</code>`,
+            `${t(lang, "lesson.title", { lesson: u.current_lesson })}\n${t(lang, "lesson.question", { index: u.current_task + 1, total: tasks.length })}\n\n` +
+            `${t(lang, "lessons.word")}: <code>${task.word}</code>`,
           { parse_mode: "HTML", reply_markup: { inline_keyboard } }
         );
 
@@ -359,10 +364,11 @@ const gameHandler = {
         if (type === "chest") c.push({ r });
         else if (type === "key") k.push(r);
 
+        const lang = resolveLang(u.lang);
         const emoji = type === "chest" ? "🎁" : "🔑";
         bossMsg =
-          `\n\n⚔️ <b>Босс повержен!</b>\n` +
-          `${emoji} Найдено: <b>${type === "chest" ? "СУНДУК" : "КЛЮЧ"} [${safeUpper(r)}]</b>`;
+          `\n\n${t(lang, "boss.defeated")}\n` +
+          t(lang, "boss.loot", { emoji, type: type === "chest" ? t(lang, "boss.chest") : t(lang, "boss.key"), rarity: safeUpper(r) });
       }
 
       // ломаем прочность на HEAD/BODY/CHARM (как было)
@@ -376,12 +382,19 @@ const gameHandler = {
         "UPDATE users SET current_lesson=current_lesson+1, current_task=0, level=level+1, season_level=season_level+1, season_xp=season_xp+?, coins=coins+?, xp=xp+?, chests=?, keys=?, accessories=? WHERE id=?",
         [seasonXpAdd, coinRes.total, xpRes.total, JSON.stringify(c), JSON.stringify(k), JSON.stringify(inv), id],
         () => {
-          const coinBonusLine = coinRes.bonus > 0 ? ` (бонус +${coinRes.bonus} 🪙)` : "";
-          const xpBonusLine = xpRes.bonus > 0 ? ` (бонус +${xpRes.bonus} XP)` : "";
+          const lang = resolveLang(u.lang);
+          const coinBonusLine = coinRes.bonus > 0 ? t(lang, "lesson.bonus_coins", { bonus: coinRes.bonus }) : "";
+          const xpBonusLine = xpRes.bonus > 0 ? t(lang, "lesson.bonus_xp", { bonus: xpRes.bonus }) : "";
 
           bot.sendMessage(
             id,
-            `✅ <b>Урок пройден!</b>\n🪙 +${coinRes.total}${coinBonusLine}\n📘 +${xpRes.total}${xpBonusLine}${bossMsg}`,
+            t(lang, "lesson.complete", {
+              coins: coinRes.total,
+              coinBonus: coinBonusLine,
+              xp: xpRes.total,
+              xpBonus: xpBonusLine,
+              boss: bossMsg,
+            }),
             { parse_mode: "HTML" }
           );
 
@@ -405,9 +418,10 @@ const gameHandler = {
 
       db.get("SELECT * FROM users WHERE id=?", [id], (err, u) => {
         if (!u) return;
+        const lang = resolveLang(u.lang);
 
         if (u.current_lesson !== lesson || u.current_task !== taskIndex) {
-          return bot.answerCallbackQuery(q.id, { text: "⏳ Уже не актуально." }).catch(() => {});
+          return bot.answerCallbackQuery(q.id, { text: t(lang, "tool.not_current") }).catch(() => {});
         }
 
         const task = lessons[String(u.current_lesson)]?.[u.current_task];
@@ -416,20 +430,20 @@ const gameHandler = {
         const inv = normalizeInv(u.accessories);
         const eq = normalizeEquipped(u.equipped);
         const toolId = eq.tool;
-        if (!toolId) return bot.answerCallbackQuery(q.id, { text: "🧰 Инструмент не надет." }).catch(() => {});
+        if (!toolId) return bot.answerCallbackQuery(q.id, { text: t(lang, "tool.not_equipped") }).catch(() => {});
 
         const eff = toolEffect(toolId);
-        if (!eff) return bot.answerCallbackQuery(q.id, { text: "🧰 Инструмент без эффекта." }).catch(() => {});
+        if (!eff) return bot.answerCallbackQuery(q.id, { text: t(lang, "tool.no_effect") }).catch(() => {});
 
         const gk = makeToolGuardKey(id, lesson, taskIndex);
         if (toolUsed.has(gk)) {
-          return bot.answerCallbackQuery(q.id, { text: "✅ Уже использовано на этом вопросе." }).catch(() => {});
+          return bot.answerCallbackQuery(q.id, { text: t(lang, "tool.already_used") }).catch(() => {});
         }
 
         lessonToolUsed.add(makeLessonToolKey(id, lesson));
         const it = inv.find((x) => x && x.id === toolId);
         const d = it ? (Number.isFinite(it.d) ? it.d : 10) : 0;
-        if (d <= 0) return bot.answerCallbackQuery(q.id, { text: "🧰 Инструмент сломан." }).catch(() => {});
+        if (d <= 0) return bot.answerCallbackQuery(q.id, { text: t(lang, "tool.broken") }).catch(() => {});
 
         // применяем эффект
         toolUsed.add(gk);
@@ -452,7 +466,7 @@ const gameHandler = {
           const h = hintFirstLetter(task);
           bot
             .answerCallbackQuery(q.id, {
-              text: h ? `🔍 Подсказка: первая буква = ${h}` : "🔍 Подсказка недоступна",
+              text: h ? t(lang, "tool.hint_first_letter", { letter: h }) : t(lang, "tool.hint_unavailable"),
               show_alert: true,
             })
             .catch(() => {});
@@ -473,7 +487,7 @@ const gameHandler = {
 
           bot
             .answerCallbackQuery(q.id, {
-              text: pick ? `🔍 Подозрительный вариант: ${pick}` : "🔍 Нет вариантов для подсветки",
+              text: pick ? t(lang, "tool.suspect", { option: pick }) : t(lang, "tool.suspect_none"),
               show_alert: true,
             })
             .catch(() => {});
@@ -484,15 +498,15 @@ const gameHandler = {
           // даём "вторую попытку" на этот вопрос
           const rk = makeRetryKey(id, lesson, taskIndex);
           retryGranted.add(rk);
-          bot.answerCallbackQuery(q.id, { text: "🔁 Активно: вторая попытка на этом вопросе", show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.retry_active"), show_alert: true }).catch(() => {});
         } else if (eff === "tool_repeat_audio") {
           if (u.audio_enabled) {
             speak(task.word, (filePath) => bot.sendVoice(id, filePath).catch(() => {}));
           }
-          bot.answerCallbackQuery(q.id, { text: "🎧 Повтор аудио", show_alert: false }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.repeat_audio"), show_alert: false }).catch(() => {});
         } else if (eff === "tool_bookmark" || eff === "tool_bookmark_word") {
           // без БД-колонки — просто подтверждение (можно потом расширить)
-          bot.answerCallbackQuery(q.id, { text: "🧷 Слово сохранено (пока без списка)", show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.bookmark"), show_alert: true }).catch(() => {});
         } else if (eff === "tool_skip_free" || eff === "tool_skip") {
           const synced = energy.syncEnergy(u.energy, u.energy_ts);
 
@@ -506,7 +520,7 @@ const gameHandler = {
           } else {
             // пропуск вопроса со штрафом энергии (1)
             if (synced.energy <= 0) {
-              bot.answerCallbackQuery(q.id, { text: "⚡ Нет энергии для пропуска", show_alert: true }).catch(() => {});
+              bot.answerCallbackQuery(q.id, { text: t(lang, "tool.skip_no_energy"), show_alert: true }).catch(() => {});
             } else {
               const spent = energy.spendEnergy(synced.energy, synced.energy_ts);
               db.run(
@@ -520,16 +534,16 @@ const gameHandler = {
           // "фиксатор": показывает 2 закреплённых варианта (верный + 1 неверный), но не убирает остальные.
           // Делает подсказку, не ломая вопрос.
           const pair = pickOptionsKeepN(task, 2);
-          bot.answerCallbackQuery(q.id, { text: `🔒 Закреплено: ${pair.join(" / ")}`, show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.locked", { pair: pair.join(" / ") }), show_alert: true }).catch(() => {});
         } else if (eff === "tool_show_answer") {
           const correct = task.answers?.[0];
           if (correct) {
             // делаем 1 кнопку с верным ответом
             newKeyboard = buildOptionsKeyboard([correct]);
           }
-          bot.answerCallbackQuery(q.id, { text: "✨ Ответ показан", show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.answer_shown"), show_alert: true }).catch(() => {});
         } else {
-          bot.answerCallbackQuery(q.id, { text: "🧰 Эффект не поддерживается.", show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.effect_unsupported"), show_alert: true }).catch(() => {});
         }
 
         // списываем прочность (кроме ситуаций когда tool_skip уже переключил вопрос — но всё равно списываем)
@@ -543,7 +557,7 @@ const gameHandler = {
 
         db.run("UPDATE users SET accessories=? WHERE id=?", [JSON.stringify(inv), id], () => {
           // общая фраза
-          bot.answerCallbackQuery(q.id, { text: `🧰 ${toolName(toolId)} применён (-${cost} прочн.)` }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "tool.used", { tool: toolName(toolId), cost }) }).catch(() => {});
         });
       });
 
@@ -556,6 +570,7 @@ const gameHandler = {
 
       db.get("SELECT * FROM users WHERE id=?", [id], (err, u) => {
         if (!u) return;
+        const lang = resolveLang(u.lang);
         const task = lessons[String(u.current_lesson)]?.[u.current_task];
         if (!task) return;
 
@@ -565,7 +580,7 @@ const gameHandler = {
 
         if (e <= 0) {
           const wait = energy.formatWait(energy.secondsToNext(e, ts));
-          bot.answerCallbackQuery(q.id, { text: `⚡ Нет энергии. Следующая через ${wait}`, show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "answers.no_energy", { wait }), show_alert: true }).catch(() => {});
           db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [e, ts, id]);
           return;
         }
@@ -583,7 +598,7 @@ const gameHandler = {
         const rk = makeRetryKey(id, u.current_lesson, u.current_task);
         if (retryGranted.has(rk)) {
           retryGranted.delete(rk);
-          bot.answerCallbackQuery(q.id, { text: "🔁 Вторая попытка! (без штрафа)", show_alert: true }).catch(() => {});
+          bot.answerCallbackQuery(q.id, { text: t(lang, "answers.retry_free"), show_alert: true }).catch(() => {});
           return;
         }
 
@@ -592,7 +607,10 @@ const gameHandler = {
         ts = spent.energy_ts;
 
         const wait = e > 0 ? "" : ` Следующая через ${energy.formatWait(energy.secondsToNext(e, ts))}`;
-        bot.answerCallbackQuery(q.id, { text: `❌ Ошибка! -1⚡ (${e}/${energy.MAX_ENERGY}).${wait}`, show_alert: true }).catch(() => {});
+        bot.answerCallbackQuery(
+          q.id,
+          { text: t(lang, "answers.wrong", { cur: e, max: energy.MAX_ENERGY, wait }), show_alert: true }
+        ).catch(() => {});
         db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [e, ts, id]);
       });
 
@@ -606,12 +624,13 @@ const gameHandler = {
       db.get("SELECT * FROM users WHERE id=?", [id], async (err, u) => {
         try {
           if (!u) return;
+          const lang = resolveLang(u.lang);
 
           let c = safeParse(u.chests);
           let k = safeParse(u.keys);
 
           const chest = c[idx];
-          if (!chest) return bot.answerCallbackQuery(q.id, { text: "❌ Сундук не найден." }).catch(() => {});
+          if (!chest) return bot.answerCallbackQuery(q.id, { text: t(lang, "chests.not_found") }).catch(() => {});
 
           // ✅ приоритет ключа: сначала равный, потом выше
           let kIdx = -1;
@@ -623,7 +642,7 @@ const gameHandler = {
           }
 
           if (kIdx === -1) {
-            return bot.answerCallbackQuery(q.id, { text: `❌ Нужен ключ ${safeUpper(chest.r)}`, show_alert: true }).catch(() => {});
+            return bot.answerCallbackQuery(q.id, { text: t(lang, "chests.need_key", { rarity: safeUpper(chest.r) }), show_alert: true }).catch(() => {});
           }
 
           c.splice(idx, 1);
@@ -642,15 +661,15 @@ const gameHandler = {
           let dropText = "";
           if (rw.type === "coins") {
             const amt = Number(rw.amount) || 0;
-            dropText = `🪙 Выпало: <b>${amt.toLocaleString()} монет</b>`;
+            dropText = t(lang, "chests.drop_coins", { amount: amt.toLocaleString() });
           } else if (rw.type === "item") {
-            dropText = `🎁 Выпал предмет: <b>${formatLine(rw.id, 10)}</b>`;
+            dropText = t(lang, "chests.drop_item", { item: formatLine(rw.id, 10) });
           } else {
-            dropText = `🎊 Выпало: <b>${rw.name || "Награда"}</b>`;
+            dropText = t(lang, "chests.drop_other", { name: rw.name || t(lang, "common.ok") });
           }
 
-          const keyText = `🔑 Потрачен ключ: <b>${safeUpper(usedKey)}</b>`;
-          const chestText = `🎁 Открыт сундук: <b>${safeUpper(chest.r)}</b>`;
+          const keyText = t(lang, "chests.key_used", { key: safeUpper(usedKey) });
+          const chestText = t(lang, "chests.opened", { rarity: safeUpper(chest.r) });
 
           db.run(
             "UPDATE users SET chests=?, keys=?, accessories=?, coins=? WHERE id=?",
@@ -662,7 +681,8 @@ const gameHandler = {
           );
         } catch (e) {
           console.error("open_ch_ fatal:", e);
-          bot.sendMessage(id, "❌ Ошибка при открытии сундука. Проверь mp4 в ui/templates.", kb.mainMenu).catch(() => {});
+          const lang = resolveLang(u?.lang);
+          bot.sendMessage(id, t(lang, "chests.open_error"), kb.mainMenu(lang)).catch(() => {});
         }
       });
 
