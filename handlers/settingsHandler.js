@@ -60,6 +60,7 @@ module.exports = {
           const menu = kb.settingsMenu(lang, !!u?.audio_enabled);
           bot.sendMessage(id, t(lang, "lang.changed"));
           bot.sendMessage(id, t(lang, "settings.title"), { parse_mode: "HTML", reply_markup: menu });
+          bot.sendMessage(id, t(lang, "menu.main_title"), kb.mainMenu(lang));
         });
       });
       return;
