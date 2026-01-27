@@ -141,7 +141,8 @@ bot.on("callback_query", (q) => {
     data === "set_avatar" ||
     data === "toggle_audio" ||
     data === "use_promo" ||
-    data.startsWith("set_")
+    data.startsWith("set_") ||
+    data.startsWith("lang_")
   ) {
     return settings.handleCallbacks(bot, q, userState);
   }
