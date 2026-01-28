@@ -1,5 +1,10 @@
-// bots/aiBots.js
-const lessons = require("../data/lessons");
+const lessonsRU = require("../data/lessons_ru");
+const lessonsEN = require("../data/lessons_en");
+
+function getLessonsByLang(lang) {
+  return lang === "en" ? lessonsEN : lessonsRU;
+}
+
 const tools = require("../data/tools");
 const chests = require("../data/chests");
 
@@ -359,7 +364,7 @@ function botDoLesson(db, userId) {
     const lessonNum = Number(u.current_lesson || 1);
     const taskIndex = Number(u.current_task || 0);
 
-    const tasks = lessons[String(lessonNum)];
+    const tasks = getLessonsByLang(user.lang)[String(lessonNum)];
     if (!Array.isArray(tasks) || tasks.length === 0) return;
 
     // ---- завершение урока ----
@@ -825,3 +830,4 @@ module.exports = {
   ensureBots,
   BOT_PLAYERS,
 };
+
