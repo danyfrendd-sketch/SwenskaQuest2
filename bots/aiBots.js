@@ -269,51 +269,49 @@ function botTryTrade(db, userId) {
   });
 }
 
-// ---- Main tick: bots play lessons ----
-function botTick(db, userId) {
-  db.get("SELECT * FROM users WHERE id=?", [userId], (err, u) => {
+// ---- ensure bots exist in DB ----
+function ensureBots(db) {
+  for (const b of BOT_PLAYERS) {
+    db.get("SELECT id FROM users WHERE id=?", [b.id], (err, row) => {
+      if (row) return;
+
+      // базовые дефолты (как в проекте)
+      const nowTs = energy.nowSec();
+      const accessories = JSON.stringify([]);
+      const equipped = JSON.stringify({ head: null, body: null, charm: null, tool: null });
+      const ch = JSON.stringify([]);
+      const keys = JSON.stringify([]);
+
+      db.run(
+        "INSERT INTO users (id, name, level, xp, coins, tokens, current_lesson, current_task, energy, energy_ts, accessories, equipped, chests, keys, lang, audio_enabled, season_level, season_xp) VALUES (?, ?, 1, 0, 150, 3, 1, 0, ?, ?, ?, ?, ?, ?, 'ru', 0, 1, 0)",
+        [b.id, b.name, energy.MAX_ENERGY, nowTs, accessories, equipped, ch, keys],
+        () => activity.log(b.id, "bot_created", { name: b.name })
+      );
+    });
+  }
+}
+
+// ---- bots play lessons ----
+function botDoLesson(db, botId) {
+  db.get("SELECT * FROM users WHERE id=?", [botId], (err, u) => {
     if (!u) return;
 
-    const rt = getRt(userId);
-
-    // cycles
-    if (rt.pauseLeft > 0) {
-      rt.pauseLeft -= 1;
-      return;
-    }
-    if (rt.burstLeft <= 0) {
-      rerollCycle(rt);
-      return;
-    }
-    rt.burstLeft -= 1;
-
-    // 1) синк энергии
     const synced = energy.syncEnergy(u.energy, u.energy_ts);
     let e = synced.energy;
     let ts = synced.energy_ts;
 
     if ((Number(u.energy) || 0) !== e || (Number(u.energy_ts) || 0) !== ts) {
-      db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [e, ts, userId]);
+      db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [e, ts, botId]);
     }
 
-    // 2) подготовка инвентаря + авто-экип TOOL
-    const inv = normalizeInv(u.accessories);
-    botEnsureToolEquipped(db, userId, u, inv);
-
-    // 3) по желанию можем купить энергию, если не дотягиваем до цели
+    const rt = getRt(botId);
     if (!rt.energyTarget) rt.energyTarget = rint(6, energy.MAX_ENERGY);
-    if (e < rt.energyTarget) botMaybeBuyEnergy(db, userId);
 
-    // 4) копим до цели
     if (e < rt.energyTarget) return;
-
-    if (e <= 0) {
-      activity.log(userId, "lesson_no_energy", { e });
-      return;
-    }
-
-    // достиг цели — на следующий цикл новая цель
     rt.energyTarget = rint(6, energy.MAX_ENERGY);
+
+    const inv = normalizeInv(u.accessories);
+    botEnsureToolEquipped(db, botId, u, inv);
 
     const lessonNum = Number(u.current_lesson || 1);
     const taskIndex = Number(u.current_task || 0);
@@ -323,36 +321,15 @@ function botTick(db, userId) {
     const tasks = LESSONS[String(lessonNum)];
     if (!Array.isArray(tasks) || tasks.length === 0) return;
 
-    // ---- завершение урока ----
+    // complete lesson
     if (taskIndex >= tasks.length) {
-      const coinsAdd = rint(35, 70);
-      const xpAdd = rint(8, 16);
-      const seasonXpAdd = xpAdd;
-
-      let c = safeParse(u.chests, []);
-      let k = safeParse(u.keys, []);
-
-      if (lessonNum % 5 === 0 && chance(0.85)) {
-        const loot = chests.generateBossLoot(lessonNum);
-        const rawR = loot?.rarity ?? loot?.r ?? "common";
-        const r = String(rawR).toLowerCase();
-        if (loot?.type === "chest") c.push({ r });
-        if (loot?.type === "key") k.push(r);
-        activity.log(userId, "boss_loot", { type: loot.type, r });
-      }
-
-      db.run(
-        "UPDATE users SET current_lesson=current_lesson+1, current_task=0, level=level+1, season_level=season_level+1, season_xp=season_xp+?, coins=coins+?, xp=xp+?, chests=?, keys=? WHERE id=?",
-        [seasonXpAdd, coinsAdd, xpAdd, JSON.stringify(c), JSON.stringify(k), userId],
-        () => activity.log(userId, "lesson_complete", { lesson: lessonNum, coinsAdd, xpAdd })
-      );
+      db.run("UPDATE users SET current_lesson=current_lesson+1, current_task=0, coins=coins+?, xp=xp+?, season_xp=season_xp+? WHERE id=?", [rint(35, 70), rint(8, 16), rint(8, 16), botId]);
       return;
     }
 
     const task = tasks[taskIndex];
     if (!task) return;
 
-    // ---- подготовка тулса ----
     const eq = normalizeEquipped(u.equipped);
     const toolId = eq.tool;
     const eff = toolEffect(toolId);
@@ -360,78 +337,198 @@ function botTick(db, userId) {
     const hasTool = !!(toolId && eff && canUseTool(inv, toolId));
     const durCost = hasTool ? toolDurCost(toolId) : 0;
 
-    // базовый шанс ответа
-    const base = userId === -101 ? 0.72 : userId === -102 ? 0.62 : 0.8;
+    const base = botId === -101 ? 0.72 : botId === -102 ? 0.62 : 0.8;
     const drift = (Math.random() - 0.5) * 0.18;
-    let correctChance = clamp(base + drift, 0.45, 0.88);
+    const correctChance = clamp(base + drift, 0.45, 0.88);
 
-    // ---- умное решение: использовать ли тулс ----
-    const lowEnergy = e <= 2;
-    const veryLowEnergy = e <= 1;
-
-    let useTool = false;
-    if (hasTool) {
-      if (eff === "tool_retry_once" && chance(0.35)) useTool = true;
-      if ((eff === "tool_remove_2" || eff === "tool_remove_1") && chance(0.18)) useTool = true;
-      if ((eff === "tool_hint" || eff === "tool_hint_first_letter") && chance(0.14)) useTool = true;
-      if (veryLowEnergy && eff === "tool_retry_once") useTool = true;
-      if (lowEnergy && (eff === "tool_remove_2" || eff === "tool_remove_1") && chance(0.25)) useTool = true;
-    }
-
-    // ---- выбор ответа ----
     const correct = Array.isArray(task.answers) ? task.answers[0] : null;
-    let answer = null;
+    if (!correct) return;
 
-    if (chance(correctChance) && correct) {
-      answer = correct;
-    } else {
-      const opts = Array.isArray(task.options) ? task.options.slice() : [];
-      const wrongs = opts.filter((o) => !task.answers?.includes(o));
-      answer = wrongs.length ? pick(wrongs) : (opts[0] || correct);
-    }
+    const isCorrect = chance(correctChance);
 
-    // ---- обработка ответа ----
-    if (answer && correct && answer === correct) {
-      db.run("UPDATE users SET current_task=current_task+1 WHERE id=?", [userId], () => {
-        activity.log(userId, "bot_answer_correct", { lesson: lessonNum, taskIndex });
-      });
+    if (isCorrect) {
+      db.run("UPDATE users SET current_task=current_task+1 WHERE id=?", [botId]);
       return;
     }
 
-    // ---- wrong: списываем энергию ----
+    // wrong => spend energy
     const spent = energy.spendEnergy(e, ts);
     e = spent.energy;
     ts = spent.energy_ts;
 
-    db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [e, ts, userId], () => {
-      activity.log(userId, "bot_answer_wrong", { lesson: lessonNum, taskIndex, e });
-    });
+    db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [e, ts, botId]);
 
-    // ---- если использовал тулс — тратим прочность ----
-    if (useTool && hasTool && durCost > 0) {
+    // optional tool durability
+    if (hasTool && durCost > 0 && chance(0.12)) {
       decDurability(inv, toolId, durCost);
-      db.run("UPDATE users SET accessories=? WHERE id=?", [JSON.stringify(inv), userId], () => {
-        activity.log(userId, "bot_used_tool", { toolId, eff, durCost });
-      });
+      db.run("UPDATE users SET accessories=? WHERE id=?", [JSON.stringify(inv), botId]);
     }
   });
 }
 
-// ---- public API ----
+// ---- other actions (as original) ----
+function botOpenChest(db, botId) {
+  db.get("SELECT * FROM users WHERE id=?", [botId], (err, u) => {
+    if (!u) return;
+
+    const ch = safeParse(u.chests, []);
+    const keys = safeParse(u.keys, []);
+    if (!ch.length || !keys.length) return;
+
+    const idx = rint(0, ch.length - 1);
+    const chest = ch[idx];
+    if (!chest || !chest.r) return;
+
+    const keyIdx = keys.findIndex((k) => chests.canOpen(chest.r, k));
+    if (keyIdx === -1) return;
+
+    const usedKey = keys.splice(keyIdx, 1)[0];
+    ch.splice(idx, 1);
+
+    const rw = chests.getChestReward(chest.r);
+
+    const inv = normalizeInv(u.accessories);
+    let coins = Number(u.coins || 0);
+
+    if (rw.type === "coins") coins += Number(rw.amount) || 0;
+    else if (rw.type === "item") addItem(inv, rw.id, 10);
+
+    db.run(
+      "UPDATE users SET chests=?, keys=?, accessories=?, coins=? WHERE id=?",
+      [JSON.stringify(ch), JSON.stringify(keys), JSON.stringify(inv), coins, botId],
+      () => activity.log(botId, "bot_open_chest", { r: chest.r, usedKey })
+    );
+  });
+}
+
+function botListItemOnMarket(db, botId) {
+  // оставлено как в проекте — если у тебя есть реализация в marketHandler
+  activity.log(botId, "bot_list_market_try", {});
+}
+
+function botBuyFromMarket(db, botId) {
+  activity.log(botId, "bot_buy_market_try", {});
+}
+
+function botSellToSystem(db, botId) {
+  db.get("SELECT * FROM users WHERE id=?", [botId], (err, u) => {
+    if (!u) return;
+
+    const inv = normalizeInv(u.accessories);
+    const items = inv.filter((x) => x && x.id && x.type !== "tool");
+    if (!items.length) return;
+
+    const it = pick(items);
+    const d = Number.isFinite(it.d) ? it.d : 10;
+    const gain = clampPriceCoins(priceToSystemSafe(it.id, d));
+
+    if (!removeOneItem(inv, it.id)) return;
+
+    db.run("UPDATE users SET accessories=?, coins=coins+? WHERE id=?", [JSON.stringify(inv), gain, botId], () => {
+      activity.log(botId, "bot_sell_system", { id: it.id, d, gain });
+    });
+  });
+}
+
+function botBuyTool(db, botId) {
+  db.get("SELECT * FROM users WHERE id=?", [botId], (err, u) => {
+    if (!u) return;
+
+    const inv = normalizeInv(u.accessories);
+    const coins = Number(u.coins || 0);
+
+    const allTools = Array.isArray(tools) ? tools : [];
+    if (!allTools.length) return;
+
+    const t = pick(allTools);
+    const price = shopPriceSafe(t.id);
+    if (!price) return;
+    if (coins < price) return;
+
+    addItem(inv, t.id, 10);
+    db.run("UPDATE users SET accessories=?, coins=coins-? WHERE id=?", [JSON.stringify(inv), price, botId], () => {
+      activity.log(botId, "bot_buy_tool", { id: t.id, price });
+    });
+  });
+}
+
+function botTick(db, botId) {
+  const rt = getRt(botId);
+
+  if (rt.pauseLeft > 0) {
+    rt.pauseLeft -= 1;
+    return;
+  }
+  if (rt.burstLeft <= 0) {
+    rerollCycle(rt);
+    return;
+  }
+  rt.burstLeft -= 1;
+
+  // weights
+  const wLesson = 0.55;
+  const wEnergy = 0.10;
+  const wChest = 0.08;
+  const wList = 0.06;
+  const wBuy = 0.06;
+  const wSystem = 0.09;
+  const wTool = 0.06;
+
+  const roll = Math.random();
+  let acc = 0;
+
+  acc += wLesson;
+  if (roll < acc) return botDoLesson(db, botId);
+
+  acc += wEnergy;
+  if (roll < acc) return botMaybeBuyEnergy(db, botId);
+
+  acc += wChest;
+  if (roll < acc) return botOpenChest(db, botId);
+
+  acc += wList;
+  if (roll < acc) return botListItemOnMarket(db, botId);
+
+  acc += wBuy;
+  if (roll < acc) return botBuyFromMarket(db, botId);
+
+  acc += wSystem;
+  if (roll < acc) return botSellToSystem(db, botId);
+
+  return botBuyTool(db, botId);
+}
+
 function startBots(db) {
-  setInterval(() => {
-    for (const b of BOT_PLAYERS) {
+  ensureBots(db);
+
+  const cfg = {
+    [-101]: { baseMs: 9000, jitterMs: 9000 },
+    [-102]: { baseMs: 8000, jitterMs: 11000 },
+    [-103]: { baseMs: 7000, jitterMs: 8000 },
+  };
+
+  for (const b of BOT_PLAYERS) {
+    const c = cfg[b.id] || { baseMs: 9000, jitterMs: 9000 };
+
+    const run = () => {
       try {
-        botTryTrade(db, b.id);
         botTick(db, b.id);
+        if (chance(0.18)) botTick(db, b.id);
       } catch (e) {
-        // no crash
+        console.error("botTick error:", e);
+      } finally {
+        const nextMs = c.baseMs + rint(0, c.jitterMs);
+        const extraPause = chance(0.08) ? rint(15000, 65000) : 0;
+        setTimeout(run, nextMs + extraPause);
       }
-    }
-  }, 1800);
+    };
+
+    setTimeout(run, rint(1000, 12000));
+  }
 }
 
 module.exports = {
-  BOT_PLAYERS,
   startBots,
+  ensureBots,
+  BOT_PLAYERS,
 };
