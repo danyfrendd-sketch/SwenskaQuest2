@@ -3,7 +3,11 @@ const db = require("../database/db");
 const kb = require("../ui/keyboards");
 const fmt = require("../utils/formatter");
 const speak = require("../utils/tts");
-const lessons = require("../data/lessons");
+
+// ✅ вместо одного lessons — два
+const lessons_ru = require("../data/lessons_ru");
+const lessons_en = require("../data/lessons_en");
+
 const chests = require("../data/chests");
 const rarities = require("../data/rarities");
 const toolsData = require("../data/tools");
@@ -35,6 +39,23 @@ function normalizeRarity(x) {
   return "common";
 }
 
+// ✅ безопасный перевод с fallback (если ключа нет в i18n)
+function tt(lang, key, vars, fallback) {
+  try {
+    const s = t(lang, key, vars);
+    if (!s || s === key) return fallback;
+    return s;
+  } catch {
+    return fallback;
+  }
+}
+
+// ✅ выбираем уроки по языку пользователя
+function getLessonsByLang(langRaw) {
+  const lang = resolveLang(langRaw);
+  return lang === "en" ? lessons_en : lessons_ru;
+}
+
 // ---- Tools helpers ----
 const TOOL_MAP = new Map();
 for (const t of toolsData) TOOL_MAP.set(String(t.id), t);
@@ -63,15 +84,24 @@ const CHEST_VIDEO_BY_RARITY = {
   legendary: path.join(CHEST_VID_DIR, "legendary_chest.mp4"),
 };
 
-async function sendChestVideoCard(bot, chatId, rarity) {
+async function sendChestVideoCard(bot, chatId, rarity, langRaw) {
   const r = normalizeRarity(rarity);
   const videoPath = CHEST_VIDEO_BY_RARITY[r] || CHEST_VIDEO_BY_RARITY.common;
+
+  const lang = resolveLang(langRaw);
+  const fallbackCaption =
+    lang === "en"
+      ? `🎁 Chest: <b>${safeUpper(r)}</b>`
+      : `🎁 Сундук: <b>${safeUpper(r)}</b>`;
+
+  // если у тебя нет ключа в i18n — сработает fallback выше
+  const caption = tt(lang, "chests.video_caption", { rarity: safeUpper(r) }, fallbackCaption);
 
   try {
     if (!videoPath || !fs.existsSync(videoPath)) return false;
 
     await bot.sendVideo(chatId, fs.createReadStream(videoPath), {
-      caption: `🎁 Сундук: <b>${safeUpper(r)}</b>`,
+      caption,
       parse_mode: "HTML",
     });
     return true;
@@ -79,7 +109,7 @@ async function sendChestVideoCard(bot, chatId, rarity) {
     console.error("sendVideo failed, try sendAnimation:", e1?.message || e1);
     try {
       await bot.sendAnimation(chatId, fs.createReadStream(videoPath), {
-        caption: `🎁 Сундук: <b>${safeUpper(r)}</b>`,
+        caption,
         parse_mode: "HTML",
       });
       return true;
@@ -264,8 +294,12 @@ const gameHandler = {
         db.run("UPDATE users SET energy=?, energy_ts=? WHERE id=?", [synced.energy, synced.energy_ts, id]);
       }
 
-      const tasks = lessons[String(u.current_lesson)];
       const lang = resolveLang(u.lang);
+
+      // ✅ берём уроки по языку
+      const lessonsData = getLessonsByLang(u.lang);
+      const tasks = lessonsData[String(u.current_lesson)];
+
       if (!Array.isArray(tasks) || tasks.length === 0) {
         console.error("LESSON NOT FOUND:", u.current_lesson);
         return bot.sendMessage(
@@ -424,7 +458,9 @@ const gameHandler = {
           return bot.answerCallbackQuery(q.id, { text: t(lang, "tool.not_current") }).catch(() => {});
         }
 
-        const task = lessons[String(u.current_lesson)]?.[u.current_task];
+        // ✅ берём уроки по языку
+        const lessonsData = getLessonsByLang(u.lang);
+        const task = lessonsData[String(u.current_lesson)]?.[u.current_task];
         if (!task) return;
 
         const inv = normalizeInv(u.accessories);
@@ -571,7 +607,10 @@ const gameHandler = {
       db.get("SELECT * FROM users WHERE id=?", [id], (err, u) => {
         if (!u) return;
         const lang = resolveLang(u.lang);
-        const task = lessons[String(u.current_lesson)]?.[u.current_task];
+
+        // ✅ берём уроки по языку
+        const lessonsData = getLessonsByLang(u.lang);
+        const task = lessonsData[String(u.current_lesson)]?.[u.current_task];
         if (!task) return;
 
         const synced = energy.syncEnergy(u.energy, u.energy_ts);
@@ -648,7 +687,8 @@ const gameHandler = {
           c.splice(idx, 1);
           const usedKey = k.splice(kIdx, 1)[0];
 
-          await sendChestVideoCard(bot, id, chest.r);
+          // ✅ lang пробрасываем, чтобы caption был RU/EN
+          await sendChestVideoCard(bot, id, chest.r, u.lang);
 
           const rw = chests.getChestReward(chest.r);
 
