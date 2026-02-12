@@ -1,563 +1,1665 @@
 module.exports = {
-   1:[
-    { word: "Moi", answers: ["Hi"], options: ["House", "Hi", "Bye", "Sun"] },
-    { word: "Hei", answers: ["Hello"], options: ["Goodbye", "River", "Dog", "Hello"] },
-    { word: "Kiitos", answers: ["Thank you"], options: ["Thank you", "Please", "No", "Yes"] },
-    { word: "Ole hyvä", answers: ["You're welcome"], options: ["Thank you", "Goodbye", "You're welcome", "Hi"] },
-    { word: "Näkemiin", answers: ["Bye"], options: ["Yes", "No", "Bye", "Hello"] }
-   ],
-   2:[
-    { word: "Terve", answers: ["Hi"], options: ["Bye", "Dog", "Hi", "Mom"] },
-    { word: "Hyvää päivää", answers: ["Good afternoon"], options: ["Good afternoon", "Good night", "Hi", "Thanks"] },
-    { word: "Kyllä", answers: ["Yes"], options: ["No", "Yes", "Please", "Goodbye"] },
-    { word: "Ei", answers: ["No"], options: ["Yes", "No", "Bye", "Dog"] },
-    { word: "Anteeksi", answers: ["Sorry"], options: ["Thanks", "Please", "Sorry", "Hi"] }
-  ],
-  3:[
-    { word: "Minä", answers: ["I"], options: ["You", "He", "I", "We"] },
-    { word: "Sinä", answers: ["You"], options: ["You", "I", "He", "We"] },
-    { word: "Hän", answers: ["He/She"], options: ["She", "He/She", "I", "We"] },
-    { word: "Me", answers: ["We"], options: ["We", "I", "He", "You (plural)"] },
-    { word: "Te", answers: ["You (plural)"], options: ["We", "You (plural)", "They", "I"] }
-  ],
-  4:[
-    { word: "Yksi", answers: ["One"], options: ["Two", "Three", "One", "Four"] },
-    { word: "Kaksi", answers: ["Two"], options: ["One", "Two", "Three", "Five"] },
-    { word: "Kolme", answers: ["Three"], options: ["Three", "Two", "Four", "Five"] },
-    { word: "Neljä", answers: ["Four"], options: ["Five", "Three", "Four", "Two"] },
-    { word: "Viisi", answers: ["Five"], options: ["Five", "Four", "Six", "Three"] }
-  ],
-   5:[
-    { word: "Kissa", answers: ["Cat"], options: ["Cat", "Dog", "Horse", "Bird"] },
-    { word: "Koira", answers: ["Dog"], options: ["Cat", "Bear", "Dog", "Fox"] },
-    { word: "Karhu", answers: ["Bear"], options: ["Bear", "Wolf", "Fox", "Hare"] },
-    { word: "Hevonen", answers: ["Horse"], options: ["Cow", "Horse", "Goat", "Pig"] },
-    { word: "Lintu", answers: ["Bird"], options: ["Bird", "Dog", "Cat", "Fish"] }
-  ],
-   6:[
-    { word: "Punainen", answers: ["Red"], options: ["Blue", "Green", "Red", "Black"] },
-    { word: "Sininen", answers: ["Blue"], options: ["Blue", "Red", "White", "Yellow"] },
-    { word: "Vihreä", answers: ["Green"], options: ["Red", "Blue", "Green", "Yellow"] },
-    { word: "Keltainen", answers: ["Yellow"], options: ["Yellow", "Red", "Blue", "Green"] },
-    { word: "Musta", answers: ["Black"], options: ["White", "Gray", "Black", "Blue"] }
-  ],
-  7:[
-    { word: "Leipä", answers: ["Bread"], options: ["Bread", "Meat", "Cheese", "Fish"] },
-    { word: "Vesi", answers: ["Water"], options: ["Juice", "Milk", "Water", "Beer"] },
-    { word: "Maito", answers: ["Milk"], options: ["Milk", "Water", "Juice", "Tea"] },
-    { word: "Juusto", answers: ["Cheese"], options: ["Bread", "Cheese", "Meat", "Egg"] },
-    { word: "Kala", answers: ["Fish"], options: ["Fish", "Chicken", "Meat", "Milk"] }
-  ],
-  8:[
-    { word: "Talo", answers: ["House"], options: ["Apartment", "Garden", "House", "Window"] },
-    { word: "Ovi", answers: ["Door"], options: ["Door", "Wall", "Roof", "Floor"] },
-    { word: "Keittiö", answers: ["Kitchen"], options: ["Kitchen", "Bedroom", "Bathroom", "Living room"] },
-    { word: "Makuuhuone", answers: ["Bedroom"], options: ["Bedroom", "Kitchen", "Living room", "Bathroom"] },
-    { word: "Kylpyhuone", answers: ["Bathroom"], options: ["Bathroom", "Kitchen", "Bedroom", "Terrace"] }
-  ],
-  9:[
-    { word: "Aurinko", answers: ["Sun"], options: ["Moon", "Sun", "Rain", "Snow"] },
-    { word: "Lumi", answers: ["Snow"], options: ["Snow", "Rain", "Ice", "Fog"] },
-    { word: "Pilvi", answers: ["Cloud"], options: ["Cloud", "Rain", "Snow", "Sun"] },
-    { word: "Sade", answers: ["Rain"], options: ["Rain", "Snow", "Fog", "Sun"] },
-    { word: "Tuuli", answers: ["Wind"], options: ["Wind", "Rain", "Snow", "Cloud"] }
-  ],
-  10:[
-    { word: "Sauna", answers: ["Sauna"], options: ["Sauna", "Bathtub", "Shower", "Pool"] },
-    { word: "Sisu", answers: ["Grit"], options: ["Grit", "Weakness", "Fear", "Laziness"] },
-    { word: "Löyly", answers: ["Sauna steam"], options: ["Firewood", "Heat", "Sauna steam", "Water"] },
-    { word: "Järvi", answers: ["Lake"], options: ["Lake", "River", "Sea", "Pond"] },
-    { word: "Metsä", answers: ["Forest"], options: ["Mountain", "Field", "Forest", "Meadow"] }
-  ],
-  11:[
-    { word: "Puhua", answers: ["To speak"], options: ["To listen", "To read", "To speak", "To write"] },
-    { word: "Syödä", answers: ["To eat"], options: ["To eat", "To drink", "To go", "To sleep"] },
-    { word: "Juoda", answers: ["To drink"], options: ["To drink", "To eat", "To run", "To sing"] },
-    { word: "Nukkua", answers: ["To sleep"], options: ["To work", "To sleep", "To walk", "To sit"] },
-    { word: "Lukea", answers: ["To read"], options: ["To read", "To draw", "To count", "To sing"] }
-  ],
-  12:[
-    { word: "Äiti", answers: ["Mom"], options: ["Mom", "Dad", "Sister", "Brother"] },
-    { word: "Isä", answers: ["Dad"], options: ["Dad", "Grandpa", "Grandma", "Son"] },
-    { word: "Veli", answers: ["Brother"], options: ["Sister", "Brother", "Friend", "Uncle"] },
-    { word: "Sisko", answers: ["Sister"], options: ["Brother", "Sister", "Aunt", "Mom"] },
-    { word: "Lapsi", answers: ["Child"], options: ["Adult", "Child", "Person", "Family"] }
-  ],
-  13:[
-    { word: "Mennä", answers: ["To go"], options: ["To go", "To come", "To stand", "To lie down"] },
-    { word: "Tulla", answers: ["To come"], options: ["To leave", "To come", "To run", "To jump"] },
-    { word: "Tehdä", answers: ["To do"], options: ["To do", "To think", "To see", "To hear"] },
-    { word: "Katsoa", answers: ["To watch"], options: ["To watch", "To listen", "To touch", "To smell"] },
-    { word: "Ostaa", answers: ["To buy"], options: ["To sell", "To buy", "To give", "To take"] }
-  ],
-  14:[
-    { word: "Paita", answers: ["Shirt"], options: ["Shirt", "Pants", "Dress", "Skirt"] },
-    { word: "Housut", answers: ["Pants"], options: ["Shorts", "Pants", "Socks", "Hat"] },
-    { word: "Kengät", answers: ["Shoes"], options: ["Shoes", "Gloves", "Jacket", "Coat"] },
-    { word: "Takki", answers: ["Jacket"], options: ["Sweater", "Scarf", "Jacket", "Hat"] },
-    { word: "Hattu", answers: ["Hat"], options: ["Hat", "Glasses", "Belt", "Bag"] }
-  ],
-  15:[
-    { word: "Tänään", answers: ["Today"], options: ["Tomorrow", "Today", "Yesterday", "Now"] },
-    { word: "Huomenna", answers: ["Tomorrow"], options: ["Never", "Tomorrow", "Today", "In the morning"] },
-    { word: "Eilen", answers: ["Yesterday"], options: ["Yesterday", "Today", "In the evening", "At night"] },
-    { word: "Nyt", answers: ["Now"], options: ["Later", "Soon", "Now", "Always"] },
-    { word: "Aika", answers: ["Time"], options: ["Time", "Hour", "Day", "Month"] }
-  ],
-  16:[
-    { word: "Iso", answers: ["Big"], options: ["Big", "Small", "Long", "Narrow"] },
-    { word: "Pieni", answers: ["Small"], options: ["Small", "Big", "Thick", "Thin"] },
-    { word: "Hyvä", answers: ["Good"], options: ["Good", "Bad", "Old", "New"] },
-    { word: "Paha", answers: ["Bad"], options: ["Bad", "Evil", "Kind", "Beautiful"] },
-    { word: "Usi", answers: ["New"], options: ["Old", "New", "Clean", "Dirty"] }
-  ],
-  17:[
-    { word: "Koulu", answers: ["School"], options: ["School", "Work", "Hospital", "Shop"] },
-    { word: "Kirja", answers: ["Book"], options: ["Newspaper", "Book", "Notebook", "Pen"] },
-    { word: "Kynä", answers: ["Pen"], options: ["Pencil", "Pen", "Paper", "Table"] },
-    { word: "Opettaja", answers: ["Teacher"], options: ["Teacher", "Doctor", "Cook", "Driver"] },
-    { word: "Opiskelija", answers: ["Student"], options: ["Pupil", "Master", "Student", "Friend"] }
-  ],
-  18:[
-    { word: "Kaupunki", answers: ["City"], options: ["City", "Village", "Country", "Street"] },
-    { word: "Tie", answers: ["Road"], options: ["Road", "Bridge", "Park", "Market"] },
-    { word: "Auto", answers: ["Car"], options: ["Bus", "Car", "Train", "Airplane"] },
-    { word: "Kauppa", answers: ["Shop"], options: ["Shop", "Pharmacy", "Bank", "Cinema"] },
-    { word: "Raha", answers: ["Money"], options: ["Wallet", "Money", "Price", "Card"] }
-  ],
-  19:[
-    { word: "Käsi", answers: ["Hand"], options: ["Hand", "Leg", "Head", "Eye"] },
-    { word: "Jalka", answers: ["Leg"], options: ["Leg", "Hand", "Back", "Stomach"] },
-    { word: "Pää", answers: ["Head"], options: ["Face", "Head", "Ear", "Nose"] },
-    { word: "Silmä", answers: ["Eye"], options: ["Eye", "Mouth", "Tooth", "Tongue"] },
-    { word: "Sydän", answers: ["Heart"], options: ["Heart", "Blood", "Soul", "Body"] }
-  ],
-  20:[
-    { word: "Suomi", answers: ["Finland"], options: ["Finland", "Sweden", "Russia", "Estonia"] },
-    { word: "Kieli", answers: ["Language"], options: ["Language", "Word", "Voice", "Sound"] },
-    { word: "Maa", answers: ["Earth"], options: ["Sky", "Earth", "Water", "Fire"] },
-    { word: "Ihminen", answers: ["Human"], options: ["Human", "Animal", "God", "World"] },
-    { word: "Elämä", answers: ["Life"], options: ["Death", "Sleep", "Life", "Joy"] }
-  ],
-  21:[  
-    { word: "Aamiainen", answers: ["Breakfast"], options: ["Lunch", "Breakfast", "Dinner", "Snack"] },
-    { word: "Lounas", answers: ["Lunch"], options: ["Breakfast", "Snack", "Lunch", "Drink"] },
-    { word: "Illallinen", answers: ["Dinner"], options: ["Dinner", "Lunch", "Dessert", "Snack"] },
-    { word: "Omena", answers: ["Apple"], options: ["Pear", "Apple", "Banana", "Orange"] },
-    { word: "Peruna", answers: ["Potato"], options: ["Potato", "Carrot", "Onion", "Cabbage"] }
-  ],
-  22:[
-    { word: "Kevät", answers: ["Spring"], options: ["Summer", "Autumn", "Spring", "Winter"] },
-    { word: "Kesä", answers: ["Summer"], options: ["Summer", "Winter", "Spring", "Autumn"] },
-    { word: "Syksy", answers: ["Autumn"], options: ["Autumn", "Spring", "Summer", "Winter"] },
-    { word: "Talvi", answers: ["Winter"], options: ["Winter", "Autumn", "Summer", "Spring"] },
-    { word: "Lämmin", answers: ["Warm"], options: ["Cold", "Warm", "Hot", "Dry"] }
-  ],
-  23:[
-    { word: "Matkustaa", answers: ["To travel"], options: ["To work", "To relax", "To travel", "To live"] },
-    { word: "Lentokone", answers: ["Airplane"], options: ["Airplane", "Train", "Ship", "Helicopter"] },
-    { word: "Juna", answers: ["Train"], options: ["Tram", "Train", "Metro", "Bus"] },
-    { word: "Lippu", answers: ["Ticket"], options: ["Passport", "Suitcase", "Ticket", "Map"] },
-    { word: "Hotelli", answers: ["Hotel"], options: ["Hotel", "House", "Tent", "Hostel"] }
-  ],
-  24:[
-    { word: "Lääkäri", answers: ["Doctor"], options: ["Nurse", "Doctor", "Police officer", "Engineer"] },
-    { word: "Poliisi", answers: ["Police"], options: ["Firefighter", "Police", "Soldier", "Lawyer"] },
-    { word: "Myyjä", answers: ["Seller"], options: ["Seller", "Buyer", "Manager", "Chef"] },
-    { word: "Työ", answers: ["Work"], options: ["Hobby", "Study", "Work", "Vacation"] },
-    { word: "Palkka", answers: ["Salary"], options: ["Salary", "Tax", "Fine", "Discount"] }
-  ],
-  25:[
-    { word: "Haluta", answers: ["To want"], options: ["To be able", "To want", "Must", "To know"] },
-    { word: "Voida", answers: ["To be able"], options: ["To want", "To be able", "To love", "To like"] },
-    { word: "Tietää", answers: ["To know"], options: ["To understand", "To know", "To remember", "To forget"] },
-    { word: "Ymmärtää", answers: ["To understand"], options: ["To hear", "To see", "To understand", "To think"] },
-    { word: "Rakastaa", answers: ["To love"], options: ["To love", "To hate", "To be friends", "To wait"] }
-  ],
-  26:[
-    { word: "Pöytä", answers: ["Table"], options: ["Chair", "Table", "Wardrobe", "Bed"] },
-    { word: "Tuoli", answers: ["Chair"], options: ["Chair", "Armchair", "Sofa", "Shelf"] },
-    { word: "Sänky", answers: ["Bed"], options: ["Pillow", "Bed", "Blanket", "Carpet"] },
-    { word: "Ikkuna", answers: ["Window"], options: ["Wall", "Window", "Ceiling", "Door"] },
-    { word: "Valo", answers: ["Light"], options: ["Light", "Shadow", "Darkness", "Lamp"] }
-  ],
-  27:[
-    { word: "Meri", answers: ["Sea"], options: ["Sea", "Ocean", "River", "Bay"] },
-    { word: "Vuori", answers: ["Mountain"], options: ["Hill", "Valley", "Mountain", "Rock"] },
-    { word: "Saari", answers: ["Island"], options: ["Shore", "Island", "Beach", "Forest"] },
-    { word: "Kukka", answers: ["Flower"], options: ["Flower", "Tree", "Grass", "Leaf"] },
-    { word: "Puu", answers: ["Tree"], options: ["Bush", "Branch", "Root", "Tree"] }
-  ],
-  28:[
-    { word: "Aamu", answers: ["Morning"], options: ["Day", "Morning", "Evening", "Night"] },
-    { word: "Päivä", answers: ["Day"], options: ["Day", "Morning", "Week", "Year"] },
-    { word: "Ilta", answers: ["Evening"], options: ["Noon", "Evening", "Midnight", "Night"] },
-    { word: "Yö", answers: ["Night"], options: ["Night", "Evening", "Morning", "Sleep"] },
-    { word: "Viikko", answers: ["Week"], options: ["Week", "Month", "Year", "Hour"] }
-  ],
-  29:[
-    { word: "Nopea", answers: ["Fast"], options: ["Fast", "Slow", "Loud", "Quiet"] },
-    { word: "Hidas", answers: ["Slow"], options: ["Slow", "Fast", "Strong", "Weak"] },
-    { word: "Kallis", answers: ["Expensive"], options: ["Expensive", "Cheap", "Free", "Valuable"] },
-    { word: "Halpa", answers: ["Cheap"], options: ["Cheap", "Expensive", "Old", "Simple"] },
-    { word: "Rikas", answers: ["Rich"], options: ["Poor", "Happy", "Rich", "Sad"] }
-  ],
-  30:[
-    { word: "Onni", answers: ["Happiness"], options: ["Luck", "Happiness", "Joy", "Love"] },
-    { word: "Rauha", answers: ["Peace"], options: ["Peace", "War", "Calm", "Friendship"] },
-    { word: "Aika", answers: ["Time"], options: ["Place", "Meaning", "Time", "Goal"] },
-    { word: "Totuus", answers: ["Truth"], options: ["Truth", "Lie", "Mistake", "Thought"] },
-    { word: "Ystävyys", answers: ["Friendship"], options: ["Friendship", "Family", "Meeting", "Help"] }
-  ],
-  31:[ 
-    { word: "Terveys", answers: ["Health"], options: ["Health", "Illness", "Pharmacy", "Doctor"] },
-    { word: "Sairaala", answers: ["Hospital"], options: ["School", "Hospital", "Post office", "Factory"] },
-    { word: "Lääke", answers: ["Medicine"], options: ["Medicine", "Poison", "Vitamin", "Prescription"] },
-    { word: "Kipu", answers: ["Pain"], options: ["Pain", "Joy", "Tiredness", "Fear"] },
-    { word: "Väsynyt", answers: ["Tired"], options: ["Energetic", "Tired", "Sleeping", "Hungry"] }
-  ],
-  32:[
-    { word: "Tietokone", answers: ["Computer"], options: ["Screen", "Phone", "Computer", "Keyboard"] },
-    { word: "Puhelin", answers: ["Phone"], options: ["Phone", "Radio", "Watch", "Camera"] },
-    { word: "Internet", answers: ["Internet"], options: ["Connection", "Mail", "Internet", "Website"] },
-    { word: "Sähköposti", answers: ["Email"], options: ["Email", "Letter", "Package", "Newspaper"] },
-    { word: "Salasana", answers: ["Password"], options: ["Password", "Login", "Name", "Key"] }
-  ],
-  33:[
-    { word: "Iloinen", answers: ["Happy"], options: ["Happy", "Sad", "Angry", "Serious"] },
-    { word: "Surullinen", answers: ["Sad"], options: ["Happy", "Sad", "Funny", "Quiet"] },
-    { word: "Vihainen", answers: ["Angry"], options: ["Angry", "Kind", "Peaceful", "Calm"] },
-    { word: "Pelätä", answers: ["To fear"], options: ["To fear", "To laugh", "To cry", "To wait"] },
-    { word: "Nauraa", answers: ["To laugh"], options: ["To laugh", "To smile", "To joke", "To sing"] }
-  ],
-  34:[
-    { word: "Oppia", answers: ["To learn"], options: ["To teach", "To read", "To know", "To learn"] },
-    { word: "Muistaa", answers: ["To remember"], options: ["To remember", "To forget", "To think", "To believe"] },
-    { word: "Unohtaa", answers: ["To forget"], options: ["To forget", "To remember", "To search", "To find"] },
-    { word: "Kysyä", answers: ["To ask"], options: ["To ask", "To answer", "To listen", "To speak"] },
-    { word: "Vastata", answers: ["To answer"], options: ["To answer", "To ask", "To write", "To read"] }
-  ],
-  35:[
-    { word: "Matkalaukku", answers: ["Suitcase"], options: ["Suitcase", "Bag", "Backpack", "Wallet"] },
-    { word: "Lentokenttä", answers: ["Airport"], options: ["Airport", "Station", "Port", "Stop"] },
-    { word: "Passi", answers: ["Passport"], options: ["Visa", "Passport", "Ticket", "Document"] },
-    { word: "Loma", answers: ["Vacation"], options: ["Vacation", "Holiday", "Day off", "Work"] },
-    { word: "Ulkomaat", answers: ["Abroad"], options: ["Abroad", "Homeland", "City", "Village"] }
-  ],
-  36:[
-    { word: "Keittiö", answers: ["Kitchen"], options: ["Bathroom", "Kitchen", "Basement", "Attic"] },
-    { word: "Lattia", answers: ["Floor"], options: ["Floor", "Ceiling", "Wall", "Corner"] },
-    { word: "Katto", answers: ["Roof"], options: ["Roof", "Wall", "Window", "Door"] },
-    { word: "Avain", answers: ["Key"], options: ["Key", "Lock", "Door", "Bell"] },
-    { word: "Peili", answers: ["Mirror"], options: ["Glass", "Picture", "Mirror", "Frame"] }
-  ],
-  37:[
-    { word: "Luonto", answers: ["Nature"], options: ["Nature", "Weather", "World", "Ecology"] },
-    { word: "Ympäristö", answers: ["Environment"], options: ["City", "Environment", "Forest", "Air"] },
-    { word: "Eläin", answers: ["Animal"], options: ["Plant", "Animal", "Human", "Bird"] },
-    { word: "Kasvi", answers: ["Plant"], options: ["Plant", "Flower", "Tree", "Grass"] },
-    { word: "Kivi", answers: ["Stone"], options: ["Sand", "Mountain", "Stone", "Earth"] }
-  ],
-  38:[
-    { word: "Juhla", answers: ["Celebration"], options: ["Celebration", "Weekday", "Meeting", "Wedding"] },
-    { word: "Lahja", answers: ["Gift"], options: ["Purchase", "Surprise", "Gift", "Money"] },
-    { word: "Syntymäpäivä", answers: ["Birthday"], options: ["New Year", "Birthday", "Anniversary", "Holiday"] },
-    { word: "Joulu", answers: ["Christmas"], options: ["Christmas", "Easter", "Summer", "Winter"] },
-    { word: "Onnea", answers: ["Congratulations"], options: ["Congratulations", "Thanks", "Please", "Good luck"] }
-  ],
-  39:[
-    { word: "Ehkä", answers: ["Maybe"], options: ["Maybe", "Never", "Sure", "Definitely"] },
-    { word: "Aina", answers: ["Always"], options: ["Always", "Sometimes", "Rarely", "Often"] },
-    { word: "Usein", answers: ["Often"], options: ["Rarely", "Often", "Never", "Usually"] },
-    { word: "Joskus", answers: ["Sometimes"], options: ["Sometimes", "Always", "Tomorrow", "Yesterday"] },
-    { word: "Lopulta", answers: ["Eventually"], options: ["At first", "Eventually", "Later", "Now"] }
-  ],
-  40:[
-    { word: "Mahdollisuus", answers: ["Opportunity"], options: ["Difficulty", "Opportunity", "Reason", "Choice"] },
-    { word: "Päätös", answers: ["Decision"], options: ["Decision", "Question", "Answer", "Opinion"] },
-    { word: "Tarkoitus", answers: ["Purpose/Meaning"], options: ["Beginning", "End", "Purpose/Meaning", "Importance"] },
-    { word: "Kokemus", answers: ["Experience"], options: ["Experience", "Knowledge", "Feeling", "Memory"] },
-    { word: "Vapaus", answers: ["Freedom"], options: ["Freedom", "Law", "Rule", "Power"] }
-  ],
-  41:[ 
-    { word: "Uutiset", answers: ["News"], options: ["News", "Fairy tales", "Songs", "Ads"] },
-    { word: "Lehti", answers: ["Newspaper/Magazine"], options: ["Leaf", "Newspaper/Magazine", "Book", "Letter"] },
-    { word: "Televisio", answers: ["Television"], options: ["Radio", "Cinema", "Screen", "Television"] },
-    { word: "Mainos", answers: ["Advertisement"], options: ["Announcement", "Sign", "Advertisement", "Price"] },
-    { word: "Kuva", answers: ["Picture/Photo"], options: ["Sound", "Light", "Frame", "Picture/Photo"] }
-  ],
-  42:[
-    { word: "Laki", answers: ["Law"], options: ["Law", "Rule", "Court", "Prison"] },
-    { word: "Oikeus", answers: ["Right"], options: ["Duty", "Ban", "Right", "Fine"] },
-    { word: "Rikos", answers: ["Crime"], options: ["Crime", "Punishment", "Mistake", "Argument"] },
-    { word: "Vankila", answers: ["Prison"], options: ["Police", "Court", "Castle", "Prison"] },
-    { word: "Sakko", answers: ["Fine"], options: ["Tax", "Fine", "Bill", "Receipt"] }
-  ],
-  43:[
-    { word: "Vasara", answers: ["Hammer"], options: ["Saw", "Axe", "Hammer", "Nail"] },
-    { word: "Saha", answers: ["Saw"], options: ["Saw", "Knife", "Scissors", "Shovel"] },
-    { word: "Veitsi", answers: ["Knife"], options: ["Fork", "Knife", "Spoon", "Plate"] },
-    { word: "Sakset", answers: ["Scissors"], options: ["Scissors", "Needle", "Thread", "Fabric"] },
-    { word: "Työkalu", answers: ["Tool"], options: ["Tool", "Machine", "Part", "Device"] }
-  ],
-  44:[
-    { word: "Kiltti", answers: ["Kind/Well-behaved"], options: ["Mean", "Smart", "Kind/Well-behaved", "Stupid"] },
-    { word: "Viisas", answers: ["Wise"], options: ["Cunning", "Wise", "Brave", "Honest"] },
-    { word: "Rohkea", answers: ["Brave"], options: ["Brave", "Cowardly", "Strong", "Proud"] },
-    { word: "Rehellinen", answers: ["Honest"], options: ["Liar", "Greedy", "Honest", "Generous"] },
-    { word: "Ahkera", answers: ["Hardworking"], options: ["Lazy", "Hardworking", "Fast", "Quiet"] }
-  ],
-  45:[
-    { word: "Väri", answers: ["Color"], options: ["Color", "Shape", "Size", "Taste"] },
-    { word: "Muoto", answers: ["Shape"], options: ["Line", "Point", "Shape", "Circle"] },
-    { word: "Ympyrä", answers: ["Circle"], options: ["Square", "Circle", "Triangle", "Angle"] },
-    { word: "Neliö", answers: ["Square"], options: ["Rhombus", "Frame", "Square", "Circle"] },
-    { word: "Viiva", answers: ["Line"], options: ["Wall", "Line", "Path", "Border"] }
-  ],
-  46:[
-    { word: "Keho", answers: ["Body"], options: ["Soul", "Body", "Mind", "Face"] },
-    { word: "Veri", answers: ["Blood"], options: ["Blood", "Water", "Skin", "Bone"] },
-    { word: "Luu", answers: ["Bone"], options: ["Muscle", "Bone", "Joint", "Tooth"] },
-    { word: "Iho", answers: ["Skin"], options: ["Skin", "Hair", "Nails", "Eyes"] },
-    { word: "Aivot", answers: ["Brain"], options: ["Brain", "Heart", "Lungs", "Stomach"] }
-  ],
-  47:[
-    { word: "Järjestys", answers: ["Order"], options: ["Chaos", "Order", "Queue", "Rule"] },
-    { word: "Syy", answers: ["Reason"], options: ["Effect", "Reason", "Guilt", "Cause"] },
-    { word: "Seuraus", answers: ["Consequence"], options: ["Consequence", "Beginning", "Accident", "Luck"] },
-    { word: "Ero", answers: ["Difference"], options: ["Difference", "Similarity", "Meeting", "Connection"] },
-    { word: "Suhde", answers: ["Relationship"], options: ["Friendship", "Relationship", "Love", "Argument"] }
-  ],
-  48:[
-    { word: "Voitto", answers: ["Victory"], options: ["Defeat", "Victory", "Game", "Score"] },
-    { word: "Häviö", answers: ["Loss"], options: ["Loss", "Success", "Draw", "Refusal"] },
-    { word: "Kilpailu", answers: ["Competition"], options: ["Training", "Rest", "Competition", "Celebration"] },
-    { word: "Joukkue", answers: ["Team"], options: ["Team", "Group", "Club", "Crowd"] },
-    { word: "Peli", answers: ["Game"], options: ["Work", "Game", "Joke", "Sport"] }
-  ],
-  49:[
-    { word: "Kulttuuri", answers: ["Culture"], options: ["History", "Culture", "Art", "Music"] },
-    { word: "Taide", answers: ["Art"], options: ["Science", "Art", "Religion", "Technology"] },
-    { word: "Historia", answers: ["History"], options: ["History", "Future", "Present", "Myth"] },
-    { word: "Uskonto", answers: ["Religion"], options: ["Faith", "Church", "Religion", "God"] },
-    { word: "Tiede", answers: ["Science"], options: ["Knowledge", "Science", "Experience", "Research"] }
-  ],
-  50:[
-    { word: "Yhteiskunta", answers: ["Society"], options: ["People", "Society", "State", "World"] },
-    { word: "Hallitus", answers: ["Government"], options: ["Government", "Parliament", "President", "City hall"] },
-    { word: "Kansalainen", answers: ["Citizen"], options: ["Citizen", "Foreigner", "Resident", "Person"] },
-    { word: "Turvallisuus", answers: ["Safety"], options: ["Safety", "Danger", "Protection", "Order"] },
-    { word: "Tulevaisuus", answers: ["Future"], options: ["Future", "Past", "Time", "Hope"] }
-  ],
-  51:[
-    { word: "Mitä kuuluu?", answers: ["How are you?"], options: ["How are you?", "Who is this?", "Where is the house?", "What is this?"] },
-    { word: "Minä rakastan sinua", answers: ["I love you"], options: ["I love you", "I see you", "I know you", "I wait for you"] },
-    { word: "Hyvää huomenta", answers: ["Good morning"], options: ["Good afternoon", "Good morning", "Good evening", "Good night"] },
-    { word: "Minulla on nälkä", answers: ["I am hungry"], options: ["I am thirsty", "I want to sleep", "I am hungry", "I am tired"] },
-    { word: "Paljonko se maksaa?", answers: ["How much does it cost?"], options: ["Where is the shop?", "How much does it cost?", "What is your name?", "What time is it?"] }
-  ],
-  52:[
-    { word: "Minä puhun suomea", answers: ["I speak Finnish"], options: ["I study Finnish", "I speak Finnish", "I understand Finnish", "I write in Finnish"] },
-    { word: "Missä sinä asut?", answers: ["Where do you live?"], options: ["Where are you going?", "Where do you live?", "Where are you from?", "What are you doing?"] },
-    { word: "Minä olen väsynyt", answers: ["I am tired"], options: ["I am tired", "I am sick", "I am happy", "I am angry"] },
-    { word: "Mitä sinä teet?", answers: ["What are you doing?"], options: ["What are you eating?", "Where do you work?", "What are you doing?", "How are you doing?"] },
-    { word: "Minä menen kotiin", answers: ["I am going home"], options: ["I am going home", "I am going to the shop", "I am going to work", "I am going to school"] }
-  ],
-  53:[
-    { word: "Nähdään huomenna", answers: ["See you tomorrow"], options: ["See you tomorrow", "Goodbye", "Have a nice day", "See you today"] },
-    { word: "Minulla on aikaa", answers: ["I have time"], options: ["I have no time", "I am in a hurry", "I have time", "I have money"] },
-    { word: "Tänään on lämmin", answers: ["It is warm today"], options: ["It is warm today", "It is cold today", "It is raining today", "It is sunny today"] },
-    { word: "Mikä päivä tänään on?", answers: ["What day is it today?"], options: ["What day is it today?", "What time is it?", "What is the weather?", "Where are you?"] },
-    { word: "Nyt on ilta", answers: ["It is evening now"], options: ["It is morning now", "It is evening now", "It is day now", "It is night now"] }
-  ],
-  54:[
-    { word: "Minä juon vettä", answers: ["I drink water"], options: ["I drink milk", "I want juice", "I drink water", "I eat bread"] },
-    { word: "Se on hyvää", answers: ["It is tasty"], options: ["It is tasty", "It is bad", "It is expensive", "It is cheap"] },
-    { word: "Haluatko kahvia?", answers: ["Do you want coffee?"], options: ["Do you want coffee?", "Do you want tea?", "Do you want food?", "Do you want water?"] },
-    { word: "Minä syön omenaa", answers: ["I am eating an apple"], options: ["I eat bread", "I am eating an apple", "I eat fish", "I eat potatoes"] },
-    { word: "Kiitos ruuasta", answers: ["Thanks for the food"], options: ["Thanks for the food", "Enjoy your meal", "I am full", "I want more"] }
-  ],
-  55:[
-    { word: "Talo on suuri", answers: ["The house is big"], options: ["The house is big", "The house is small", "The house is new", "The house is old"] },
-    { word: "Missä avain on?", answers: ["Where is the key?"], options: ["Where is the phone?", "Where is the key?", "Where is the door?", "Where is the book?"] },
-    { word: "Ovi on auki", answers: ["The door is open"], options: ["The door is closed", "The door is new", "The door is broken", "The door is open"] },
-    { word: "Istun tuolilla", answers: ["I am sitting on a chair"], options: ["I am lying on the bed", "I am sitting on a chair", "I am standing by the table", "I am in the kitchen"] },
-    { word: "Katso tätä kuvaa", answers: ["Look at this picture"], options: ["Take this key", "Close the window", "Turn on the light", "Look at this picture"] }
-  ],
-  56:[
-    { word: "Tämä on minun äiti", answers: ["This is my mother"], options: ["This is my mother", "This is my father", "This is my brother", "This is my sister"] },
-    { word: "Oletko naimisissa?", answers: ["Are you married?"], options: ["Are you married?", "Do you have children?", "What is your name?", "Where do you work?"] },
-    { word: "Hän on hyvä ihminen", answers: ["He is a good person"], options: ["He is my friend", "He is a good person", "He is a doctor", "He is a teacher"] },
-    { word: "Minulla on kaksi lasta", answers: ["I have two children"], options: ["I have two children", "I have a brother", "I live alone", "We are family"] },
-    { word: "Lapsi nukkuu", answers: ["The child is sleeping"], options: ["The child is playing", "The child is sleeping", "The child is eating", "The child is crying"] }
-  ],
-  57:[
-    { word: "Minä olen töissä", answers: ["I am at work"], options: ["I am at work", "I am at school", "I am home", "I am at the shop"] },
-    { word: "Tämä on vaikeaa", answers: ["This is difficult"], options: ["This is difficult", "This is easy", "This is important", "This is interesting"] },
-    { word: "Oletko valmis?", answers: ["Are you ready?"], options: ["Are you tired?", "Are you here?", "Are you ready?", "Do you understand?"] },
-    { word: "Minä luen kirjaa", answers: ["I am reading a book"], options: ["I am reading a book", "I am writing a letter", "I am learning words", "I am listening to music"] },
-    { word: "Hän on opettaja", answers: ["He is a teacher"], options: ["He is a teacher", "He is a student", "He is a doctor", "He is a driver"] }
-  ],
-  58:[
-    { word: "Auto on punainen", answers: ["The car is red"], options: ["The car is blue", "The car is red", "The car is new", "The car is fast"] },
-    { word: "Se on kallis", answers: ["It is expensive"], options: ["It is expensive", "It is cheap", "It is beautiful", "It is free"] },
-    { word: "Oletko viisas?", answers: ["Are you wise?"], options: ["Are you wise?", "Are you brave?", "Are you honest?", "Are you kind?"] },
-    { word: "Meri on sininen", answers: ["The sea is blue"], options: ["The sea is blue", "The sky is clear", "The water is cold", "The forest is green"] },
-    { word: "Kissa on pieni", answers: ["The cat is small"], options: ["The cat is black", "The cat is sleeping", "The cat is small", "The cat is eating"] }
-  ],
-  59:[
-    { word: "Minulla on kipua", answers: ["I am in pain"], options: ["I am healthy", "I am in pain", "I am tired", "I want to sleep"] },
-    { word: "Olen onnellinen", answers: ["I am happy"], options: ["I am happy", "I am sad", "I am angry", "I am afraid"] },
-    { word: "Tarvitsen lääkettä", answers: ["I need medicine"], options: ["I need a doctor", "I need medicine", "I need help", "I need rest"] },
-    { word: "Minua pelottaa", answers: ["I am scared"], options: ["I am scared", "I am happy", "I am hot", "I am cold"] },
-    { word: "Kaikki on hyvin", answers: ["Everything is fine"], options: ["Everything is fine", "Everything is bad", "No worries", "I don't know"] }
-  ],
-  60:[
-    { word: "Mikä sinun nimi on?", answers: ["What is your name?"], options: ["Where do you live?", "What is your name?", "Who are you?", "How are you?"] },
-    { word: "Minä en ymmärrä", answers: ["I do not understand"], options: ["I do not understand", "I don't know", "I can't hear", "I don't want"] },
-    { word: "Voitko auttaa?", answers: ["Can you help?"], options: ["Can you wait?", "Can you help?", "Can you leave?", "Can you give?"] },
-    { word: "Hauska tutustua", answers: ["Nice to meet you"], options: ["Nice to meet you", "Good luck", "See you tomorrow", "Welcome"] },
-    { word: "Tervetuloa kotiin", answers: ["Welcome home"], options: ["Have a safe trip", "Good evening", "Welcome home", "Happy birthday"] }
-  ],
-  61:[
-    { word: "Minun mielestäni...", answers: ["In my opinion..."], options: ["I don't know...", "It is true...", "In my opinion...", "You think..."] },
-    { word: "Oletko varma?", answers: ["Are you sure?"], options: ["Are you sure?", "Are you ready?", "Do you agree?", "Can you hear?"] },
-    { word: "Olet oikeassa", answers: ["You are right"], options: ["You are wrong", "You are kind", "You are here", "You are right"] },
-    { word: "Se on mahdollista", answers: ["It is possible"], options: ["It is difficult", "It is possible", "It is important", "It is necessary"] },
-    { word: "Luulen niin", answers: ["I think so"], options: ["I think so", "I don't think so", "I know it", "I remember it"] }
-  ],
-  62:[
-    { word: "Missä on pysäkki?", answers: ["Where is the stop?"], options: ["Where is the station?", "Where is the stop?", "Where is the shop?", "Where is the toilet?"] },
-    { word: "Menen bussilla", answers: ["I go by bus"], options: ["I go by bus", "I walk", "I go by car", "I go by train"] },
-    { word: "Käänny vasemmalle", answers: ["Turn left"], options: ["Turn right", "Turn left", "Go straight", "Stand here"] },
-    { word: "Se on lähellä", answers: ["It is near"], options: ["It is far", "It is here", "It is there", "It is near"] },
-    { word: "Tie on suljettu", answers: ["The road is closed"], options: ["The road is closed", "The road is open", "The road is long", "The road is bad"] }
-  ],
-  63:[
-    { word: "Onko teillä...?", answers: ["Do you have...?"], options: ["Where can I buy...?", "How much is...?", "Do you have...?", "Is it possible to...?"] },
-    { word: "Otan tämän", answers: ["I'll take this"], options: ["I'll look", "I'll take this", "I don't need it", "Give me two"] },
-    { word: "Tarvitsen kuitin", answers: ["I need a receipt"], options: ["I need a bag", "I need a receipt", "I need change", "I need the price"] },
-    { word: "Voinko maksaa kortilla?", answers: ["Can I pay by card?"], options: ["Can I pay by card?", "Where is the ATM?", "Do you have cash?", "Is this on sale?"] },
-    { word: "Tämä on halpa", answers: ["This is cheap"], options: ["This is cheap", "This is expensive", "This is free", "This is broken"] }
-  ],
-  64:[
-    { word: "Pöytä kahdelle", answers: ["A table for two"], options: ["Menu, please", "A table for two", "The bill, please", "A glass of water"] },
-    { word: "Olen kasvissyöjä", answers: ["I am vegetarian"], options: ["I have an allergy", "I am hungry", "I don't drink coffee", "I am vegetarian"] },
-    { word: "Saisinko laskun?", answers: ["Can I have the bill?"], options: ["Can I have the bill?", "Can I have the menu?", "More water, please?", "Where is the kitchen?"] },
-    { word: "Tämä on tulista", answers: ["This is spicy"], options: ["This is salty", "This is spicy", "This is sweet", "This is cold"] },
-    { word: "Hyvää ruokahalua", answers: ["Enjoy your meal"], options: ["Enjoy your meal", "Thanks for the food", "Very tasty", "I am full"] }
-  ],
-  65:[
-    { word: "Minua väsyttää", answers: ["I feel sleepy"], options: ["I am tired", "I am sick", "I feel sleepy", "I am angry"] },
-    { word: "Minua naurattaa", answers: ["It makes me laugh"], options: ["It makes me laugh", "I am laughing", "I am sad", "I am joking"] },
-    { word: "Minua jännittää", answers: ["I am nervous"], options: ["I am nervous", "I am scared", "I am happy", "I am waiting"] },
-    { word: "Minua harmittaa", answers: ["I am annoyed"], options: ["I am angry", "I am annoyed", "I am crying", "I am calm"] },
-    { word: "Minua huvittaa", answers: ["I am amused"], options: ["I am amused", "I am bored", "I don't care", "I am surprised"] }
-  ],
-  66:[
-    { word: "Ulkona sataa vettä", answers: ["It is raining outside"], options: ["It is raining outside", "It is snowing", "It is windy", "It is sunny"] },
-    { word: "On kova tuuli", answers: ["There is strong wind"], options: ["It is cold today", "There is strong wind", "The sky is cloudy", "There is a storm"] },
-    { word: "Aurinko paistaa", answers: ["The sun is shining"], options: ["The stars are bright", "The sun is shining", "The moon is visible", "It is foggy outside"] },
-    { word: "On pakastanut", answers: ["It has frozen"], options: ["It has frozen", "The snow melted", "It is hailing", "It is very hot"] },
-    { word: "Mennään metsään", answers: ["Let's go to the forest"], options: ["Let's go to the forest", "Let's go to the lake", "Let's go to the beach", "Let's go to the park"] }
-  ],
-  67:[
-    { word: "Auta minua!", answers: ["Help me!"], options: ["Go away!", "Help me!", "Stop!", "Look!"] },
-    { word: "Olen eksynyt", answers: ["I am lost"], options: ["I am lost", "I am late", "I am tired", "I arrived"] },
-    { word: "Soita poliisille", answers: ["Call the police"], options: ["Call a doctor", "Call the police", "Call home", "Quiet!"] },
-    { word: "Hätänumero on 112", answers: ["The emergency number is 112"], options: ["My phone number", "Door code", "What time is it", "The emergency number is 112"] },
-    { word: "Kaikki on kunnossa", answers: ["Everything is okay"], options: ["Everything is okay", "What happened?", "Help!", "I don't know"] }
-  ],
-  68:[
-    { word: "Mitä se tarkoittaa?", answers: ["What does it mean?"], options: ["How is it written?", "What does it mean?", "How do you say it?", "Who is it?"] },
-    { word: "Voitko toistaa?", answers: ["Can you repeat?"], options: ["Can you repeat?", "Can you help?", "Can you go?", "Can you believe?"] },
-    { word: "Puhu hitaammin", answers: ["Speak more slowly"], options: ["Speak more slowly", "Speak louder", "Speak clearly", "Don't speak"] },
-    { word: "Miten se sanotaan...?", answers: ["How do you say...?"], options: ["How do you say...?", "How is it written...?", "What word is that...?", "How are you...?"] },
-    { word: "Kirjoita se, kiitos", answers: ["Write it down, please"], options: ["Write it down, please", "Read it", "Say it", "Show it"] }
-  ],
-  69:[
-    { word: "Mitä sinulle kuuluu?", answers: ["How are you doing?"], options: ["What is your name?", "Where are you?", "How are you doing?", "Who are you?"] },
-    { word: "Hyvää viikonloppua!", answers: ["Have a nice weekend!"], options: ["Have a nice weekend!", "Have a nice day!", "Good night!", "Good luck!"] },
-    { word: "Olen pahoillani", answers: ["I am sorry"], options: ["I am sorry", "I am happy", "I am angry", "I don't know"] },
-    { word: "Tervetuloa!", answers: ["Welcome!"], options: ["Goodbye!", "Come in!", "Hi!", "Welcome!"] },
-    { word: "Onnea matkaan!", answers: ["Have a good trip!"], options: ["Have a good trip!", "Happy birthday!", "Have a good holiday!", "Congratulations!"] }
-  ],
-  70:[
-    { word: "Olen samaa mieltä", answers: ["I agree"], options: ["I agree", "I disagree", "I don't care", "I am not sure"] },
-    { word: "Se ei haittaa", answers: ["No problem"], options: ["It is important", "No problem", "It bothers", "It is bad"] },
-    { word: "Ota iisisti", answers: ["Take it easy"], options: ["Hurry up", "Take it easy", "Be careful", "Go home"] },
-    { word: "Aivan sama", answers: ["It doesn't matter"], options: ["No difference", "Exactly", "Never", "It doesn't matter"] },
-    { word: "Totta kai", answers: ["Of course"], options: ["Of course", "Unlikely", "Maybe", "No"] }
-  ],
-  71:[
-    { word: "Pidetään tauko", answers: ["Let's take a break"], options: ["Let's take a break", "Let's start", "Let's finish", "Let's eat"] },
-    { word: "Olen varattu", answers: ["I am busy"], options: ["I am busy", "I am free", "I will be late", "I am here"] },
-    { word: "Voisitko auttaa?", answers: ["Could you help?"], options: ["What are you doing?", "Could you help?", "Where are you?", "Who are you?"] },
-    { word: "Se on sovittu", answers: ["Agreed"], options: ["Agreed", "We'll see", "It is impossible", "I disagree"] },
-    { word: "Lähetä minulle viesti", answers: ["Send me a message"], options: ["Send me a message", "Call me", "Write a letter", "Let me know"] }
-  ],
-  72:[
-    { word: "Netti ei toimi", answers: ["The internet is not working"], options: ["The internet is not working", "The phone is broken", "Bad connection", "The battery is dead"] },
-    { word: "Akku on tyhjä", answers: ["The battery is empty"], options: ["Memory is full", "The battery is empty", "The screen is broken", "No sound"] },
-    { word: "Lataa sovellus", answers: ["Download the app"], options: ["Download the app", "Delete the file", "Refresh the page", "Turn on the camera"] },
-    { word: "Mikä on salasana?", answers: ["What is the password?"], options: ["Where is the socket?", "What is the password?", "What is your name?", "Whose phone is this?"] },
-    { word: "Jaa sijainti", answers: ["Share the location"], options: ["Take a photo", "Send a link", "Turn off the light", "Share the location"] }
-  ],
-  73:[
-    { word: "Minulla on kuumetta", answers: ["I have a fever"], options: ["I have a fever", "I have a runny nose", "I have a cough", "I have an allergy"] },
-    { word: "Vatsa on kipeä", answers: ["My stomach hurts"], options: ["My stomach hurts", "My head hurts", "My throat hurts", "My back hurts"] },
-    { word: "Oletko kunnossa?", answers: ["Are you okay?"], options: ["Are you sleeping?", "Are you okay?", "Are you coming?", "Can you hear?"] },
-    { word: "Tarvitsen lepoa", answers: ["I need rest"], options: ["I need rest", "I need water", "I need a doctor", "I need medicine"] },
-    { word: "Se ottaa kipeää", answers: ["It hurts"], options: ["It hurts", "It helps", "It itches", "It will pass"] }
-  ],
-  74:[
-    { word: "Valo ei pala", answers: ["The light is not on"], options: ["The tap is leaking", "The light is not on", "The door creaks", "The window is broken"] },
-    { word: "Hana vuotaa", answers: ["The tap is leaking"], options: ["The tap is leaking", "The lock is broken", "The wall is dirty", "The floor is cold"] },
-    { word: "Se on rikki", answers: ["It is broken"], options: ["It is broken", "It works", "It is new", "It is old"] },
-    { word: "Tarvitsen apua", answers: ["I need help"], options: ["I need help", "I need a tool", "I need a repairman", "I will do it myself"] },
-    { word: "Hissi ei toimi", answers: ["The elevator is not working"], options: ["The elevator is not working", "The stairs are steep", "The door is locked", "There is no light"] }
-  ],
-  75:[
-    { word: "Olen yllättynyt", answers: ["I am surprised"], options: ["I am upset", "I am surprised", "I am scared", "I am calm"] },
-    { word: "Kuulostaa hyvältä", answers: ["Sounds good"], options: ["Sounds good", "Sounds strange", "I can't hear", "Repeat again"] },
-    { word: "Ei haittaa", answers: ["No problem"], options: ["It is important", "I disagree", "No problem", "Help!"] },
-    { word: "Olen ylpeä sinusta", answers: ["I am proud of you"], options: ["I am proud of you", "I believe you", "I am waiting for you", "I love you"] },
-    { word: "Älä huoli", answers: ["Don't worry"], options: ["Don't worry", "Don't hurry", "Don't cry", "Don't forget"] }
-  ],
-  76:[
-    { word: "Onko sinulla passia?", answers: ["Do you have a passport?"], options: ["Do you have a passport?", "Where is your ticket?", "Where are you going?", "Who are you?"] },
-    { word: "Olen turistina", answers: ["I am here as a tourist"], options: ["I am here for work", "I am here as a tourist", "I live here", "I study here"] },
-    { word: "Matka kestää kauan", answers: ["The trip takes a long time"], options: ["The trip takes a long time", "The trip is fast", "The trip is expensive", "The trip is canceled"] },
-    { word: "Mihin olet menossa?", answers: ["Where are you going?"], options: ["Where are you going?", "Where did you come from?", "Where are you standing?", "How are you going?"] },
-    { word: "Hyvää matkaa!", answers: ["Have a good trip!"], options: ["Have a nice day!", "Good luck!", "See you!", "Have a good trip!"] }
-  ],
-  77:[
-    { word: "Keskity nyt", answers: ["Focus now"], options: ["Focus now", "Listen carefully", "Read aloud", "Write faster"] },
-    { word: "Saitko selvää?", answers: ["Did you understand?"], options: ["Did you figure it out?", "Did you understand?", "Did you see?", "Did you hear?"] },
-    { word: "Se on mielenkiintoista", answers: ["That is interesting"], options: ["That is boring", "That is interesting", "That is difficult", "That is easy"] },
-    { word: "Harjoitus tekee mestarin", answers: ["Practice makes perfect"], options: ["Knowledge is power", "Don't be lazy", "Practice makes perfect", "Learning is useful"] },
-    { word: "Oletko valmis?", answers: ["Are you ready?"], options: ["Are you ready?", "Did you finish?", "Did you start?", "Do you want?"] }
-  ],
-  78:[
-    { word: "Mennään leffaan", answers: ["Let's go to the movies"], options: ["Let's go to the movies", "Let's go to the theater", "Let's go to an exhibition", "Let's go for a walk"] },
-    { word: "Mikä on lempivärisi?", answers: ["What is your favorite color?"], options: ["What is your hobby?", "What is your favorite color?", "What is your name?", "Where do you live?"] },
-    { word: "Pidän musiikista", answers: ["I like music"], options: ["I play guitar", "I like music", "I sing songs", "I listen to radio"] },
-    { word: "Se oli upeaa", answers: ["It was wonderful"], options: ["It was wonderful", "It was terrible", "It was normal", "It was strange"] },
-    { word: "Mitä harrastat?", answers: ["What are your hobbies?"], options: ["Where do you work?", "What are your hobbies?", "What do you eat?", "Where are you going?"] }
-  ],
-  79:[
-    { word: "Voinko sovittaa?", answers: ["Can I try it on?"], options: ["Can I try it on?", "Can I buy it?", "Where is the mirror?", "What size?"] },
-    { word: "Tämä on liian pieni", answers: ["This is too small"], options: ["This is too small", "This is too big", "This fits well", "This is expensive"] },
-    { word: "Mitä materiaalia tämä on?", answers: ["What material is this?"], options: ["What material is this?", "How much is it?", "Where is it made?", "Is there another color?"] },
-    { word: "Otan tämän koon", answers: ["I'll take this size"], options: ["I'll take this size", "I need a receipt", "I'll think about it", "Where is the checkout?"] },
-    { word: "Se sopii sinulle", answers: ["It suits you"], options: ["It suits you", "It is too small for you", "It is too big for you", "It is not your color"] }
-  ],
-  80:[
-    { word: "Sisu", answers: ["Perseverance"], options: ["Fear", "Perseverance", "Laziness", "Joy"] },
-    { word: "Oma koti kullan kallis", answers: ["Home is where the heart is"], options: ["Home is where the heart is", "A house is a fortress", "My home is my pride", "My home is the most expensive"] },
-    { word: "Ei haukku haavaa tee", answers: ["Words don't hurt"], options: ["Words don't hurt", "Don't fear shouting", "Be strong", "The dog barks but the caravan moves on"] },
-    { word: "Sopia kuin nenä päähän", answers: ["To fit perfectly"], options: ["To fit perfectly", "To be strange", "To have a cold", "To laugh in someone's face"] },
-    { word: "Tehdä kärpäsestä härkä", answers: ["Make a mountain out of a molehill"], options: ["Work a lot", "Be strong", "Make a mountain out of a molehill", "Forget something important"] }
-  ]
+  // Урок 1: Базовые приветствия
+  "1": [
+    { word: "Hej", answers: ["Привет"], options: ["Дом", "Привет", "Пока", "Солнце"] },
+    { word: "Hej", answers: ["Привет"], options: ["Прощай", "Река", "Собака", "Привет"] },
+    { word: "Tack", answers: ["Спасибо"], options: ["Спасибо", "Пожалуйста", "Нет", "Да"] },
+    { word: "Varsågod", answers: ["Пожалуйста"], options: ["Спасибо", "Прощай", "Пожалуйста", "Привет"] },
+    { word: "Adjö", answers: ["Пока"], options: ["Да", "Нет", "Пока", "Здравствуйте"] }
+  ],
+  // Урок 2: Вежливые слова
+  "2": [
+    { word: "Hej", answers: ["Здравствуй"], options: ["Пока", "Собака", "Здравствуй", "Мама"] },
+    { word: "God dag", answers: ["Добрый день"], options: ["Добрый день", "Доброй ночи", "Привет", "Спасибо"] },
+    { word: "Ja", answers: ["Да"], options: ["Нет", "Да", "Пожалуйста", "Прощай"] },
+    { word: "Nej", answers: ["Нет"], options: ["Да", "Нет", "Пока", "Собака"] },
+    { word: "Ursäkta", answers: ["Извините"], options: ["Спасибо", "Пожалуйста", "Извините", "Привет"] }
+  ],
+  3: [
+    { word: "Jag", answers: ["Я"], options: ["Ты", "Он", "Я", "Мы"] },
+    { word: "Du", answers: ["Ты"], options: ["Ты", "Я", "Он", "Мы"] },
+    { word: "Han/Hon", answers: ["Он"], options: ["Она", "Он", "Я", "Мы"] },
+    { word: "Vi", answers: ["Мы"], options: ["Мы", "Я", "Он", "Вы"] },
+    { word: "Ni", answers: ["Вы"], options: ["Мы", "Вы", "Они", "Я"] }
+  ],
+  4: [
+    { word: "Ett", answers: ["Один"], options: ["Два", "Три", "Один", "Четыре"] },
+    { word: "Två", answers: ["Два"], options: ["Один", "Два", "Три", "Пять"] },
+    { word: "Tre", answers: ["Три"], options: ["Три", "Два", "Четыре", "Пять"] },
+    { word: "Fyra", answers: ["Четыре"], options: ["Пять", "Три", "Четыре", "Два"] },
+    { word: "Fem", answers: ["Пять"], options: ["Пять", "Четыре", "Шесть", "Три"] }
+  ],
+  5: [
+    { word: "Katt", answers: ["Кошка"], options: ["Кошка", "Собака", "Лошадь", "Птица"] },
+    { word: "Hund", answers: ["Собака"], options: ["Кошка", "Медведь", "Собака", "Лиса"] },
+    { word: "Björn", answers: ["Медведь"], options: ["Медведь", "Волк", "Лиса", "Заяц"] },
+    { word: "Häst", answers: ["Лошадь"], options: ["Корова", "Лошадь", "Коза", "Свинья"] },
+    { word: "Fågel", answers: ["Птица"], options: ["Птица", "Собака", "Кошка", "Рыба"] }
+  ],
+  6: [
+    { word: "Röd", answers: ["Красный"], options: ["Синий", "Зеленый", "Красный", "Черный"] },
+    { word: "Blå", answers: ["Синий"], options: ["Синий", "Красный", "Белый", "Желтый"] },
+    { word: "Grön", answers: ["Зеленый"], options: ["Красный", "Синий", "Зеленый", "Желтый"] },
+    { word: "Gul", answers: ["Желтый"], options: ["Желтый", "Красный", "Синий", "Зеленый"] },
+    { word: "Svart", answers: ["Черный"], options: ["Белый", "Серый", "Черный", "Синий"] }
+  ],
+  7: [
+    { word: "Bröd", answers: ["Хлеб"], options: ["Хлеб", "Мясо", "Сыр", "Рыба"] },
+    { word: "Vatten", answers: ["Вода"], options: ["Сок", "Молоко", "Вода", "Пиво"] },
+    { word: "Mjölk", answers: ["Молоко"], options: ["Молоко", "Вода", "Сок", "Чай"] },
+    { word: "Ost", answers: ["Сыр"], options: ["Хлеб", "Сыр", "Мясо", "Яйцо"] },
+    { word: "Fisk", answers: ["Рыба"], options: ["Рыба", "Курица", "Мясо", "Молоко"] }
+  ],
+  8: [
+    { word: "Hus", answers: ["Дом"], options: ["Квартира", "Сад", "Дом", "Окно"] },
+    { word: "Dörr", answers: ["Дверь"], options: ["Дверь", "Стена", "Крыша", "Пол"] },
+    { word: "Kök", answers: ["Кухня"], options: ["Кухня", "Спальня", "Ванная", "Зал"] },
+    { word: "Sovrum", answers: ["Спальня"], options: ["Спальня", "Кухня", "Зал", "Ванная"] },
+    { word: "Badrum", answers: ["Ванная"], options: ["Ванная", "Кухня", "Спальня", "Терраса"] }
+  ],
+  9: [
+    { word: "Sol", answers: ["Солнце"], options: ["Луна", "Солнце", "Дождь", "Снег"] },
+    { word: "Snö", answers: ["Снег"], options: ["Снег", "Дождь", "Лед", "Туман"] },
+    { word: "Moln", answers: ["Облако"], options: ["Облако", "Дождь", "Снег", "Солнце"] },
+    { word: "Regn", answers: ["Дождь"], options: ["Дождь", "Снег", "Туман", "Солнце"] },
+    { word: "Vind", answers: ["Ветер"], options: ["Ветер", "Дождь", "Снег", "Облако"] }
+  ],
+  10: [ // Босс 1
+    { word: "Bastu", answers: ["Сауна"], options: ["Сауна", "Ванна", "Душ", "Бассейн"] },
+    { word: "Sisu", answers: ["Упорство"], options: ["Упорство", "Слабость", "Страх", "Лень"] },
+    { word: "Löyly", answers: ["Пар в сауне"], options: ["Дрова", "Жар", "Пар в сауне", "Вода"] },
+    { word: "Sjö", answers: ["Озеро"], options: ["Озеро", "Река", "Море", "Пруд"] },
+    { word: "Skog", answers: ["Лес"], options: ["Гора", "Поле", "Лес", "Луг"] }
+  ],
+
+  // Уроки 11-20: Глаголы и Семья (Исправлено)
+  11: [
+    { word: "Puhua", answers: ["Говорить"], options: ["Слушать", "Читать", "Говорить", "Писать"] },
+    { word: "Syödä", answers: ["Есть"], options: ["Есть", "Пить", "Идти", "Спать"] },
+    { word: "Juoda", answers: ["Пить"], options: ["Пить", "Есть", "Бежать", "Петь"] },
+    { word: "Nukkua", answers: ["Спать"], options: ["Работать", "Спать", "Гулять", "Сидеть"] },
+    { word: "Lukea", answers: ["Читать"], options: ["Читать", "Рисовать", "Считать", "Петь"] }
+  ],
+  12: [
+    { word: "Äiti", answers: ["Мама"], options: ["Мама", "Папа", "Сестра", "Брат"] },
+    { word: "Isä", answers: ["Папа"], options: ["Папа", "Дедушка", "Бабушка", "Сын"] },
+    { word: "Veli", answers: ["Брат"], options: ["Сестра", "Брат", "Друг", "Дядя"] },
+    { word: "Sisko", answers: ["Сестра"], options: ["Брат", "Сестра", "Тетя", "Мама"] },
+    { word: "Lapsi", answers: ["Ребенок"], options: ["Взрослый", "Ребенок", "Человек", "Семья"] }
+  ],
+  13: [
+    { word: "Mennä", answers: ["Идти"], options: ["Идти", "Приходить", "Стоять", "Лежать"] },
+    { word: "Tulla", answers: ["Приходить"], options: ["Уходить", "Приходить", "Бежать", "Прыгать"] },
+    { word: "Tehdä", answers: ["Делать"], options: ["Делать", "Думать", "Видеть", "Слышать"] },
+    { word: "Katsoa", answers: ["Смотреть"], options: ["Смотреть", "Слушать", "Трогать", "Нюхать"] },
+    { word: "Ostaa", answers: ["Покупать"], options: ["Продавать", "Покупать", "Дарить", "Брать"] }
+  ],
+  14: [
+    { word: "Paita", answers: ["Рубашка"], options: ["Рубашка", "Брюки", "Платье", "Юбка"] },
+    { word: "Housut", answers: ["Брюки"], options: ["Шорты", "Брюки", "Носки", "Шапка"] },
+    { word: "Kengät", answers: ["Обувь"], options: ["Обувь", "Перчатки", "Куртка", "Пальто"] },
+    { word: "Takki", answers: ["Куртка"], options: ["Свитер", "Шарф", "Куртка", "Шляпа"] },
+    { word: "Hattu", answers: ["Шапка"], options: ["Шапка", "Очки", "Ремень", "Сумка"] }
+  ],
+  15: [
+    { word: "Tänään", answers: ["Сегодня"], options: ["Завтра", "Сегодня", "Вчера", "Сейчас"] },
+    { word: "Huomenna", answers: ["Завтра"], options: ["Никогда", "Завтра", "Сегодня", "Утром"] },
+    { word: "Eilen", answers: ["Вчера"], options: ["Вчера", "Сегодня", "Вечером", "Ночью"] },
+    { word: "Nyt", answers: ["Сейчас"], options: ["Потом", "Скоро", "Сейчас", "Всегда"] },
+    { word: "Aika", answers: ["Время"], options: ["Время", "Час", "День", "Месяц"] }
+  ],
+  16: [
+    { word: "Iso", answers: ["Большой"], options: ["Большой", "Маленький", "Длинный", "Узкий"] },
+    { word: "Pieni", answers: ["Маленький"], options: ["Маленький", "Большой", "Толстый", "Тонкий"] },
+    { word: "Hyvä", answers: ["Хороший"], options: ["Хороший", "Плохой", "Старый", "Новый"] },
+    { word: "Paha", answers: ["Плохой"], options: ["Плохой", "Злой", "Добрый", "Красивый"] },
+    { word: "Usi", answers: ["Новый"], options: ["Старый", "Новый", "Чистый", "Грязный"] }
+  ],
+  17: [
+    { word: "Koulu", answers: ["Школа"], options: ["Школа", "Работа", "Больница", "Магазин"] },
+    { word: "Kirja", answers: ["Книга"], options: ["Газета", "Книга", "Тетрадь", "Ручка"] },
+    { word: "Kynä", answers: ["Ручка"], options: ["Карандаш", "Ручка", "Бумага", "Стол"] },
+    { word: "Opettaja", answers: ["Учитель"], options: ["Учитель", "Врач", "Повар", "Водитель"] },
+    { word: "Opiskelija", answers: ["Студент"], options: ["Ученик", "Мастер", "Студент", "Друг"] }
+  ],
+  18: [
+    { word: "Kaupunki", answers: ["Город"], options: ["Город", "Деревня", "Страна", "Улица"] },
+    { word: "Tie", answers: ["Дорога"], options: ["Дорога", "Мост", "Парк", "Рынок"] },
+    { word: "Auto", answers: ["Машина"], options: ["Автобус", "Машина", "Поезд", "Самолет"] },
+    { word: "Kauppa", answers: ["Магазин"], options: ["Магазин", "Аптека", "Банк", "Кино"] },
+    { word: "Raha", answers: ["Деньги"], options: ["Кошелек", "Деньги", "Цена", "Карта"] }
+  ],
+  19: [
+    { word: "Käsi", answers: ["Рука"], options: ["Рука", "Нога", "Голова", "Глаз"] },
+    { word: "Jalka", answers: ["Нога"], options: ["Нога", "Рука", "Спина", "Живот"] },
+    { word: "Pää", answers: ["Голова"], options: ["Лицо", "Голова", "Ухо", "Нос"] },
+    { word: "Silmä", answers: ["Глаз"], options: ["Глаз", "Рот", "Зуб", "Язык"] },
+    { word: "Sydän", answers: ["Сердце"], options: ["Сердце", "Кровь", "Душа", "Тело"] }
+  ],
+  20: [ // Босс 2
+    { word: "Suomi", answers: ["Финляндия"], options: ["Финляндия", "Швеция", "Россия", "Эстония"] },
+    { word: "Kieli", answers: ["Язык"], options: ["Язык", "Слово", "Голос", "Звук"] },
+    { word: "Maa", answers: ["Земля"], options: ["Небо", "Земля", "Вода", "Огонь"] },
+    { word: "Ihminen", answers: ["Человек"], options: ["Человек", "Животное", "Бог", "Мир"] },
+    { word: "Elämä", answers: ["Жизнь"], options: ["Смерть", "Сон", "Жизнь", "Радость"] }
+  ],
+    // Уроки 21-40: Еда, природа, работа, чувства и абстракция (Исправлено: ответы перемешаны)
+  21: [
+    { word: "Aamiainen", answers: ["Завтрак"], options: ["Обед", "Завтрак", "Ужин", "Полдник"] },
+    { word: "Lounas", answers: ["Обед"], options: ["Завтрак", "Перекус", "Обед", "Напиток"] },
+    { word: "Illallinen", answers: ["Ужин"], options: ["Ужин", "Обед", "Десерт", "Закуска"] },
+    { word: "Omena", answers: ["Яблоко"], options: ["Груша", "Яблоко", "Банан", "Апельсин"] },
+    { word: "Peruna", answers: ["Картофель"], options: ["Картофель", "Морковь", "Лук", "Капуста"] }
+  ],
+  22: [
+    { word: "Kevät", answers: ["Весна"], options: ["Лето", "Осень", "Весна", "Зима"] },
+    { word: "Kesä", answers: ["Лето"], options: ["Лето", "Зима", "Весна", "Осень"] },
+    { word: "Syksy", answers: ["Осень"], options: ["Осень", "Весна", "Лето", "Зима"] },
+    { word: "Talvi", answers: ["Зима"], options: ["Зима", "Осень", "Лето", "Весна"] },
+    { word: "Lämmin", answers: ["Теплый"], options: ["Холодный", "Теплый", "Жаркий", "Сухой"] }
+  ],
+  23: [
+    { word: "Matkustaa", answers: ["Путешествовать"], options: ["Работать", "Отдыхать", "Путешествовать", "Жить"] },
+    { word: "Lentokone", answers: ["Самолет"], options: ["Самолет", "Поезд", "Корабль", "Вертолет"] },
+    { word: "Juna", answers: ["Поезд"], options: ["Трамвай", "Поезд", "Метро", "Автобус"] },
+    { word: "Lippu", answers: ["Билет"], options: ["Паспорт", "Чемодан", "Билет", "Карта"] },
+    { word: "Hotelli", answers: ["Отель"], options: ["Отель", "Дом", "Палатка", "Хостел"] }
+  ],
+  24: [
+    { word: "Lääkäri", answers: ["Врач"], options: ["Медсестра", "Врач", "Полицейский", "Инженер"] },
+    { word: "Poliisi", answers: ["Полиция"], options: ["Пожарный", "Полиция", "Солдат", "Юрист"] },
+    { word: "Myyjä", answers: ["Продавец"], options: ["Продавец", "Покупатель", "Менеджер", "Повар"] },
+    { word: "Työ", answers: ["Работа"], options: ["Хобби", "Учеба", "Работа", "Отпуск"] },
+    { word: "Palkka", answers: ["Зарплата"], options: ["Зарплата", "Налог", "Штраф", "Скидка"] }
+  ],
+  25: [
+    { word: "Haluta", answers: ["Хотеть"], options: ["Мочь", "Хотеть", "Должен", "Знать"] },
+    { word: "Voida", answers: ["Мочь"], options: ["Хотеть", "Уметь", "Мочь", "Любить"] },
+    { word: "Tietää", answers: ["Знать"], options: ["Понимать", "Знать", "Помнить", "Забыть"] },
+    { word: "Ymmärtää", answers: ["Понимать"], options: ["Слышать", "Видеть", "Понимать", "Думать"] },
+    { word: "Rakastaa", answers: ["Любить"], options: ["Любить", "Ненавидеть", "Дружить", "Ждать"] }
+  ],
+  26: [
+    { word: "Pöytä", answers: ["Стол"], options: ["Стул", "Стол", "Шкаф", "Кровать"] },
+    { word: "Tuoli", answers: ["Стул"], options: ["Стул", "Кресло", "Диван", "Полка"] },
+    { word: "Sänky", answers: ["Кровать"], options: ["Подушка", "Кровать", "Одеяло", "Ковер"] },
+    { word: "Ikkuna", answers: ["Окно"], options: ["Стена", "Окно", "Потолок", "Дверь"] },
+    { word: "Valo", answers: ["Свет"], options: ["Свет", "Тень", "Темнота", "Лампа"] }
+  ],
+  27: [
+    { word: "Meri", answers: ["Море"], options: ["Море", "Океан", "Река", "Залив"] },
+    { word: "Vuori", answers: ["Гора"], options: ["Холм", "Долина", "Гора", "Скала"] },
+    { word: "Saari", answers: ["Остров"], options: ["Берег", "Остров", "Пляж", "Лес"] },
+    { word: "Kukka", answers: ["Цветок"], options: ["Цветок", "Дерево", "Трава", "Лист"] },
+    { word: "Puu", answers: ["Дерево"], options: ["Куст", "Ветка", "Корень", "Дерево"] }
+  ],
+  28: [
+    { word: "Aamu", answers: ["Утро"], options: ["День", "Утро", "Вечер", "Ночь"] },
+    { word: "Päivä", answers: ["День"], options: ["День", "Утро", "Неделя", "Год"] },
+    { word: "Ilta", answers: ["Вечер"], options: ["Полдень", "Вечер", "Полночь", "Ночь"] },
+    { word: "Yö", answers: ["Ночь"], options: ["Ночь", "Вечер", "Утро", "Сон"] },
+    { word: "Viikko", answers: ["Неделя"], options: ["Неделя", "Месяц", "Год", "Час"] }
+  ],
+  29: [
+    { word: "Nopea", answers: ["Быстрый"], options: ["Быстрый", "Медленный", "Громкий", "Тихий"] },
+    { word: "Hidas", answers: ["Медленный"], options: ["Медленный", "Быстрый", "Сильный", "Слабый"] },
+    { word: "Kallis", answers: ["Дорогой"], options: ["Дорогой", "Дешевый", "Бесплатный", "Ценный"] },
+    { word: "Halpa", answers: ["Дешевый"], options: ["Дешевый", "Дорогой", "Старый", "Простой"] },
+    { word: "Rikas", answers: ["Богатый"], options: ["Бедный", "Счастливый", "Богатый", "Грустный"] }
+  ],
+  30: [ // Босс 3
+    { word: "Onni", answers: ["Счастье"], options: ["Удача", "Счастье", "Радость", "Любовь"] },
+    { word: "Rauha", answers: ["Мир"], options: ["Мир", "Война", "Покой", "Дружба"] },
+    { word: "Aika", answers: ["Время"], options: ["Место", "Смысл", "Время", "Цель"] },
+    { word: "Totuus", answers: ["Правда"], options: ["Правда", "Ложь", "Ошибка", "Мысль"] },
+    { word: "Ystävyys", answers: ["Дружба"], options: ["Дружба", "Семья", "Встреча", "Помощь"] }
+  ],
+  31: [
+    { word: "Terveys", answers: ["Здоровье"], options: ["Здоровье", "Болезнь", "Аптека", "Врач"] },
+    { word: "Sairaala", answers: ["Больница"], options: ["Школа", "Больница", "Почта", "Завод"] },
+    { word: "Lääke", answers: ["Лекарство"], options: ["Лекарство", "Яд", "Витамин", "Рецепт"] },
+    { word: "Kipu", answers: ["Боль"], options: ["Боль", "Радость", "Усталость", "Страх"] },
+    { word: "Väsynyt", answers: ["Уставший"], options: ["Бодрый", "Уставший", "Спящий", "Голодный"] }
+  ],
+  32: [
+    { word: "Tietokone", answers: ["Компьютер"], options: ["Экран", "Телефон", "Компьютер", "Клавиатура"] },
+    { word: "Puhelin", answers: ["Телефон"], options: ["Телефон", "Радио", "Часы", "Камера"] },
+    { word: "Internet", answers: ["Интернет"], options: ["Связь", "Почта", "Интернет", "Сайт"] },
+    { word: "Sähköposti", answers: ["Эл. почта"], options: ["Эл. почта", "Письмо", "Посылка", "Газета"] },
+    { word: "Salasana", answers: ["Пароль"], options: ["Пароль", "Логин", "Имя", "Ключ"] }
+  ],
+  33: [
+    { word: "Iloinen", answers: ["Веселый"], options: ["Веселый", "Грустный", "Злой", "Серьезный"] },
+    { word: "Surullinen", answers: ["Грустный"], options: ["Счастливый", "Грустный", "Смешной", "Тихий"] },
+    { word: "Vihainen", answers: ["Злой"], options: ["Злой", "Добрый", "Мирный", "Спокойный"] },
+    { word: "Pelätä", answers: ["Бояться"], options: ["Бояться", "Смеяться", "Плакать", "Ждать"] },
+    { word: "Nauraa", answers: ["Смеяться"], options: ["Смеяться", "Улыбаться", "Шутить", "Петь"] }
+  ],
+  34: [
+    { word: "Oppia", answers: ["Учиться"], options: ["Учить", "Читать", "Знать", "Учиться"] },
+    { word: "Muistaa", answers: ["Помнить"], options: ["Помнить", "Забыть", "Думать", "Верить"] },
+    { word: "Unohtaa", answers: ["Забыть"], options: ["Забыть", "Помнить", "Искать", "Найти"] },
+    { word: "Kysyä", answers: ["Спрашивать"], options: ["Спрашивать", "Отвечать", "Слушать", "Говорить"] },
+    { word: "Vastata", answers: ["Отвечать"], options: ["Отвечать", "Спрашивать", "Писать", "Читать"] }
+  ],
+  35: [
+    { word: "Matkalaukku", answers: ["Чемодан"], options: ["Чемодан", "Сумка", "Рюкзак", "Кошелек"] },
+    { word: "Lentokenttä", answers: ["Аэропорт"], options: ["Аэропорт", "Вокзал", "Порт", "Остановка"] },
+    { word: "Passi", answers: ["Паспорт"], options: ["Виза", "Паспорт", "Билет", "Документ"] },
+    { word: "Loma", answers: ["Отпуск"], options: ["Отпуск", "Праздник", "Выходной", "Работа"] },
+    { word: "Ulkomaat", answers: ["Заграница"], options: ["Заграница", "Родина", "Город", "Деревня"] }
+  ],
+  36: [
+    { word: "Kök", answers: ["Кухня"], options: ["Ванная", "Кухня", "Подвал", "Чердак"] },
+    { word: "Lattia", answers: ["Пол"], options: ["Пол", "Потолок", "Стена", "Угол"] },
+    { word: "Katto", answers: ["Крыша"], options: ["Крыша", "Стена", "Окно", "Дверь"] },
+    { word: "Avain", answers: ["Ключ"], options: ["Ключ", "Замок", "Дверь", "Звонок"] },
+    { word: "Peili", answers: ["Зеркало"], options: ["Стекло", "Картина", "Зеркало", "Рама"] }
+  ],
+  37: [
+    { word: "Luonto", answers: ["Природа"], options: ["Природа", "Погода", "Мир", "Экология"] },
+    { word: "Ympäristö", answers: ["Окружающая среда"], options: ["Город", "Окружающая среда", "Лес", "Воздух"] },
+    { word: "Eläin", answers: ["Животное"], options: ["Растение", "Животное", "Человек", "Птица"] },
+    { word: "Kasvi", answers: ["Растение"], options: ["Растение", "Цветок", "Дерево", "Трава"] },
+    { word: "Kivi", answers: ["Камень"], options: ["Песок", "Гора", "Камень", "Земля"] }
+  ],
+  38: [
+    { word: "Juhla", answers: ["Праздник"], options: ["Праздник", "Будни", "Встреча", "Свадьба"] },
+    { word: "Lahja", answers: ["Подарок"], options: ["Покупка", "Сюрприз", "Подарок", "Деньги"] },
+    { word: "Syntymäpäivä", answers: ["День рождения"], options: ["Новый год", "День рождения", "Юбилей", "Праздник"] },
+    { word: "Joulu", answers: ["Рождество"], options: ["Рождество", "Пасха", "Лето", "Зима"] },
+    { word: "Onnea", answers: ["Поздравляю"], options: ["Поздравляю", "Спасибо", "Пожалуйста", "Удачи"] }
+  ],
+  39: [
+    { word: "Ehkä", answers: ["Может быть"], options: ["Может быть", "Никогда", "Точно", "Обязательно"] },
+    { word: "Aina", answers: ["Всегда"], options: ["Всегда", "Иногда", "Редко", "Часто"] },
+    { word: "Usein", answers: ["Часто"], options: ["Редко", "Часто", "Никогда", "Обычно"] },
+    { word: "Joskus", answers: ["Иногда"], options: ["Иногда", "Всегда", "Завтра", "Вчера"] },
+    { word: "Lopulta", answers: ["В конце концов"], options: ["Сначала", "В конце концов", "Потом", "Сейчас"] }
+  ],
+  40: [ // Босс 4
+    { word: "Mahdollisuus", answers: ["Возможность"], options: ["Сложность", "Возможность", "Причина", "Выбор"] },
+    { word: "Päätös", answers: ["Решение"], options: ["Решение", "Вопрос", "Ответ", "Мнение"] },
+    { word: "Tarkoitus", answers: ["Цель/Смысл"], options: ["Начало", "Конец", "Цель/Смысл", "Важность"] },
+    { word: "Kokemus", answers: ["Опыт"], options: ["Опыт", "Знание", "Чувство", "Память"] },
+    { word: "Vapaus", answers: ["Свобода"], options: ["Свобода", "Закон", "Правило", "Власть"] }
+  ],
+    // Уроки 41-60: Общество, характер, фразы (Исправлено: ответы перемешаны)
+  41: [
+    { word: "Uutiset", answers: ["Новости"], options: ["Новости", "Сказки", "Песни", "Реклама"] },
+    { word: "Lehti", answers: ["Газета/Журнал"], options: ["Лист дерева", "Газета/Журнал", "Книга", "Письмо"] },
+    { word: "Televisio", answers: ["Телевизор"], options: ["Радио", "Кино", "Экран", "Телевизор"] },
+    { word: "Mainos", answers: ["Реклама"], options: ["Объявление", "Вывеска", "Реклама", "Цена"] },
+    { word: "Kuva", answers: ["Картина/Фото"], options: ["Звук", "Свет", "Рамка", "Картина/Фото"] }
+  ],
+  42: [
+    { word: "Laki", answers: ["Закон"], options: ["Закон", "Правило", "Суд", "Тюрьма"] },
+    { word: "Oikeus", answers: ["Право"], options: ["Обязанность", "Запрет", "Право", "Штраф"] },
+    { word: "Rikos", answers: ["Преступление"], options: ["Преступление", "Наказание", "Ошибка", "Ссора"] },
+    { word: "Vankila", answers: ["Тюрьма"], options: ["Полиция", "Суд", "Замок", "Тюрьма"] },
+    { word: "Sakko", answers: ["Штраф"], options: ["Налог", "Штраф", "Счет", "Чек"] }
+  ],
+  43: [
+    { word: "Vasara", answers: ["Молоток"], options: ["Пила", "Топор", "Молоток", "Гвоздь"] },
+    { word: "Saha", answers: ["Пила"], options: ["Пила", "Нож", "Ножницы", "Лопата"] },
+    { word: "Veitsi", answers: ["Нож"], options: ["Вилка", "Нож", "Ложка", "Тарелка"] },
+    { word: "Sakset", answers: ["Ножницы"], options: ["Ножницы", "Иголка", "Нитка", "Ткань"] },
+    { word: "Työkalu", answers: ["Инструмент"], options: ["Инструмент", "Машина", "Деталь", "Прибор"] }
+  ],
+  44: [
+    { word: "Kiltti", answers: ["Добрый/Послушный"], options: ["Злой", "Умный", "Добрый/Послушный", "Глупый"] },
+    { word: "Viisas", answers: ["Мудрый"], options: ["Хитрый", "Мудрый", "Смелый", "Честный"] },
+    { word: "Rohkea", answers: ["Смелый"], options: ["Смелый", "Трусливый", "Сильный", "Гордый"] },
+    { word: "Rehellinen", answers: ["Честный"], options: ["Лживый", "Жадный", "Честный", "Щедрый"] },
+    { word: "Ahkera", answers: ["Трудолюбивый"], options: ["Ленивый", "Трудолюбивый", "Быстрый", "Тихий"] }
+  ],
+  45: [
+    { word: "Väri", answers: ["Цвет"], options: ["Цвет", "Форма", "Размер", "Вкус"] },
+    { word: "Muoto", answers: ["Форма"], options: ["Линия", "Точка", "Форма", "Круг"] },
+    { word: "Ympyrä", answers: ["Круг"], options: ["Квадрат", "Круг", "Треугольник", "Угол"] },
+    { word: "Neliö", answers: ["Квадрат"], options: ["Ромб", "Рамка", "Квадрат", "Круг"] },
+    { word: "Viiva", answers: ["Линия"], options: ["Стена", "Линия", "Путь", "Граница"] }
+  ],
+  46: [
+    { word: "Keho", answers: ["Тело"], options: ["Душа", "Тело", "Разум", "Лицо"] },
+    { word: "Veri", answers: ["Кровь"], options: ["Кровь", "Вода", "Кожа", "Кость"] },
+    { word: "Luu", answers: ["Кость"], options: ["Мышца", "Кость", "Сустав", "Зуб"] },
+    { word: "Iho", answers: ["Кожа"], options: ["Кожа", "Волосы", "Ногти", "Глаза"] },
+    { word: "Aivot", answers: ["Мозг"], options: ["Мозг", "Сердце", "Легкие", "Живот"] }
+  ],
+  47: [
+    { word: "Järjestys", answers: ["Порядок"], options: ["Хаос", "Порядок", "Очередь", "Правило"] },
+    { word: "Syy", answers: ["Причина"], options: ["Следствие", "Причина", "Вина", "Повод"] },
+    { word: "Seuraus", answers: ["Последствие"], options: ["Последствие", "Начало", "Случай", "Удача"] },
+    { word: "Ero", answers: ["Разница"], options: ["Разница", "Сходство", "Встреча", "Связь"] },
+    { word: "Suhde", answers: ["Отношение"], options: ["Дружба", "Отношение", "Любовь", "Ссора"] }
+  ],
+  48: [
+    { word: "Voitto", answers: ["Победа"], options: ["Поражение", "Победа", "Игра", "Счет"] },
+    { word: "Häviö", answers: ["Проигрыш"], options: ["Проигрыш", "Успех", "Ничья", "Отказ"] },
+    { word: "Kilpailu", answers: ["Соревнование"], options: ["Тренировка", "Отдых", "Соревнование", "Праздник"] },
+    { word: "Joukkue", answers: ["Команда"], options: ["Команда", "Группа", "Клуб", "Толпа"] },
+    { word: "Peli", answers: ["Игра"], options: ["Работа", "Игра", "Шутка", "Спорт"] }
+  ],
+  49: [
+    { word: "Kulttuuri", answers: ["Культура"], options: ["История", "Культура", "Искусство", "Музыка"] },
+    { word: "Taide", answers: ["Искусство"], options: ["Наука", "Искусство", "Религия", "Техника"] },
+    { word: "Historia", answers: ["История"], options: ["История", "Будущее", "Настоящее", "Миф"] },
+    { word: "Uskonto", answers: ["Религия"], options: ["Вера", "Церковь", "Религия", "Бог"] },
+    { word: "Tiede", answers: ["Наука"], options: ["Знание", "Наука", "Опыт", "Исследование"] }
+  ],
+  50: [ // Босс 5
+    { word: "Yhteiskunta", answers: ["Общество"], options: ["Народ", "Общество", "Государство", "Мир"] },
+    { word: "Hallitus", answers: ["Правительство"], options: ["Правительство", "Парламент", "Президент", "Мэрия"] },
+    { word: "Kansalainen", answers: ["Гражданин"], options: ["Гражданин", "Иностранец", "Житель", "Человек"] },
+    { word: "Turvallisuus", answers: ["Безопасность"], options: ["Безопасность", "Опасность", "Защита", "Порядок"] },
+    { word: "Tulevaisuus", answers: ["Будущее"], options: ["Будущее", "Прошлое", "Время", "Надежда"] }
+  ],
+  51: [ // Фразы
+    { word: "Mitä kuuluu?", answers: ["Как дела?"], options: ["Как дела?", "Кто это?", "Где дом?", "Что это?"] },
+    { word: "Minä rakastan sinua", answers: ["Я люблю тебя"], options: ["Я люблю тебя", "Я вижу тебя", "Я знаю тебя", "Я жду тебя"] },
+    { word: "Hyvää huomenta", answers: ["Доброе утро"], options: ["Добрый день", "Доброе утро", "Добрый вечер", "Спокойной ночи"] },
+    { word: "Minulla on nälkä", answers: ["Я голоден"], options: ["Я хочу пить", "Я хочу спать", "Я голоден", "Я устал"] },
+    { word: "Paljonko se maksaa?", answers: ["Сколько это стоит?"], options: ["Где магазин?", "Сколько это стоит?", "Как тебя зовут?", "Который час?"] }
+  ],
+  52: [
+    { word: "Minä puhun suomea", answers: ["Я говорю по-фински"], options: ["Я учу финский", "Я говорю по-фински", "Я понимаю финский", "Я пишу по-фински"] },
+    { word: "Missä sinä asut?", answers: ["Где ты живешь?"], options: ["Куда ты идешь?", "Где ты живешь?", "Откуда ты?", "Что ты делаешь?"] },
+    { word: "Minä olen väsynyt", answers: ["Я уставший"], options: ["Я уставший", "Я больной", "Я счастливый", "Я злой"] },
+    { word: "Mitä sinä teet?", answers: ["Что ты делаешь?"], options: ["Что ты ешь?", "Где ты работаешь?", "Что ты делаешь?", "Как ты поживаешь?"] },
+    { word: "Minä menen kotiin", answers: ["Я иду домой"], options: ["Я иду домой", "Я иду в магазин", "Я иду на работу", "Я иду в школу"] }
+  ],
+  53: [
+    { word: "Nähdään huomenna", answers: ["Увидимся завтра"], options: ["Увидимся завтра", "До свидания", "Хорошего дня", "Увидимся сегодня"] },
+    { word: "Minulla on aikaa", answers: ["У меня есть время"], options: ["У меня нет времени", "Я спешу", "У меня есть время", "У меня есть деньги"] },
+    { word: "Tänään on lämmin", answers: ["Сегодня тепло"], options: ["Сегодня тепло", "Сегодня холодно", "Сегодня идет дождь", "Сегодня солнечно"] },
+    { word: "Mikä päivä tänään on?", answers: ["Какой сегодня день?"], options: ["Какой сегодня день?", "Который час?", "Какая погода?", "Где ты?"] },
+    { word: "Nyt on ilta", answers: ["Сейчас вечер"], options: ["Сейчас утро", "Сейчас вечер", "Сейчас день", "Сейчас ночь"] }
+  ],
+  54: [
+    { word: "Minä juon vettä", answers: ["Я пью воду"], options: ["Я пью молоко", "Я хочу сок", "Я пью воду", "Я ем хлеб"] },
+    { word: "Se on hyvää", answers: ["Это вкусно"], options: ["Это вкусно", "Это плохо", "Это дорого", "Это дешево"] },
+    { word: "Haluatko kahvia?", answers: ["Хочешь кофе?"], options: ["Хочешь кофе?", "Хочешь чаю?", "Хочешь есть?", "Хочешь воды?"] },
+    { word: "Minä syön omenaa", answers: ["Я ем яблоко"], options: ["Я ем хлеб", "Я ем яблоко", "Я ем рыбу", "Я ем картофель"] },
+    { word: "Kiitos ruuasta", answers: ["Спасибо за еду"], options: ["Спасибо за еду", "Приятного аппетита", "Я сыт", "Хочу еще"] }
+  ],
+  55: [
+    { word: "Talo on suuri", answers: ["Дом большой"], options: ["Дом большой", "Дом маленький", "Дом новый", "Дом старый"] },
+    { word: "Missä avain on?", answers: ["Где ключ?"], options: ["Где телефон?", "Где ключ?", "Где дверь?", "Где книга?"] },
+    { word: "Ovi on auki", answers: ["Дверь открыта"], options: ["Дверь закрыта", "Дверь новая", "Дверь сломана", "Дверь открыта"] },
+    { word: "Istun tuolilla", answers: ["Я сижу на стуле"], options: ["Я лежу на кровати", "Я сижу на стуле", "Я стою у стола", "Я в кухне"] },
+    { word: "Katso tätä kuvaa", answers: ["Посмотри на это фото"], options: ["Возьми этот ключ", "Закрой окно", "Включи свет", "Посмотри на это фото"] }
+  ],
+  56: [
+    { word: "Tämä on minun äiti", answers: ["Это моя мама"], options: ["Это моя мама", "Это мой папа", "Это мой брат", "Это моя сестра"] },
+    { word: "Oletko naimisissa?", answers: ["Ты женат/замужем?"], options: ["Ты женат/замужем?", "У тебя есть дети?", "Как тебя зовут?", "Где ты работаешь?"] },
+    { word: "Hän on hyvä ihminen", answers: ["Он хороший человек"], options: ["Он мой друг", "Он хороший человек", "Он врач", "Он учитель"] },
+    { word: "Minulla on kaksi lasta", answers: ["У меня двое детей"], options: ["У меня двое детей", "У меня есть брат", "Я живу один", "Мы семья"] },
+    { word: "Lapsi nukkuu", answers: ["Ребенок спит"], options: ["Ребенок играет", "Ребенок спит", "Ребенок ест", "Ребенок плачет"] }
+  ],
+  57: [
+    { word: "Minä olen töissä", answers: ["Я на работе"], options: ["Я на работе", "Я в школе", "Я дома", "Я в магазине"] },
+    { word: "Tämä on vaikeaa", answers: ["Это сложно"], options: ["Это сложно", "Это легко", "Это важно", "Это интересно"] },
+    { word: "Oletko valmis?", answers: ["Ты готов?"], options: ["Ты устал?", "Ты здесь?", "Ты готов?", "Ты понимаешь?"] },
+    { word: "Minä luen kirjaa", answers: ["Я читаю книгу"], options: ["Я читаю книгу", "Я пишу письмо", "Я учу слова", "Я слушаю музыку"] },
+    { word: "Hän on opettaja", answers: ["Он учитель"], options: ["Он учитель", "Он студент", "Он врач", "Он водитель"] }
+  ],
+  58: [
+    { word: "Auto on punainen", answers: ["Машина красная"], options: ["Машина синяя", "Машина красная", "Машина новая", "Машина быстрая"] },
+    { word: "Se on kallis", answers: ["Это дорого"], options: ["Это дорого", "Это дешево", "Это красиво", "Это бесплатно"] },
+    { word: "Oletko viisas?", answers: ["Ты мудрый?"], options: ["Ты мудрый?", "Ты смелый?", "Ты честный?", "Ты добрый?"] },
+    { word: "Meri on sininen", answers: ["Море синее"], options: ["Море синее", "Небо чистое", "Вода холодная", "Лес зеленый"] },
+    { word: "Kissa on pieni", answers: ["Кошка маленькая"], options: ["Кошка черная", "Кошка спит", "Кошка маленькая", "Кошка ест"] }
+  ],
+  59: [
+    { word: "Minulla on kipua", answers: ["У меня боль"], options: ["Я здоров", "У меня боль", "Я устал", "Я хочу спать"] },
+    { word: "Olen onnellinen", answers: ["Я счастлив"], options: ["Я счастлив", "Я грущу", "Я злюсь", "Я боюсь"] },
+    { word: "Tarvitsen lääkettä", answers: ["Мне нужно лекарство"], options: ["Мне нужен врач", "Мне нужно лекарство", "Мне нужна помощь", "Мне нужен покой"] },
+    { word: "Minua pelottaa", answers: ["Мне страшно"], options: ["Мне страшно", "Мне весело", "Мне жарко", "Мне холодно"] },
+    { word: "Kaikki on hyvin", answers: ["Все хорошо"], options: ["Все хорошо", "Все плохо", "Ничего страшного", "Я не знаю"] }
+  ],
+  60: [ // Босс 6
+    { word: "Mikä sinun nimi on?", answers: ["Как тебя зовут?"], options: ["Где ты живешь?", "Как тебя зовут?", "Кто ты?", "Как дела?"] },
+    { word: "Minä en ymmärrä", answers: ["Я не понимаю"], options: ["Я не понимаю", "Я не знаю", "Я не слышу", "Я не хочу"] },
+    { word: "Voitko auttaa?", answers: ["Можешь помочь?"], options: ["Можешь подождать?", "Можешь помочь?", "Можешь уйти?", "Можешь дать?"] },
+    { word: "Hauska tutustua", answers: ["Приятно познакомиться"], options: ["Приятно познакомиться", "Удачи", "До завтра", "Добро пожаловать"] },
+    { word: "Tervetuloa kotiin", answers: ["Добро пожаловать домой"], options: ["Счастливого пути", "Хорошего вечера", "Добро пожаловать домой", "С днем рождения"] }
+  ],
+    // Уроки 61-80: Мнение, город, покупки и идиомы (Исправлено: ответы перемешаны)
+  61: [
+    { word: "Minun mielestäni...", answers: ["По моему мнению..."], options: ["Я не знаю...", "Это правда...", "По моему мнению...", "Ты думаешь..."] },
+    { word: "Oletko varma?", answers: ["Ты уверен?"], options: ["Ты уверен?", "Ты готов?", "Ты согласен?", "Ты слышишь?"] },
+    { word: "Olet oikeassa", answers: ["Ты прав"], options: ["Ты ошибаешься", "Ты добрый", "Ты здесь", "Ты прав"] },
+    { word: "Se on mahdollista", answers: ["Это возможно"], options: ["Это сложно", "Это возможно", "Это важно", "Это обязательно"] },
+    { word: "Luulen niin", answers: ["Я так думаю"], options: ["Я так думаю", "Я так не думаю", "Я знаю это", "Я помню это"] }
+  ],
+  62: [
+    { word: "Missä on pysäkki?", answers: ["Где остановка?"], options: ["Где вокзал?", "Где остановка?", "Где магазин?", "Где туалет?"] },
+    { word: "Menen bussilla", answers: ["Я еду на автобусе"], options: ["Я еду на автобусе", "Я иду пешком", "Я еду на машине", "Я еду на поезде"] },
+    { word: "Käänny vasemmalle", answers: ["Поверни налево"], options: ["Поверни направо", "Поверни налево", "Иди прямо", "Стой здесь"] },
+    { word: "Se on lähellä", answers: ["Это близко"], options: ["Это далеко", "Это здесь", "Это там", "Это близко"] },
+    { word: "Tie on suljettu", answers: ["Дорога закрыта"], options: ["Дорога закрыта", "Дорога открыта", "Дорога длинная", "Дорога плохая"] }
+  ],
+  63: [
+    { word: "Onko teillä...?", answers: ["У вас есть...?"], options: ["Где купить...?", "Сколько стоит...?", "У вас есть...?", "Можно ли...?"] },
+    { word: "Otan tämän", answers: ["Я возьму это"], options: ["Я посмотрю", "Я возьму это", "Мне не нужно", "Дайте два"] },
+    { word: "Tarvitsen kuitin", answers: ["Мне нужен чек"], options: ["Мне нужна сумка", "Мне нужен чек", "Мне нужна сдача", "Мне нужна цена"] },
+    { word: "Voinko maksaa kortilla?", answers: ["Могу я оплатить картой?"], options: ["Могу я оплатить картой?", "Где банкомат?", "У вас есть наличные?", "Это со скидкой?"] },
+    { word: "Tämä on halpa", answers: ["Это дешево"], options: ["Это дешево", "Это дорого", "Это бесплатно", "Это сломано"] }
+  ],
+  64: [
+    { word: "Pöytä kahdelle", answers: ["Стол на двоих"], options: ["Меню, пожалуйста", "Стол на двоих", "Счет, пожалуйста", "Стакан воды"] },
+    { word: "Olen kasvissyöjä", answers: ["Я вегетарианец"], options: ["У меня аллергия", "Я голоден", "Я не пью кофе", "Я вегетарианец"] },
+    { word: "Saisinko laskun?", answers: ["Можно мне счет?"], options: ["Можно мне счет?", "Можно мне меню?", "Можно еще воды?", "Где кухня?"] },
+    { word: "Tämä on tulista", answers: ["Это острое"], options: ["Это соленое", "Это острое", "Это сладкое", "Это холодное"] },
+    { word: "Hyvää ruokahalua", answers: ["Приятного аппетита"], options: ["Приятного аппетита", "Спасибо за еду", "Очень вкусно", "Я сыт"] }
+  ],
+  65: [
+    { word: "Minua väsyttää", answers: ["Меня клонит в сон"], options: ["Я устал", "Я болен", "Меня клонит в сон", "Я зол"] },
+    { word: "Minua naurattaa", answers: ["Мне смешно"], options: ["Мне смешно", "Я смеюсь", "Мне грустно", "Я шучу"] },
+    { word: "Minua jännittää", answers: ["Я волнуюсь"], options: ["Я волнуюсь", "Я боюсь", "Я радуюсь", "Я жду"] },
+    { word: "Minua harmittaa", answers: ["Мне досадно"], options: ["Я злюсь", "Мне досадно", "Я плачу", "Я спокоен"] },
+    { word: "Minua huvittaa", answers: ["Меня это забавляет"], options: ["Меня это забавляет", "Мне скучно", "Мне все равно", "Я удивлен"] }
+  ],
+  66: [
+    { word: "Ulkona sataa vettä", answers: ["На улице дождь"], options: ["На улице дождь", "На улице снег", "На улице ветер", "На улице солнечно"] },
+    { word: "On kova tuuli", answers: ["Дует сильный ветер"], options: ["Сегодня холодно", "Дует сильный ветер", "Небо облачное", "Идет гроза"] },
+    { word: "Aurinko paistaa", answers: ["Солнце светит"], options: ["Звезды яркие", "Солнце светит", "Луна видна", "Туман на улице"] },
+    { word: "On pakastanut", answers: ["Подморозило"], options: ["Подморозило", "Снег растаял", "Идет град", "Очень жарко"] },
+    { word: "Mennään metsään", answers: ["Пойдем в лес"], options: ["Пойдем в лес", "Пойдем к озеру", "Пойдем на пляж", "Пойдем в парк"] }
+  ],
+  67: [
+    { word: "Auta minua!", answers: ["Помоги мне!"], options: ["Уходи!", "Помоги мне!", "Стой!", "Смотри!"] },
+    { word: "Olen eksynyt", answers: ["Я заблудился"], options: ["Я заблудился", "Я опоздал", "Я устал", "Я пришел"] },
+    { word: "Soita poliisille", answers: ["Позвони в полицию"], options: ["Вызови врача", "Позвони в полицию", "Позвони домой", "Тише!"] },
+    { word: "Hätänumero on 112", answers: ["Номер экстренной службы 112"], options: ["Мой номер телефона", "Код от двери", "Сколько времени", "Номер экстренной службы 112"] },
+    { word: "Kaikki on kunnossa", answers: ["Все в порядке"], options: ["Все в порядке", "Что случилось?", "Помогите!", "Я не знаю"] }
+  ],
+  68: [
+    { word: "Mitä se tarkoittaa?", answers: ["Что это значит?"], options: ["Как это пишется?", "Что это значит?", "Как это сказать?", "Кто это?"] },
+    { word: "Voitko toistaa?", answers: ["Можешь повторить?"], options: ["Можешь повторить?", "Можешь помочь?", "Можешь идти?", "Можешь верить?"] },
+    { word: "Puhu hitaammin", answers: ["Говори медленнее"], options: ["Говори медленнее", "Говори громче", "Говори четче", "Не говори"] },
+    { word: "Miten se sanotaan...?", answers: ["Как это сказать...?"], options: ["Как это сказать...?", "Как это пишется...?", "Что это за слово...?", "Как дела...?"] },
+    { word: "Kirjoita se, kiitos", answers: ["Напишите это"], options: ["Напишите это", "Прочитайте это", "Скажите это", "Покажите это"] }
+  ],
+  69: [
+    { word: "Mitä sinulle kuuluu?", answers: ["Как у тебя дела?"], options: ["Как тебя зовут?", "Где ты?", "Как у тебя дела?", "Кто ты?"] },
+    { word: "Hyvää viikonloppua!", answers: ["Хороших выходных!"], options: ["Хороших выходных!", "Хорошего дня!", "Спокойной ночи!", "Удачи!"] },
+    { word: "Olen pahoillani", answers: ["Мне жаль"], options: ["Мне жаль", "Я рад", "Я злюсь", "Я не знаю"] },
+    { word: "Tervetuloa!", answers: ["Добро пожаловать!"], options: ["До свидания!", "Заходите!", "Привет!", "Добро пожаловать!"] },
+    { word: "Onnea matkaan!", answers: ["Удачи в пути!"], options: ["Удачи в пути!", "С днем рождения!", "Хорошего отдыха!", "Поздравляю!"] }
+  ],
+  70: [ // Босс 7
+    { word: "Olen samaa mieltä", answers: ["Я согласен"], options: ["Я согласен", "Я не согласен", "Мне все равно", "Я не уверен"] },
+    { word: "Se ei haittaa", answers: ["Ничего страшного"], options: ["Это важно", "Ничего страшного", "Это мешает", "Это плохо"] },
+    { word: "Ota iisisti", answers: ["Расслабься"], options: ["Поспеши", "Расслабься", "Будь осторожен", "Иди домой"] },
+    { word: "Aivan sama", answers: ["Все равно"], options: ["Без разницы", "Именно так", "Никогда", "Все равно"] },
+    { word: "Totta kai", answers: ["Конечно"], options: ["Конечно", "Вряд ли", "Может быть", "Нет"] }
+  ],
+  71: [
+    { word: "Pidetään tauko", answers: ["Сделаем перерыв"], options: ["Сделаем перерыв", "Давайте начнем", "Давайте закончим", "Пойдемте есть"] },
+    { word: "Olen varattu", answers: ["Я занят"], options: ["Я занят", "Я свободен", "Я опоздаю", "Я на месте"] },
+    { word: "Voisitko auttaa?", answers: ["Не могли бы вы помочь?"], options: ["Что вы делаете?", "Не могли бы вы помочь?", "Где вы?", "Кто вы?"] },
+    { word: "Se on sovittu", answers: ["Договорились"], options: ["Договорились", "Посмотрим", "Это невозможно", "Я не согласен"] },
+    { word: "Lähetä minulle viesti", answers: ["Отправь сообщение"], options: ["Отправь сообщение", "Позвони мне", "Напиши письмо", "Дай мне знать"] }
+  ],
+  72: [
+    { word: "Netti ei toimi", answers: ["Интернет не работает"], options: ["Интернет не работает", "Телефон сломался", "Связь плохая", "Зарядка кончилась"] },
+    { word: "Akku on tyhjä", answers: ["Аккумулятор разряжен"], options: ["Память полна", "Аккумулятор разряжен", "Экран разбит", "Звука нет"] },
+    { word: "Lataa sovellus", answers: ["Скачай приложение"], options: ["Скачай приложение", "Удали файл", "Обнови страницу", "Включи камеру"] },
+    { word: "Mikä on salasana?", answers: ["Какой пароль?"], options: ["Где розетка?", "Какой пароль?", "Как тебя зовут?", "Чей это телефон?"] },
+    { word: "Jaa sijainti", answers: ["Поделись локацией"], options: ["Сделай фото", "Скинь ссылку", "Выключи свет", "Поделись локацией"] }
+  ],
+  73: [
+    { word: "Minulla on kuumetta", answers: ["У меня температура"], options: ["У меня температура", "У меня насморк", "У меня кашель", "У меня аллергия"] },
+    { word: "Vatsa on kipeä", answers: ["Болит живот"], options: ["Болит живот", "Болит голова", "Болит горло", "Болит спина"] },
+    { word: "Oletko kunnossa?", answers: ["Ты в порядке?"], options: ["Ты спишь?", "Ты в порядке?", "Ты идешь?", "Ты слышишь?"] },
+    { word: "Tarvitsen lepoa", answers: ["Мне нужен отдых"], options: ["Мне нужен отдых", "Мне нужна вода", "Мне нужен врач", "Мне нужно лекарство"] },
+    { word: "Se ottaa kipeää", answers: ["Это больно"], options: ["Это больно", "Это помогает", "Это чешется", "Это проходит"] }
+  ],
+  74: [
+    { word: "Valo ei pala", answers: ["Свет не горит"], options: ["Кран течет", "Свет не горит", "Дверь скрипит", "Окно разбито"] },
+    { word: "Hana vuotaa", answers: ["Кран течет"], options: ["Кран течет", "Замок сломан", "Стена грязная", "Пол холодный"] },
+    { word: "Se on rikki", answers: ["Это сломано"], options: ["Это сломано", "Это работает", "Это новое", "Это старое"] },
+    { word: "Tarvitsen apua", answers: ["Нужна помощь"], options: ["Нужна помощь", "Нужен инструмент", "Нужен мастер", "Я сам сделаю"] },
+    { word: "Hissi ei toimi", answers: ["Лифт не работает"], options: ["Лифт не работает", "Лестница крутая", "Дверь заперта", "Света нет"] }
+  ],
+  75: [
+    { word: "Olen yllättynyt", answers: ["Я удивлен"], options: ["Я расстроен", "Я удивлен", "Я напуган", "Я спокоен"] },
+    { word: "Kuulostaa hyvältä", answers: ["Звучит отлично"], options: ["Звучит отлично", "Звучит странно", "Я не слышу", "Повтори еще раз"] },
+    { word: "Ei haittaa", answers: ["Ничего страшного"], options: ["Это важно", "Я против", "Ничего страшного", "Помогите"] },
+    { word: "Olen ylpeä sinusta", answers: ["Горжусь тобой"], options: ["Горжусь тобой", "Верю тебе", "Жду тебя", "Люблю тебя"] },
+    { word: "Älä huoli", answers: ["Не волнуйся"], options: ["Не волнуйся", "Не спеши", "Не плачь", "Не забудь"] }
+  ],
+  76: [
+    { word: "Onko sinulla passia?", answers: ["Есть паспорт?"], options: ["Есть паспорт?", "Где твой билет?", "Куда ты едешь?", "Кто ты такой?"] },
+    { word: "Olen turistina", answers: ["Я как турист"], options: ["Я здесь по работе", "Я как турист", "Я здесь живу", "Я здесь учусь"] },
+    { word: "Matka kestää kauan", answers: ["Поездка долгая"], options: ["Поездка долгая", "Поездка быстрая", "Поездка дорогая", "Поездка отменена"] },
+    { word: "Mihin olet menossa?", answers: ["Куда ты едешь?"], options: ["Куда ты едешь?", "Откуда ты приехал?", "Где ты стоишь?", "Как ты едешь?"] },
+    { word: "Hyvää matkaa!", answers: ["Счастливого пути!"], options: ["Хорошего дня!", "Удачи!", "До встречи!", "Счастливого пути!"] }
+  ],
+  77: [
+    { word: "Keskity nyt", answers: ["Сосредоточься"], options: ["Сосредоточься", "Слушай внимательно", "Читай вслух", "Пиши быстрее"] },
+    { word: "Saitko selvää?", answers: ["Ты понял?"], options: ["Ты разобрался?", "Ты понял?", "Ты видел?", "Ты слышал?"] },
+    { word: "Se on mielenkiintoista", answers: ["Это интересно"], options: ["Это скучно", "Это интересно", "Это сложно", "Это просто"] },
+    { word: "Harjoitus tekee mestarin", answers: ["Практика ведет к мастерству"], options: ["Знание — сила", "Не ленись", "Практика ведет к мастерству", "Учиться всегда пригодится"] },
+    { word: "Oletko valmis?", answers: ["Ты готов?"], options: ["Ты готов?", "Ты закончил?", "Ты начал?", "Ты хочешь?"] }
+  ],
+  78: [
+    { word: "Mennään leffaan", answers: ["Пойдем в кино"], options: ["Пойдем в кино", "Пойдем в театр", "Пойдем на выставку", "Пойдем гулять"] },
+    { word: "Mikä on lempivärisi?", answers: ["Твой любимый цвет?"], options: ["Какое твое хобби?", "Твой любимый цвет?", "Как тебя зовут?", "Где ты живешь?"] },
+    { word: "Pidän musiikista", answers: ["Люблю музыку"], options: ["Играю на гитаре", "Люблю музыку", "Пою песни", "Я слушаю радио"] },
+    { word: "Se oli upeaa", answers: ["Это было великолепно"], options: ["Это было великолепно", "Это было ужасно", "Это было обычно", "Это было странно"] },
+    { word: "Mitä harrastat?", answers: ["Чем увлекаешься?"], options: ["Где работаешь?", "Чем увлекаешься?", "Что ты ешь?", "Куда ты идешь?"] }
+  ],
+  79: [
+    { word: "Voinko sovittaa?", answers: ["Могу примерить?"], options: ["Могу примерить?", "Могу купить?", "Где зеркало?", "Какой размер?"] },
+    { word: "Tämä on liian pieni", answers: ["Это слишком мало"], options: ["Это слишком мало", "Это слишком велико", "Это как раз", "Это дорого"] },
+    { word: "Mitä materiaalia tämä on?", answers: ["Из чего это?"], options: ["Из чего это?", "Сколько это стоит?", "Где это сделано?", "Есть другой цвет?"] },
+    { word: "Otan tämän koon", answers: ["Я возьму этот размер"], options: ["Я возьму этот размер", "Мне нужен чек", "Я подумаю", "Где касса?"] },
+    { word: "Se sopii sinulle", answers: ["Тебе идет"], options: ["Тебе идет", "Это тебе мало", "Это тебе велико", "Это не твой цвет"] }
+  ],
+  80: [ // Босс 8
+    { word: "Sisu", answers: ["Упорство"], options: ["Страх", "Упорство", "Лень", "Радость"] },
+    { word: "Oma koti kullan kallis", answers: ["В гостях хорошо, а дома лучше"], options: ["В гостях хорошо, а дома лучше", "Дом — это крепость", "Свой дом — самый дорогой", "Мой дом — моя гордость"] },
+    { word: "Ei haukku haavaa tee", answers: ["Слова не ранят"], options: ["Слова не ранят", "Не бойся крика", "Будь сильным", "Собака лает — караван идет"] },
+    { word: "Sopia kuin nenä päähän", answers: ["Подходить идеально"], options: ["Подходить идеально", "Быть странным", "Болеть носом", "Смеяться в лицо"] },
+    { word: "Tehdä kärpäsestä härkä", answers: ["Делать из мухи слона"], options: ["Много работать", "Быть сильным", "Делать из мухи слона", "Забыть о важном"] }
+  ],
+    // Уроки 81-100: Офис, технологии 2026 и абстракция (Исправлено: ответы перемешаны)
+  81: [
+    { word: "Päätös", answers: ["Решение"], options: ["Вопрос", "Решение", "Спор", "Отказ"] },
+    { word: "Mahdollisuus", answers: ["Возможность"], options: ["Возможность", "Риск", "Удача", "Преграда"] },
+    { word: "Vastuu", answers: ["Ответственность"], options: ["Право", "Свобода", "Ответственность", "Долг"] },
+    { word: "Kokemus", answers: ["Опыт"], options: ["Опыт", "Знание", "Чувство", "Урок"] },
+    { word: "Tavoite", answers: ["Цель"], options: ["Мечта", "План", "Результат", "Цель"] }
+  ],
+  82: [ // Офис и удаленка
+    { word: "Kokous", answers: ["Собрание"], options: ["Собрание", "Обед", "Отпуск", "Зарплата"] },
+    { word: "Etätyö", answers: ["Удаленная работа"], options: ["Офис", "Удаленная работа", "Командировка", "Подработка"] },
+    { word: "Sähköposti", answers: ["Эл. почта"], options: ["Письмо", "Звонок", "Эл. почта", "Файл"] },
+    { word: "Projektipäällikkö", answers: ["Менеджер проекта"], options: ["Директор", "Секретарь", "Стажер", "Менеджер проекта"] },
+    { word: "Määräaika", answers: ["Срок/Дедлайн"], options: ["Начало", "Срок/Дедлайн", "Перерыв", "График"] }
+  ],
+  83: [ // Движение
+    { word: "Juosta", answers: ["Бежать"], options: ["Идти", "Прыгать", "Бежать", "Лететь"] },
+    { word: "Lentää", answers: ["Лететь"], options: ["Лететь", "Плыть", "Ехать", "Ползти"] },
+    { word: "Uida", answers: ["Плавать"], options: ["Плавать", "Тонуть", "Нырять", "Гулять"] },
+    { word: "Ajaa", answers: ["Водить"], options: ["Водить", "Сидеть", "Стоять", "Ждать"] },
+    { word: "Kävellä", answers: ["Идти пешком"], options: ["Бежать", "Танцевать", "Кататься", "Идти пешком"] }
+  ],
+  84: [ // Экология 2026
+    { word: "Ympäristö", answers: ["Окружающая среда"], options: ["Окружающая среда", "Погода", "Космос", "Лес"] },
+    { word: "Kierrätys", answers: ["Переработка"], options: ["Мусор", "Чистота", "Переработка", "Защита"] },
+    { word: "Ilmasto", answers: ["Климат"], options: ["Воздух", "Температура", "Климат", "Облако"] },
+    { word: "Energia", answers: ["Энергия"], options: ["Энергия", "Свет", "Топливо", "Сила"] },
+    { word: "Luonnonvarat", answers: ["Природные ресурсы"], options: ["Животные", "Растения", "Земля", "Природные ресурсы"] }
+  ],
+  85: [ // Качества
+    { word: "Luotettava", answers: ["Надежный"], options: ["Надежный", "Честный", "Добрый", "Смелый"] },
+    { word: "Itsepäinen", answers: ["Упрямый"], options: ["Гибкий", "Упрямый", "Ленивый", "Активный"] },
+    { word: "Uskollinen", answers: ["Верный"], options: ["Верный", "Сильный", "Умный", "Гордый"] },
+    { word: "Sivistynyt", answers: ["Образованный"], options: ["Грубый", "Простой", "Образованный", "Богатый"] },
+    { word: "Luova", answers: ["Творческий"], options: ["Творческий", "Строгий", "Точный", "Скучный"] }
+  ],
+  86: [ // Здоровье детали
+    { word: "Verenpaine", answers: ["Давление"], options: ["Давление", "Пульс", "Сахар", "Вес"] },
+    { word: "Oire", answers: ["Симптом"], options: ["Болезнь", "Симптом", "Лечение", "Рецепт"] },
+    { word: "Tulehdus", answers: ["Воспаление"], options: ["Воспаление", "Рана", "Ушиб", "Перелом"] },
+    { word: "Resepti", answers: ["Рецепт"], options: ["Совет", "Справка", "Рецепт", "Чек"] },
+    { word: "Parantua", answers: ["Выздоравливать"], options: ["Болеть", "Выздоравливать", "Лечить", "Уставать"] }
+  ],
+  87: [ // Общество
+    { word: "Oikeudenmukaisuus", answers: ["Справедливость"], options: ["Закон", "Свобода", "Справедливость", "Мир"] },
+    { word: "Vaalit", answers: ["Выборы"], options: ["Выборы", "Праздник", "Собрание", "Суд"] },
+    { word: "Verotus", answers: ["Налоги"], options: ["Зарплата", "Налоги", "Штраф", "Кредит"] },
+    { word: "Kansalaisuus", answers: ["Гражданство"], options: ["Гражданство", "Паспорт", "Виза", "Право"] },
+    { word: "Lainsäädäntö", answers: ["Законодательство"], options: ["Законодательство", "Правила", "Полиция", "Тюрьма"] }
+  ],
+  88: [ // Кухня
+    { word: "Paistaa", answers: ["Жарить"], options: ["Жарить", "Варить", "Резать", "Чистить"] },
+    { word: "Keittää", answers: ["Варить"], options: ["Жарить", "Варить", "Смешивать", "Пить"] },
+    { word: "Leikata", answers: ["Резать"], options: ["Резать", "Тереть", "Мыть", "Есть"] },
+    { word: "Maistaa", answers: ["Пробовать"], options: ["Слушать", "Видеть", "Пробовать", "Нюхать"] },
+    { word: "Sekoittaa", answers: ["Смешивать"], options: ["Смешивать", "Разделять", "Добавлять", "Греть"] }
+  ],
+  89: [ // AI и Технологии 2026
+    { word: "Tekoäly", answers: ["ИИ (AI)"], options: ["ИИ (AI)", "Робот", "Программа", "Интернет"] },
+    { word: "Tietoturva", answers: ["Кибербезопасность"], options: ["Пароль", "Вирус", "Кибербезопасность", "Облако"] },
+    { word: "Pilvipalvelu", answers: ["Облачный сервис"], options: ["Связь", "Данные", "Память", "Облачный сервис"] },
+    { word: "Käyttäjä", answers: ["Пользователь"], options: ["Пользователь", "Админ", "Хакер", "Клиент"] },
+    { word: "Sovellus", answers: ["Приложение"], options: ["Сайт", "Игра", "Инструмент", "Приложение"] }
+  ],
+  90: [ // Босс 9
+    { word: "Vapaus", answers: ["Свобода"], options: ["Свобода", "Равенство", "Братство", "Закон"] },
+    { word: "Totuus", answers: ["Правда"], options: ["Ложь", "Правда", "Мнение", "Слух"] },
+    { word: "Kauneus", answers: ["Красота"], options: ["Красота", "Уродство", "Стиль", "Мода"] },
+    { word: "Rakkaus", answers: ["Любовь"], options: ["Дружба", "Ненависть", "Забота", "Любовь"] },
+    { word: "Kuolema", answers: ["Смерть"], options: ["Смерть", "Жизнь", "Сон", "Болезнь"] }
+  ],
+  91: [ // Путешествия детали
+    { word: "Laituri", answers: ["Платформа"], options: ["Вагон", "Платформа", "Касса", "Выход"] },
+    { word: "Portti", answers: ["Гейт"], options: ["Дверь", "Окно", "Гейт", "Вход"] },
+    { word: "Tarkastus", answers: ["Досмотр"], options: ["Билет", "Посадка", "Досмотр", "Очередь"] },
+    { word: "Matkatavara", answers: ["Багаж"], options: ["Багаж", "Сумка", "Рюкзак", "Чемодан"] },
+    { word: "Viivästys", answers: ["Задержка"], options: ["Задержка", "Отмена", "Прибытие", "Отправление"] }
+  ],
+  92: [ // Жилье
+    { word: "Vuokra", answers: ["Аренда"], options: ["Аренда", "Покупка", "Налог", "Залог"] },
+    { word: "Sopimus", answers: ["Договор"], options: ["Письмо", "Счет", "Договор", "Ключ"] },
+    { word: "Vakuus", answers: ["Залог"], options: ["Залог", "Штраф", "Скидка", "Оплата"] },
+    { word: "Taloyhtiö", answers: ["Кооператив"], options: ["Кооператив", "Соседи", "Двор", "Улица"] },
+    { word: "Remontti", answers: ["Ремонт"], options: ["Ремонт", "Уборка", "Переезд", "Стройка"] }
+  ],
+  93: [ // Глаголы мысли
+    { word: "Päättää", answers: ["Решать"], options: ["Думать", "Знать", "Решать", "Помнить"] },
+    { word: "Uskoa", answers: ["Верить"], options: ["Верить", "Надеяться", "Любить", "Ждать"] },
+    { word: "Toivoa", answers: ["Надеяться"], options: ["Бояться", "Надеяться", "Смеяться", "Плакать"] },
+    { word: "Arvata", answers: ["Угадать"], options: ["Знать", "Видеть", "Угадать", "Слышать"] },
+    { word: "Kuvitella", answers: ["Воображать"], options: ["Воображать", "Рисовать", "Писать", "Читать"] }
+  ],
+  94: [ // Одежда детали
+    { word: "Puuvilla", answers: ["Хлопок"], options: ["Шерсть", "Хлопок", "Шелк", "Кожа"] },
+    { word: "Villa", answers: ["Шерсть"], options: ["Шерсть", "Лен", "Хлопок", "Синтетика"] },
+    { word: "Vetoketju", answers: ["Молния"], options: ["Молния", "Пуговица", "Карман", "Рукав"] },
+    { word: "Tasku", answers: ["Карман"], options: ["Воротник", "Пояс", "Карман", "Шов"] },
+    { word: "Koko", answers: ["Размер"], options: ["Цвет", "Размер", "Вес", "Длина"] }
+  ],
+  95: [ // Эмоции 
+    { word: "Mustasukkainen", answers: ["Ревнивый"], options: ["Жадный", "Злой", "Ревнивый", "Грустный"] },
+    { word: "Kiitollinen", answers: ["Благодарный"], options: ["Счастливый", "Добрый", "Благодарный", "Мирный"] },
+    { word: "Yksinäinen", answers: ["Одинокий"], options: ["Одинокий", "Тихий", "Скучный", "Старый"] },
+    { word: "Hämmentynyt", answers: ["Смущенный"], options: ["Злой", "Смущенный", "Уверенный", "Веселый"] },
+    { word: "Innostunut", answers: ["Воодушевленный"], options: ["Уставший", "Спящий", "Воодушевленный", "Грустный"] }
+  ],
+  96: [ // Город
+    { word: "Risteys", answers: ["Перекресток"], options: ["Перекресток", "Тупик", "Мост", "Тоннель"] },
+    { word: "Suojatie", answers: ["Переход"], options: ["Тротуар", "Переход", "Дорога", "Парковка"] },
+    { word: "Liikennevalo", answers: ["Светофор"], options: ["Знак", "Фонарь", "Полиция", "Светофор"] },
+    { word: "Katu", answers: ["Улица"], options: ["Площадь", "Парк", "Двор", "Улица"] },
+    { word: "Rakennus", answers: ["Здание"], options: ["Здание", "Дом", "Башня", "Стена"] }
+  ],
+  97: [ // Время периоды
+    { word: "Vuosisata", answers: ["Век"], options: ["Век", "Год", "Месяц", "Эра"] },
+    { word: "Vuosikymmen", answers: ["Десятилетие"], options: ["Десятилетие", "Неделя", "День", "Час"] },
+    { word: "Ikuisuus", answers: ["Вечность"], options: ["Вечность", "Миг", "Будущее", "Прошлое"] },
+    { word: "Nykyhetki", answers: ["Настоящее"], options: ["Вчера", "Завтра", "Настоящее", "Сейчас"] },
+    { word: "Aikakausi", answers: ["Эпоха"], options: ["Время", "История", "Эпоха", "Случай"] }
+  ],
+  98: [ // Отношения
+    { word: "Naapuri", answers: ["Сосед"], options: ["Друг", "Сосед", "Враг", "Коллега"] },
+    { word: "Tuttu", answers: ["Знакомый"], options: ["Знакомый", "Родственник", "Чужой", "Гость"] },
+    { word: "Kumppani", answers: ["Партнер"], options: ["Супруг", "Партнер", "Помощник", "Лидер"] },
+    { word: "Vieras", answers: ["Гость"], options: ["Хозяин", "Ребенок", "Старик", "Гость"] },
+    { word: "Yhteisö", answers: ["Сообщество"], options: ["Сообщество", "Группа", "Семья", "Народ"] }
+  ],
+  99: [ // Финансы
+    { word: "Kuitata", answers: ["Подтвердить"], options: ["Купить", "Подтвердить", "Продать", "Спросить"] },
+    { word: "Alennus", answers: ["Скидка"], options: ["Скидка", "Наценка", "Цена", "Налог"] },
+    { word: "Korko", answers: ["Процент"], options: ["Долг", "Процент", "Счет", "Прибыль"] },
+    { word: "Laina", answers: ["Кредит"], options: ["Кредит", "Подарок", "Зарплата", "Штраф"] },
+    { word: "Tili", answers: ["Счет"], options: ["Счет", "Карта", "Деньги", "Кошелек"] }
+  ],
+  100: [ // Босс 10
+    { word: "Merkitys", answers: ["Смысл"], options: ["Смысл", "Слово", "Звук", "Форма"] },
+    { word: "Olemassaolo", answers: ["Существование"], options: ["Существование", "Жизнь", "Мир", "Ничто"] },
+    { word: "Oikeus", answers: ["Право"], options: ["Долг", "Право", "Закон", "Суд"] },
+    { word: "Hyvyys", answers: ["Доброта"], options: ["Доброта", "Зло", "Сила", "Мудрость"] },
+    { word: "Viisaus", answers: ["Мудрость"], options: ["Мудрость", "Знание", "Опыт", "Ум"] }
+  ],
+    // Уроки 101-120: Технологии, Работа и Социальные нормы (Исправлено: ответы перемешаны)
+  101: [
+    { word: "Hyödyllinen", answers: ["Полезный"], options: ["Сложный", "Полезный", "Скучный", "Дорогой"] },
+    { word: "Turha", answers: ["Бесполезный"], options: ["Бесполезный", "Важный", "Быстрый", "Новый"] },
+    { word: "Yhteistyö", answers: ["Сотрудничество"], options: ["Ссора", "Помощь", "Сотрудничество", "Работа"] },
+    { word: "Ratkaista", answers: ["Решать"], options: ["Решать", "Ломать", "Забывать", "Искать"] },
+    { word: "Kehittää", answers: ["Развивать"], options: ["Учить", "Развивать", "Смотреть", "Делать"] }
+  ],
+  102: [
+    { word: "Älypuhelin", answers: ["Смартфон"], options: ["Экран", "Связь", "Зарядка", "Смартфон"] },
+    { word: "Ladata", answers: ["Заряжать/Скачивать"], options: ["Удалять", "Заряжать/Скачивать", "Звонить", "Писать"] },
+    { word: "Verkko", answers: ["Сеть"], options: ["Провод", "Сеть", "Свет", "Кнопка"] },
+    { word: "Yhteys", answers: ["Связь"], options: ["Связь", "Разрыв", "Голос", "Пароль"] },
+    { word: "Sovellus", answers: ["Приложение"], options: ["Программа", "Сайт", "Приложение", "Файл"] }
+  ],
+  103: [
+    { word: "Palkata", answers: ["Нанимать"], options: ["Увольнять", "Нанимать", "Платить", "Работать"] },
+    { word: "Irtisanoa", answers: ["Увольнять"], options: ["Искать", "Нанимать", "Увольнять", "Обучать"] },
+    { word: "Työhaastattelu", answers: ["Собеседование"], options: ["Встреча", "Собеседование", "Договор", "Зарплата"] },
+    { word: "Ansioluettelo", answers: ["Резюме"], options: ["Резюме", "Диплом", "Справка", "Заявка"] },
+    { word: "Ylityö", answers: ["Переработка"], options: ["Отдых", "Смена", "Переработка", "Отпуск"] }
+  ],
+  104: [
+    { word: "Kestävä", answers: ["Прочный"], options: ["Хрупкий", "Мягкий", "Прочный", "Тонкий"] },
+    { word: "Laatu", answers: ["Качество"], options: ["Размер", "Цена", "Вес", "Качество"] },
+    { word: "Materiaali", answers: ["Материал"], options: ["Материал", "Форма", "Стиль", "Цвет"] },
+    { word: "Valmistaa", answers: ["Производить"], options: ["Покупать", "Продавать", "Производить", "Сломать"] },
+    { word: "Kuluttaa", answers: ["Тратить/Потреблять"], options: ["Копить", "Тратить/Потреблять", "Дарить", "Брать"] }
+  ],
+  105: [ 
+    { word: "Stressi", answers: ["Стресс"], options: ["Радость", "Стресс", "Сон", "Покой"] },
+    { word: "Ahdistus", answers: ["Тревога"], options: ["Счастье", "Гнев", "Смех", "Тревога"] },
+    { word: "Rentoutua", answers: ["Расслабляться"], options: ["Работать", "Расслабляться", "Бежать", "Кричать"] },
+    { word: "Mielenterveys", answers: ["Псих. здоровье"], options: ["Физика", "Псих. здоровье", "Память", "Сон"] },
+    { word: "Hyvinvointi", answers: ["Благополучие"], options: ["Благополучие", "Бедность", "Болезнь", "Удача"] }
+  ],
+  106: [
+    { word: "Säästää", answers: ["Экономить"], options: ["Тратить", "Покупать", "Экономить", "Давать"] },
+    { word: "Tuhlata", answers: ["Тратить впустую"], options: ["Тратить впустую", "Копить", "Инвестировать", "Считать"] },
+    { word: "Sijoittaa", answers: ["Инвестировать"], options: ["Тратить", "Инвестировать", "Брать в долг", "Платить"] },
+    { word: "Verot", answers: ["Налоги"], options: ["Штрафы", "Налоги", "Зарплата", "Бонусы"] },
+    { word: "Lompakko", answers: ["Кошелек"], options: ["Сумка", "Кошелек", "Карта", "Сейф"] }
+  ],
+  107: [
+    { word: "Todiste", answers: ["Доказательство"], options: ["Ложь", "Мнение", "Доказательство", "Слух"] },
+    { word: "Epäillä", answers: ["Сомневаться"], options: ["Верить", "Сомневаться", "Знать", "Понимать"] },
+    { word: "Varma", answers: ["Уверенный"], options: ["Слабый", "Уверенный", "Глупый", "Тихий"] },
+    { word: "Syyttää", answers: ["Обвинять"], options: ["Хвалить", "Помогать", "Обвинять", "Прощать"] },
+    { word: "Myöntää", answers: ["Признавать"], options: ["Отрицать", "Признавать", "Забывать", "Скрывать"] }
+  ],
+  108: [
+    { word: "Suunta", answers: ["Направление"], options: ["Место", "Направление", "Цель", "Путь"] },
+    { word: "Vastapäätä", answers: ["Напротив"], options: ["Рядом", "Внутри", "Напротив", "Сзади"] },
+    { word: "Välissä", answers: ["Между"], options: ["Между", "Сверху", "Снизу", "Сбоку"] },
+    { word: "Keskellä", answers: ["Посередине"], options: ["Скраю", "Посередине", "Везде", "Нигде"] },
+    { word: "Ympäri", answers: ["Вокруг"], options: ["Вокруг", "Прямо", "Назад", "Мимо"] }
+  ],
+  109: [
+    { word: "Julkinen", answers: ["Общественный"], options: ["Личный", "Скрытый", "Общественный", "Новый"] },
+    { word: "Yksityinen", answers: ["Частный"], options: ["Частный", "Общий", "Старый", "Большой"] },
+    { word: "Palvelu", answers: ["Услуга"], options: ["Товар", "Работа", "Услуга", "Цена"] },
+    { word: "Asiakas", answers: ["Клиент"], options: ["Продавец", "Клиент", "Директор", "Врач"] },
+    { word: "Palaute", answers: ["Отзыв"], options: ["Вопрос", "Ответ", "Отзыв", "Жалоба"] }
+  ],
+  110: [ // Босс 11
+    { word: "Sivistys", answers: ["Образованность/Культура"], options: ["Природа", "Образованность/Культура", "История", "Закон"] },
+    { word: "Vaikutus", answers: ["Влияние"], options: ["Сила", "Влияние", "Причина", "Итог"] },
+    { word: "Riippuvuus", answers: ["Зависимость"], options: ["Свобода", "Дружба", "Зависимость", "Связь"] },
+    { word: "Arvo", answers: ["Ценность"], options: ["Цена", "Ценность", "Смысл", "Вес"] },
+    { word: "Perinne", answers: ["Традиция"], options: ["Мода", "Традиция", "Закон", "Сказка"] }
+  ],
+  111: [
+    { word: "Osallistua", answers: ["Участвовать"], options: ["Смотреть", "Участвовать", "Уходить", "Ждать"] },
+    { word: "Järjestää", answers: ["Организовывать"], options: ["Организовывать", "Ломать", "Искать", "Прятать"] },
+    { word: "Tapahtuma", answers: ["Событие"], options: ["Случай", "Место", "Событие", "Время"] },
+    { word: "Yleisö", answers: ["Публика"], options: ["Публика", "Актеры", "Спортсмены", "Люди"] },
+    { word: "Pääsymaksu", answers: ["Входная плата"], options: ["Билет", "Входная плата", "Скидка", "Выход"] }
+  ],
+  112: [
+    { word: "Luvat", answers: ["Разрешения"], options: ["Запреты", "Правила", "Разрешения", "Законы"] },
+    { word: "Kielletty", answers: ["Запрещено"], options: ["Разрешено", "Запрещено", "Важно", "Нужно"] },
+    { word: "Sallittu", answers: ["Разрешено"], options: ["Разрешено", "Запрещено", "Опасно", "Скрыто"] },
+    { word: "Vaara", answers: ["Опасность"], options: ["Мир", "Порядок", "Опасность", "Удача"] },
+    { word: "Varoitus", answers: ["Предупреждение"], options: ["Предупреждение", "Совет", "Просьба", "Приказ"] }
+  ],
+  113: [
+    { word: "Ilmainen", answers: ["Бесплатно"], options: ["Дорого", "Дешево", "Бесплатно", "Ценно"] },
+    { word: "Kokeilla", answers: ["Пробовать"], options: ["Пробовать", "Знать", "Видеть", "Слышать"] },
+    { word: "Onnistua", answers: ["Удаваться"], options: ["Проигрывать", "Забывать", "Удаваться", "Начинать"] },
+    { word: "Epäonnistua", answers: ["Потерпеть неудачу"], options: ["Выиграть", "Потерпеть неудачу", "Закончить", "Пытаться"] },
+    { word: "Yrittää", answers: ["Пытаться"], options: ["Пытаться", "Делать", "Знать", "Уметь"] }
+  ],
+  114: [
+    { word: "Tuore", answers: ["Свежий"], options: ["Старый", "Свежий", "Гнилой", "Вкусный"] },
+    { word: "Kypsä", answers: ["Спелый"], options: ["Зеленый", "Кислый", "Спелый", "Горький"] },
+    { word: "Makea", answers: ["Сладкий"], options: ["Сладкий", "Соленый", "Острый", "Кислый"] },
+    { word: "Suolainen", answers: ["Соленый"], options: ["Сладкий", "Соленый", "Горький", "Пресный"] },
+    { word: "Hapan", answers: ["Кислый"], options: ["Сладкий", "Кислый", "Острый", "Холодный"] }
+  ],
+  115: [
+    { word: "Uskaltaa", answers: ["Осмеливаться"], options: ["Бояться", "Осмеливаться", "Молчать", "Уходить"] },
+    { word: "Pelätä", answers: ["Бояться"], options: ["Бояться", "Радоваться", "Смеяться", "Петь"] },
+    { word: "Suojella", answers: ["Защищать"], options: ["Нападать", "Защищать", "Прятать", "Искать"] },
+    { word: "Vahingoittaa", answers: ["Вредить"], options: ["Помогать", "Лечить", "Вредить", "Учить"] },
+    { word: "Pelastaa", answers: ["Спасать"], options: ["Бросать", "Забывать", "Прятать", "Спасать"] }
+  ],
+  116: [
+    { word: "Luonnonmukainen", answers: ["Натуральный"], options: ["Искусственный", "Натуральный", "Дешевый", "Странный"] },
+    { word: "Keinotekoinen", answers: ["Искусственный"], options: ["Искусственный", "Настоящий", "Живой", "Чистый"] },
+    { word: "Myrkyllinen", answers: ["Ядовитый"], options: ["Полезный", "Ядовитый", "Вкусный", "Сладкий"] },
+    { word: "Terveellinen", answers: ["Здоровый"], options: ["Вредный", "Здоровый", "Жирный", "Старый"] },
+    { word: "Haitallinen", answers: ["Вредный"], options: ["Вредный", "Хороший", "Безопасный", "Нужный"] }
+  ],
+  117: [
+    { word: "Mielikuvitus", answers: ["Воображение"], options: ["Память", "Логика", "Воображение", "Знание"] },
+    { word: "Muisti", answers: ["Память"], options: ["Глаза", "Уши", "Голос", "Память"] },
+    { word: "Älykkyys", answers: ["Интеллект"], options: ["Сила", "Интеллект", "Красота", "Скорость"] },
+    { word: "Tunne", answers: ["Чувство"], options: ["Мысль", "Чувство", "Слово", "Действие"] },
+    { word: "Aisti", answers: ["Ощущение"], options: ["Ощущение", "Боль", "Сон", "Запах"] }
+  ],
+  118: [
+    { word: "Yhteiskunta", answers: ["Общество"], options: ["Семья", "Город", "Общество", "Мир"] },
+    { word: "Kulttuuri", answers: ["Культура"], options: ["История", "Культура", "Спорт", "Наука"] },
+    { word: "Politiikka", answers: ["Политика"], options: ["Политика", "Экономика", "Право", "Религия"] },
+    { word: "Talous", answers: ["Экономика"], options: ["Деньги", "Экономика", "Банк", "Рынок"] },
+    { word: "Uskonto", answers: ["Религия"], options: ["Вера", "Религия", "Философия", "Миф"] }
+  ],
+  119: [
+    { word: "Ilmoitus", answers: ["Объявление"], options: ["Письмо", "Книга", "Газета", "Объявление"] },
+    { word: "Viesti", answers: ["Сообщение"], options: ["Сообщение", "Звонок", "Голос", "Звук"] },
+    { word: "Keskustelu", answers: ["Разговор"], options: ["Ссора", "Молчание", "Разговор", "Крик"] },
+    { word: "Mielipide", answers: ["Мнение"], options: ["Факт", "Мнение", "Ложь", "Секрет"] },
+    { word: "Kieli", answers: ["Язык"], options: ["Слово", "Звук", "Язык", "Буква"] }
+  ],
+  120: [ // Босс 12
+    { word: "Itsenäisyys", answers: ["Независимость"], options: ["Свобода", "Помощь", "Независимость", "Сила"] },
+    { word: "Oikeudenmukaisuus", answers: ["Справедливость"], options: ["Справедливость", "Закон", "Правда", "Порядок"] },
+    { word: "Vastuu", answers: ["Ответственность"], options: ["Долг", "Ответственность", "Право", "Вина"] },
+    { word: "Luottamus", answers: ["Доверие"], options: ["Доверие", "Дружба", "Любовь", "Вера"] },
+    { word: "Tulevaisuus", answers: ["Будущее"], options: ["Прошлое", "Настоящее", "Будущее", "Вечность"] }
+  ],
+  121: [
+    { word: "Puhua", answers: ["Говорить"], options: ["Бежать", "Слушать", "Говорить", "Писать"] },
+    { word: "Kuunnella", answers: ["Слушать"], options: ["Смотреть", "Слушать", "Трогать", "Читать"] },
+    { word: "Kertoa", answers: ["Рассказывать"], options: ["Прятать", "Рассказывать", "Резать", "Забывать"] },
+    { word: "Kysyä", answers: ["Спрашивать"], options: ["Спрашивать", "Отвечать", "Молчать", "Писать"] },
+    { word: "Vastata", answers: ["Отвечать"], options: ["Отвечать", "Уходить", "Спать", "Бояться"] }
+  ],
+  122: [
+    { word: "Ajatus", answers: ["Мысль"], options: ["Слово", "Мысль", "Ответ", "Причина"] },
+    { word: "Idea", answers: ["Идея"], options: ["План", "Ошибка", "Идея", "Слух"] },
+    { word: "Mielipide", answers: ["Мнение"], options: ["Факт", "Мнение", "Правило", "Новость"] },
+    { word: "Ehdotus", answers: ["Предложение"], options: ["Отказ", "Ошибка", "Предложение", "Пауза"] },
+    { word: "Päätös", answers: ["Решение"], options: ["Начало", "Решение", "Вопрос", "Причина"] }
+  ],
+  123: [
+    { word: "Ymmärtää", answers: ["Понимать"], options: ["Бежать", "Понимать", "Смеяться", "Рисовать"] },
+    { word: "Oppia", answers: ["Учиться"], options: ["Спать", "Бояться", "Учиться", "Прыгать"] },
+    { word: "Muistaa", answers: ["Помнить"], options: ["Писать", "Забывать", "Помнить", "Слушать"] },
+    { word: "Unohtaa", answers: ["Забывать"], options: ["Читать", "Забывать", "Знать", "Говорить"] },
+    { word: "Harjoitella", answers: ["Тренироваться"], options: ["Лежать", "Тренироваться", "Бояться", "Прятаться"] }
+  ],
+  124: [
+    { word: "Kasvaa", answers: ["Расти"], options: ["Падать", "Расти", "Стоять", "Ломаться"] },
+    { word: "Kehittyä", answers: ["Развиваться"], options: ["Развиваться", "Портиться", "Останавливаться", "Прыгать"] },
+    { word: "Muuttua", answers: ["Меняться"], options: ["Прятаться", "Повторять", "Меняться", "Оставаться"] },
+    { word: "Parantaa", answers: ["Улучшать"], options: ["Улучшать", "Ломать", "Терять", "Резать"] },
+    { word: "Heikentyä", answers: ["Ухудшаться"], options: ["Расти", "Ухудшаться", "Исправляться", "Прыгать"] }
+  ],
+    125: [
+    { word: "Aloittaa", answers: ["Начинать"], options: ["Заканчивать", "Начинать", "Падать", "Забывать"] },
+    { word: "Lopettaa", answers: ["Заканчивать"], options: ["Продолжать", "Писать", "Заканчивать", "Слушать"] },
+    { word: "Jatkaa", answers: ["Продолжать"], options: ["Продолжать", "Останавливаться", "Бояться", "Уходить"] },
+    { word: "Keskeyttää", answers: ["Прерывать"], options: ["Смеяться", "Прерывать", "Начинать", "Помнить"] },
+    { word: "Valmistua", answers: ["Закончить (учёбу)/Выпуститься"], options: ["Провалиться", "Закончить (учёбу)/Выпуститься", "Передумать", "Опоздать"] }
+  ],
+  126: [
+    { word: "Onnistua", answers: ["Удастся/Получиться"], options: ["Проиграть", "Удастся/Получиться", "Уйти", "Сломаться"] },
+    { word: "Epäonnistua", answers: ["Потерпеть неудачу"], options: ["Победить", "Смеяться", "Потерпеть неудачу", "Отдохнуть"] },
+    { word: "Yrittää", answers: ["Пытаться"], options: ["Сдаваться", "Пытаться", "Слушать", "Плыть"] },
+    { word: "Saavuttaa", answers: ["Достигать"], options: ["Терять", "Достигать", "Прятать", "Сравнивать"] },
+    { word: "Häviä", answers: ["Проигрывать"], options: ["Выигрывать", "Соглашаться", "Проигрывать", "Договариваться"] }
+  ],
+  127: [
+    { word: "Tarvita", answers: ["Нуждаться"], options: ["Хотеть", "Нуждаться", "Забывать", "Смеяться"] },
+    { word: "Riittää", answers: ["Хватать"], options: ["Пропадать", "Хватать", "Ломаться", "Падать"] },
+    { word: "Puuttua", answers: ["Не хватать/Отсутствовать"], options: ["Не хватать/Отсутствовать", "Помнить", "Соглашаться", "Писать"] },
+    { word: "Mahdollinen", answers: ["Возможный"], options: ["Сложный", "Возможный", "Точный", "Громкий"] },
+    { word: "Mahdoton", answers: ["Невозможный"], options: ["Невозможный", "Лёгкий", "Быстрый", "Стабильный"] }
+  ],
+  128: [
+    { word: "Tärkeä", answers: ["Важный"], options: ["Смешной", "Важный", "Редкий", "Случайный"] },
+    { word: "Hyödyllinen", answers: ["Полезный"], options: ["Полезный", "Скучный", "Опасный", "Дорогой"] },
+    { word: "Turha", answers: ["Бесполезный"], options: ["Новый", "Бесполезный", "Сильный", "Тихий"] },
+    { word: "Välttämätön", answers: ["Необходимый"], options: ["Лишний", "Необходимый", "Странный", "Слабый"] },
+    { word: "Aivan", answers: ["Совсем/Полностью"], options: ["Редко", "Почти", "Совсем/Полностью", "Иногда"] }
+  ],
+  129: [
+    { word: "Suunnitelma", answers: ["План"], options: ["План", "Ошибка", "Слух", "Ответ"] },
+    { word: "Tavoite", answers: ["Цель"], options: ["Причина", "Выбор", "Цель", "Идея"] },
+    { word: "Vaihe", answers: ["Этап"], options: ["Этап", "Конец", "Случай", "Начало"] },
+    { word: "Aikataulu", answers: ["График/Расписание"], options: ["Скорость", "График/Расписание", "Место", "Смысл"] },
+    { word: "Määräaika", answers: ["Срок/Дедлайн"], options: ["Скидка", "Срок/Дедлайн", "Выход", "Перерыв"] }
+  ],
+  130: [ // Мини-босс
+    { word: "Vastuu", answers: ["Ответственность"], options: ["Свобода", "Слух", "Ответственность", "Подарок"] },
+    { word: "Luottamus", answers: ["Доверие"], options: ["Страх", "Доверие", "Злость", "Усталость"] },
+    { word: "Rehellisyys", answers: ["Честность"], options: ["Честность", "Лень", "Сила", "Сомнение"] },
+    { word: "Oikeudenmukaisuus", answers: ["Справедливость"], options: ["Правда", "Ошибка", "Справедливость", "Покой"] },
+    { word: "Periaate", answers: ["Принцип"], options: ["Шутка", "Принцип", "Песня", "Вкус"] }
+  ],
+  131: [
+    { word: "Keskustella", answers: ["Обсуждать"], options: ["Молчать", "Прыгать", "Обсуждать", "Плавать"] },
+    { word: "Väittää", answers: ["Утверждать"], options: ["Утверждать", "Спрашивать", "Сравнивать", "Слушать"] },
+    { word: "Myöntää", answers: ["Признать"], options: ["Отрицать", "Признать", "Забыть", "Скрыть"] },
+    { word: "Kieltää", answers: ["Отрицать/Запрещать"], options: ["Разрешать", "Соглашаться", "Отрицать/Запрещать", "Просить"] },
+    { word: "Todistaa", answers: ["Доказывать"], options: ["Бояться", "Доказывать", "Спать", "Смеяться"] }
+  ],
+  132: [
+    { word: "Todiste", answers: ["Доказательство"], options: ["Слух", "Мнение", "Доказательство", "Шум"] },
+    { word: "Peruste", answers: ["Основание"], options: ["Конец", "Основание", "Штраф", "Звук"] },
+    { word: "Seuraus", answers: ["Последствие"], options: ["Причина", "Последствие", "Начало", "Случай"] },
+    { word: "Syy", answers: ["Причина"], options: ["Пауза", "Причина", "Ответ", "Скорость"] },
+    { word: "Johtopäätös", answers: ["Вывод"], options: ["Риск", "Вывод", "Сон", "Скидка"] }
+  ],
+  133: [
+    { word: "Luultavasti", answers: ["Вероятно"], options: ["Точно", "Вероятно", "Никогда", "Вчера"] },
+    { word: "Mahdollisesti", answers: ["Возможно"], options: ["Возможно", "Сразу", "Всегда", "Редко"] },
+    { word: "Epävarma", answers: ["Неуверенный"], options: ["Точный", "Неуверенный", "Ясный", "Сильный"] },
+    { word: "Varma", answers: ["Уверенный"], options: ["Глупый", "Уверенный", "Слабый", "Тихий"] },
+    { word: "Todennäköinen", answers: ["Вероятный"], options: ["Редкий", "Вероятный", "Смешной", "Короткий"] }
+  ],
+  134: [
+    { word: "Neuvo", answers: ["Совет"], options: ["Совет", "Штраф", "Потеря", "Слух"] },
+    { word: "Ohje", answers: ["Инструкция"], options: ["Идея", "Инструкция", "План", "Оценка"] },
+    { word: "Sääntö", answers: ["Правило"], options: ["Свобода", "Традиция", "Правило", "Победа"] },
+    { word: "Kielto", answers: ["Запрет"], options: ["Разрешение", "Запрет", "Выбор", "Пауза"] },
+    { word: "Lupa", answers: ["Разрешение"], options: ["Штраф", "Разрешение", "Ссора", "Ошибка"] }
+  ],
+  135: [
+    { word: "Ilmaista", answers: ["Выражать"], options: ["Прятать", "Выражать", "Стирать", "Считать"] },
+    { word: "Korostaa", answers: ["Подчёркивать"], options: ["Подчёркивать", "Уменьшать", "Забывать", "Терять"] },
+    { word: "Mainita", answers: ["Упоминать"], options: ["Игнорировать", "Упоминать", "Скрывать", "Ломать"] },
+    { word: "Selittää", answers: ["Объяснять"], options: ["Пугаться", "Объяснять", "Прыгать", "Спать"] },
+    { word: "Tarkentaa", answers: ["Уточнять"], options: ["Уточнять", "Молчать", "Уходить", "Смеяться"] }
+  ],
+  136: [
+    { word: "Yhteys", answers: ["Связь"], options: ["Ключ", "Связь", "Сеть", "Папка"] },
+    { word: "Verkko", answers: ["Сеть"], options: ["Провод", "Свет", "Сеть", "Кнопка"] },
+    { word: "Katkos", answers: ["Сбой/Отключение"], options: ["Сбой/Отключение", "Обновление", "Успех", "Согласие"] },
+    { word: "Ilmoitus", answers: ["Уведомление"], options: ["Документ", "Уведомление", "Разговор", "Пауза"] },
+    { word: "Päivitys", answers: ["Обновление"], options: ["Удаление", "Ошибка", "Обновление", "Покупка"] }
+  ],
+  137: [
+    { word: "Sovellus", answers: ["Приложение"], options: ["Сайт", "Приложение", "Инструмент", "Игра"] },
+    { word: "Tiedosto", answers: ["Файл"], options: ["Файл", "Ссылка", "Пароль", "Звонок"] },
+    { word: "Kansio", answers: ["Папка"], options: ["Экран", "Папка", "Кнопка", "Текст"] },
+    { word: "Tallentaa", answers: ["Сохранять"], options: ["Открывать", "Сохранять", "Удалять", "Закрывать"] },
+    { word: "Ladata", answers: ["Скачивать/Загружать"], options: ["Скачивать/Загружать", "Печатать", "Стирать", "Считать"] }
+  ],
+  138: [
+    { word: "Tapahtuma", answers: ["Событие"], options: ["Событие", "Скорость", "Риск", "Звук"] },
+    { word: "Tilanne", answers: ["Ситуация"], options: ["Ситуация", "Выход", "Пауза", "Скидка"] },
+    { word: "Seikka", answers: ["Факт/Обстоятельство"], options: ["Слух", "Факт/Обстоятельство", "Шутка", "Игра"] },
+    { word: "Yksityiskohta", answers: ["Деталь"], options: ["Деталь", "Цель", "Причина", "Итог"] },
+    { word: "Kokonaisuus", answers: ["Целое/Общая картина"], options: ["Часть", "Целое/Общая картина", "Пауза", "Ошибка"] }
+  ],
+  139: [
+    { word: "Yhteiskunta", answers: ["Общество"], options: ["Семья", "Общество", "Лес", "Космос"] },
+    { word: "Hallinto", answers: ["Администрация/Управление"], options: ["Рынок", "Школа", "Администрация/Управление", "Спорт"] },
+    { word: "Lainsäädäntö", answers: ["Законодательство"], options: ["Полиция", "Правила", "Законодательство", "Тюрьма"] },
+    { word: "Viranomainen", answers: ["Чиновник"], options: ["Чиновник", "Сосед", "Турист", "Клиент"] },
+    { word: "Palvelu", answers: ["Услуга"], options: ["Цена", "Товар", "Услуга", "Штраф"] }
+  ],
+  140: [ 
+    { word: "Lähde", answers: ["Источник"], options: ["Источник", "Конец", "Слух", "Правда"] },
+    { word: "Julkaisu", answers: ["Публикация"], options: ["Удаление", "Публикация", "Чтение", "Письмо"] },
+    { word: "Toimittaja", answers: ["Журналист/Редактор"], options: ["Врач", "Журналист/Редактор", "Учитель", "Повар"] },
+    { word: "Uutinen", answers: ["Новость"], options: ["Ошибка", "Шум", "Новость", "Секрет"] },
+    { word: "Merkitys", answers: ["Значение/Смысл"], options: ["Звук", "Форма", "Значение/Смысл", "Цвет"] }
+  ],
+  141: [
+    { word: "Viestintä", answers: ["Связь/Коммуникация"], options: ["Транспорт", "Связь/Коммуникация", "Строительство", "Торговля"] },
+    { word: "Julkaisun", answers: ["Публикация"], options: ["Чтение", "Письмо", "Публикация", "Удаление"] },
+    { word: "Toimittaja", answers: ["Журналист/Редактор"], options: ["Врач", "Журналист/Редактор", "Учитель", "Повар"] },
+    { word: "Lähde", answers: ["Источник"], options: ["Конец", "Слух", "Источник", "Правда"] },
+    { word: "Uutiskynnys", answers: ["Значимость новости"], options: ["Газета", "Значимость новости", "Экран", "Радио"] }
+  ],
+  142: [
+    { word: "Hallinto", answers: ["Управление/Администрация"], options: ["Управление/Администрация", "Рынок", "Спорт", "Школа"] },
+    { word: "Päätöksenteko", answers: ["Принятие решений"], options: ["Ссора", "Принятие решений", "Ожидание", "Отказ"] },
+    { word: "Byrokratia", answers: ["Бюрократия"], options: ["Свобода", "Бюрократия", "Порядок", "Хаос"] },
+    { word: "Asiakirja", answers: ["Документ"], options: ["Книга", "Газета", "Документ", "Картина"] },
+    { word: "Allekirjoitus", answers: ["Подпись"], options: ["Имя", "Печать", "Подпись", "Слово"] }
+  ],
+  143: [
+    { word: "Keskittyä", answers: ["Сосредоточиться"], options: ["Отвлекаться", "Сосредоточиться", "Спать", "Играть"] },
+    { word: "Suoriutua", answers: ["Справляться"], options: ["Справляться", "Проигрывать", "Бояться", "Уходить"] },
+    { word: "Edistyä", answers: ["Прогрессировать"], options: ["Стоять на месте", "Прогрессировать", "Ухудшаться", "Забывать"] },
+    { word: "Viivästynyt", answers: ["Задержанный"], options: ["Быстрый", "Задержанный", "Новый", "Готовый"] },
+    { word: "Peruuttaa", answers: ["Отменять"], options: ["Начинать", "Продолжать", "Отменять", "Брать"] }
+  ],
+  144: [
+    { word: "Verkostautua", answers: ["Налаживать связи"], options: ["Учиться", "Налаживать связи", "Работать", "Отдыхать"] },
+    { word: "Vaikuttaa", answers: ["Влиять"], options: ["Влиять", "Слушать", "Смотреть", "Ждать"] },
+    { word: "Osallistua", answers: ["Участвовать"], options: ["Уходить", "Смотреть", "Участвовать", "Молчать"] },
+    { word: "Mainita", answers: ["Упоминать"], options: ["Забывать", "Скрывать", "Упоминать", "Кричать"] },
+    { word: "Korostaa", answers: ["Подчеркивать"], options: ["Подчеркивать", "Уменьшать", "Прятать", "Замалчивать"] }
+  ],
+  145: [
+    { word: "Yksityisyys", answers: ["Приватность"], options: ["Публичность", "Приватность", "Дружба", "Слава"] },
+    { word: "Suojaus", answers: ["Защита"], options: ["Нападение", "Риск", "Защита", "Поломка"] },
+    { word: "Varmuuskopio", answers: ["Резервная копия"], options: ["Оригинал", "Резервная копия", "Вирус", "Файл"] },
+    { word: "Päivitys", answers: ["Обновление"], options: ["Удаление", "Обновление", "Ошибка", "Старая версия"] },
+    { word: "Käyttөliittymä", answers: ["Интерфейс"], options: ["Экран", "Клавиатура", "Интерфейс", "Провод"] }
+  ],
+  146: [
+    { word: "Sopeutua", answers: ["Адаптироваться"], options: ["Противляться", "Адаптироваться", "Уходить", "Болеть"] },
+    { word: "Hyväksyä", answers: ["Принимать/Одобрять"], options: ["Отказывать", "Принимать/Одобрять", "Сомневаться", "Ругать"] },
+    { word: "Hylätä", answers: ["Отвергать/Бросать"], options: ["Брать", "Отвергать/Бросать", "Любить", "Искать"] },
+    { word: "Syyttää", answers: ["Обвинять"], options: ["Хвалить", "Защищать", "Обвинять", "Помогать"] },
+    { word: "Puolustaa", answers: ["Защищать"], options: ["Защищать", "Нападать", "Бить", "Кричать"] }
+  ],
+  147: [
+    { word: "Valvoa", answers: ["Контролировать/Не спать"], options: ["Спать", "Контролировать/Не спать", "Играть", "Петь"] },
+    { word: "Tarkastaa", answers: ["Проверять"], options: ["Ломать", "Проверять", "Забывать", "Скрывать"] },
+    { word: "Vahvistaa", answers: ["Подтверждать"], options: ["Отрицать", "Подтверждать", "Сомневаться", "Спрашивать"] },
+    { word: "Kieltää", answers: ["Запрещать"], options: ["Разрешать", "Запрещать", "Просить", "Давать"] },
+    { word: "Myöntää", answers: ["Признавать"], options: ["Скрывать", "Признавать", "Забирать", "Врать"] }
+  ],
+  148: [
+    { word: "Ilmiö", answers: ["Явление"], options: ["Случай", "Вещь", "Явление", "Место"] },
+    { word: "Peruste", answers: ["Основание"], options: ["Конец", "Основание", "Слух", "Стена"] },
+    { word: "Rakenne", answers: ["Структура"], options: ["Хаос", "Цвет", "Структура", "Вес"] },
+    { word: "Yksityiskohta", answers: ["Деталь/Подробность"], options: ["Целое", "Деталь/Подробность", "Группа", "Мир"] },
+    { word: "Kokonaisuus", answers: ["Целостность"], options: ["Часть", "Разрыв", "Целостность", "Точка"] }
+  ],
+  149: [
+    { word: "Edellytys", answers: ["Предпосылка/Условие"], options: ["Результат", "Предпосылка/Условие", "Отказ", "Конец"] },
+    { word: "Haaste", answers: ["Вызов/Сложность"], options: ["Легкость", "Помощь", "Вызов/Сложность", "Отдых"] },
+    { word: "Ratkaisu", answers: ["Решение"], options: ["Проблема", "Вопрос", "Решение", "Спор"] },
+    { word: "Vaihtoehto", answers: ["Вариант/Альтернатива"], options: ["Единственный путь", "Вариант/Альтернатива", "Запрет", "Ошибка"] },
+    { word: "Palaute", answers: ["Обратная связь"], options: ["Игнорирование", "Обратная связь", "Крик", "Молчание"] }
+  ],
+  150: [ // Босс 15: Государство и закон
+    { word: "Demokratia", answers: ["Демократия"], options: ["Диктатура", "Демократия", "Война", "Хаос"] },
+    { word: "Perustuslaki", answers: ["Конституция"], options: ["Конституция", "Газета", "Устав", "Договор"] },
+    { word: "Ihmisoikeudet", answers: ["Права человека"], options: ["Законы физики", "Права человека", "Обязанности", "Штрафы"] },
+    { word: "Oikeusvaltio", answers: ["Правовое государство"], options: ["Правовое государство", "Лес", "Армия", "Тюрьма"] },
+    { word: "Tasa-arvo", answers: ["Равенство"], options: ["Неравенство", "Равенство", "Борьба", "Власть"] }
+  ],
+  151: [
+    { word: "Rahoitus", answers: ["Финансирование"], options: ["Трата", "Финансирование", "Кража", "Потеря"] },
+    { word: "Investointi", answers: ["Инвестиция"], options: ["Долг", "Инвестиция", "Подарок", "Налог"] },
+    { word: "Kustannus", answers: ["Затрата"], options: ["Прибыль", "Затрата", "Скидка", "Чек"] },
+    { word: "Tuotto", answers: ["Доход/Урожай"], options: ["Потеря", "Доход/Урожай", "Налог", "Штраф"] },
+    { word: "Konkurssi", answers: ["Банкротство"], options: ["Успех", "Богатство", "Банкротство", "Старт"] }
+  ],
+  152: [
+    { word: "Yhteistyö", answers: ["Сотрудничество"], options: ["Ссора", "Сотрудничество", "Конкуренция", "Одиночество"] },
+    { word: "Neuvottelu", answers: ["Переговоры"], options: ["Драка", "Переговоры", "Молчание", "Сон"] },
+    { word: "Sopimus", answers: ["Договор"], options: ["Спор", "Договор", "Обещание", "Слух"] },
+    { word: "Luottamus", answers: ["Доверие"], options: ["Подозрение", "Доверие", "Страх", "Ложь"] },
+    { word: "Sitoutuminen", answers: ["Приверженность/Обязательство"], options: ["Отказ", "Приверженность/Обязательство", "Лень", "Уход"] }
+  ],
+  153: [
+    { word: "Asiantuntija", answers: ["Специалист/Эксперт"], options: ["Новичок", "Специалист/Эксперт", "Ученик", "Дилетант"] },
+    { word: "Kokemus", answers: ["Опыт"], options: ["Теория", "Опыт", "Сон", "Мечта"] },
+    { word: "Pätevyys", answers: ["Квалификация"], options: ["Возраст", "Квалификация", "Имя", "Хобби"] },
+    { word: "Ura", answers: ["Карьера"], options: ["Хобби", "Карьера", "Отдых", "Сон"] },
+    { word: "Eläke", answers: ["Пенсия"], options: ["Зарплата", "Стипендия", "Пенсия", "Штраф"] }
+  ],
+  154: [
+    { word: "Koulutus", answers: ["Образование"], options: ["Игра", "Образование", "Работа", "Спорт"] },
+    { word: "Tutkimus", answers: ["Исследование"], options: ["Чтение", "Исследование", "Прогулка", "Сон"] },
+    { word: "Tiede", answers: ["Наука"], options: ["Магия", "Наука", "Религия", "Искусство"] },
+    { word: "Opetus", answers: ["Преподавание"], options: ["Учеба", "Преподавание", "Отдых", "Танцы"] },
+    { word: "Oppiminen", answers: ["Изучение/Учение"], options: ["Забывание", "Изучение/Учение", "Сон", "Еда"] }
+  ],
+  155: [
+    { word: "Tekniikka", answers: ["Техника"], options: ["Природа", "Техника", "Душа", "История"] },
+    { word: "Innovaatio", answers: ["Инновация"], options: ["Традиция", "Инновация", "Старина", "Ошибка"] },
+    { word: "Keksintö", answers: ["Изобретение"], options: ["Изобретение", "Поломка", "Покупка", "Кража"] },
+    { word: "Kehitys", answers: ["Развитие"], options: ["Спад", "Развитие", "Остановка", "Конец"] },
+    { word: "Älyteknologia", answers: ["Смарт-технологии"], options: ["Старые вещи", "Смарт-технологии", "Механика", "Инструменты"] }
+  ],
+  156: [
+    { word: "Yhteiskunta", answers: ["Общество"], options: ["Семья", "Общество", "Лес", "Космос"] },
+    { word: "Kulttuuri", answers: ["Культура"], options: ["Спорт", "Культура", "Техника", "Природа"] },
+    { word: "Arvo", answers: ["Ценность"], options: ["Цена", "Ценность", "Вес", "Длина"] },
+    { word: "Normi", answers: ["Норма"], options: ["Исключение", "Норма", "Хаос", "Чудо"] },
+    { word: "Perinne", answers: ["Традиция"], options: ["Мода", "Традиция", "Новости", "Будущее"] }
+  ],
+  157: [
+    { word: "Yksilö", answers: ["Индивид/Личность"], options: ["Толпа", "Индивид/Личность", "Группа", "Государство"] },
+    { word: "Yhteisö", answers: ["Сообщество"], options: ["Одиночка", "Сообщество", "Враг", "Чужак"] },
+    { word: "Vapaus", answers: ["Свобода"], options: ["Тюрьма", "Свобода", "Запрет", "Цепи"] },
+    { word: "Vastuu", answers: ["Ответственность"], options: ["Легкость", "Ответственность", "Право", "Подарок"] },
+    { word: "Velvollisuus", answers: ["Обязанность"], options: ["Хобби", "Обязанность", "Мечта", "Свобода"] }
+  ],
+  158: [
+    { word: "Ympäristö", answers: ["Окружающая среда"], options: ["Комната", "Окружающая среда", "Небо", "Машина"] },
+    { word: "Luonto", answers: ["Природа"], options: ["Город", "Природа", "Завод", "Техника"] },
+    { word: "Ilmasto", answers: ["Климат"], options: ["Погода", "Климат", "День", "Время"] },
+    { word: "Suojelu", answers: ["Защита/Охрана"], options: ["Разрушение", "Защита/Охрана", "Охота", "Трата"] },
+    { word: "Kestävyys", answers: ["Устойчивость"], options: ["Хрупкость", "Устойчивость", "Скорость", "Цвет"] }
+  ],
+  159: [
+    { word: "Terveys", answers: ["Здоровье"], options: ["Болезнь", "Здоровье", "Смерть", "Боль"] },
+    { word: "Hyvinvointi", answers: ["Благополучие"], options: ["Бедность", "Благополучие", "Гнев", "Скука"] },
+    { word: "Liikunta", answers: ["Физкультура/Движение"], options: ["Сон", "Физкультура/Движение", "Еда", "Чтение"] },
+    { word: "Ravinto", answers: ["Питание"], options: ["Голод", "Питание", "Вода", "Воздух"] },
+    { word: "Lepo", answers: ["Отдых"], options: ["Работа", "Отдых", "Спешка", "Стресс"] }
+  ],
+  160: [ // Босс 16: Глобальные темы
+    { word: "Globalisaatio", answers: ["Глобализация"], options: ["Изоляция", "Глобализация", "Деревня", "Граница"] },
+    { word: "Talouskasvu", answers: ["Экономический рост"], options: ["Кризис", "Экономический рост", "Застой", "Долг"] },
+    { word: "Kriisi", answers: ["Кризис"], options: ["Праздник", "Кризис", "Удача", "Мир"] },
+    { word: "Konflikti", answers: ["Конфликт"], options: ["Дружба", "Конфликт", "Мир", "Договор"] },
+    { word: "Rauha", answers: ["Мир"], options: ["Война", "Мир", "Спор", "Драка"] }
+  ],
+    // Уроки 161-180: Наука, искусство, правосудие и психология (Исправлено: ответы перемешаны)
+  161: [
+    { word: "Tutkimus", answers: ["Исследование"], options: ["Игра", "Исследование", "Сон", "Спор"] },
+    { word: "Oletus", answers: ["Предположение"], options: ["Факт", "Закон", "Предположение", "Ошибка"] },
+    { word: "Todiste", answers: ["Доказательство"], options: ["Доказательство", "Слух", "Мнение", "Сказка"] },
+    { word: "Teoria", answers: ["Теория"], options: ["Опыт", "Теория", "Практика", "Действие"] },
+    { word: "Koe", answers: ["Эксперимент/Экзамен"], options: ["Эксперимент/Экзамен", "Отдых", "Чтение", "Разговор"] }
+  ],
+  162: [
+    { word: "Luovuus", answers: ["Творчество"], options: ["Логика", "Творчество", "Сила", "Сон"] },
+    { word: "Teos", answers: ["Произведение"], options: ["Инструмент", "Завод", "Произведение", "Материал"] },
+    { word: "Galleria", answers: ["Галерея"], options: ["Магазин", "Галерея", "Школа", "Стадион"] },
+    { word: "Innoitus", answers: ["Вдохновение"], options: ["Скука", "Вдохновение", "Усталость", "Гнев"] },
+    { word: "Tyyli", answers: ["Стиль"], options: ["Стиль", "Вес", "Цена", "Возраст"] }
+  ],
+  163: [
+    { word: "Syyte", answers: ["Обвинение"], options: ["Защита", "Обвинение", "Похвала", "Свобода"] },
+    { word: "Puolustus", answers: ["Защита"], options: ["Нападение", "Крик", "Защита", "Побег"] },
+    { word: "Tuomari", answers: ["Судья"], options: ["Врач", "Судья", "Полицейский", "Повар"] },
+    { word: "Valitus", answers: ["Жалоба/Апелляция"], options: ["Жалоба/Апелляция", "Согласие", "Благодарность", "Песня"] },
+    { word: "Todistaja", answers: ["Свидетель"], options: ["Преступник", "Свидетель", "Жертва", "Лидер"] }
+  ],
+  164: [
+    { word: "Itsetunto", answers: ["Самооценка"], options: ["Гордость", "Самооценка", "Страх", "Гнев"] },
+    { word: "Mieliala", answers: ["Настроение"], options: ["Настроение", "Погода", "Здоровье", "Работа"] },
+    { word: "Käyttäytyminen", answers: ["Поведение"], options: ["Вид", "Голос", "Поведение", "Мысль"] },
+    { word: "Vuorovaikutus", answers: ["Взаимодействие"], options: ["Изоляция", "Взаимодействие", "Ссора", "Тишина"] },
+    { word: "Sopeutuminen", answers: ["Адаптация"], options: ["Адаптация", "Отказ", "Уход", "Борьба"] }
+  ],
+  165: [
+    { word: "Yhteiskuntajärjestelmä", answers: ["Общественный строй"], options: ["Закон", "Общественный строй", "Хаос", "Семья"] },
+    { word: "Vaikutusvalta", answers: ["Влияние/Власть"], options: ["Сила", "Слабость", "Влияние/Власть", "Деньги"] },
+    { word: "Uudistus", answers: ["Реформа"], options: ["Реформа", "Стагнация", "Конец", "Ошибка"] },
+    { word: "Kehitysapu", answers: ["Помощь развитию"], options: ["Налог", "Помощь развитию", "Долг", "Штраф"] },
+    { word: "Maailmanlaajuinen", answers: ["Всемирный"], options: ["Местный", "Всемирный", "Старый", "Новый"] }
+  ],
+  166: [
+    { word: "Kestävyys", answers: ["Устойчивость/Выносливость"], options: ["Скорость", "Устойчивость/Выносливость", "Хрупкость", "Цвет"] },
+    { word: "Tehokkuus", answers: ["Эффективность"], options: ["Лень", "Ошибка", "Эффективность", "Потеря"] },
+    { word: "Laatu", answers: ["Качество"], options: ["Цена", "Качество", "Размер", "Вес"] },
+    { word: "Määrä", answers: ["Количество"], options: ["Количество", "Цвет", "Форма", "Стиль"] },
+    { word: "Hinta-laatusuhde", answers: ["Соотношение цена-качество"], options: ["Скидка", "Соотношение цена-качество", "Долг", "Чек"] }
+  ],
+  167: [
+    { word: "Ehdokas", answers: ["Кандидат"], options: ["Лидер", "Кандидат", "Избиратель", "Судья"] },
+    { word: "Äänestys", answers: ["Голосование"], options: ["Голосование", "Спор", "Игра", "Праздник"] },
+    { word: "Kampanja", answers: ["Кампания"], options: ["Отпуск", "Кампания", "Работа", "Сон"] },
+    { word: "Luottamushenkilö", answers: ["Доверенное лицо"], options: ["Враг", "Доверенное лицо", "Чужой", "Гость"] },
+    { word: "Poliittinen puolue", answers: ["Политическая партия"], options: ["Спор", "Клуб", "Политическая партия", "Семья"] }
+  ],
+  168: [
+    { word: "Yrittäjyys", answers: ["Предпринимательство"], options: ["Учеба", "Предпринимательство", "Сон", "Отдых"] },
+    { word: "Kilpailukyky", answers: ["Конкурентоспособность"], options: ["Сотрудничество", "Конкурентоспособность", "Мир", "Дружба"] },
+    { word: "Markkinointi", answers: ["Маркетинг"], options: ["Производство", "Маркетинг", "Поломка", "Уборка"] },
+    { word: "Brändi", answers: ["Бренд"], options: ["Имя", "Бренд", "Цена", "Вес"] },
+    { word: "Asiakaspalvelu", answers: ["Клиентский сервис"], options: ["Производство", "Клиентский сервис", "Доставка", "Склад"] }
+  ],
+  169: [
+    { word: "Digitaalinen", answers: ["Цифровой"], options: ["Бумажный", "Цифровой", "Старый", "Живой"] },
+    { word: "Virtualitodellisuus", answers: ["Виртуальная реальность"], options: ["Сон", "Виртуальная реальность", "Правда", "Кино"] },
+    { word: "Lohkoketju", answers: ["Блокчейн"], options: ["Блокчейн", "Интернет", "Связь", "Сайт"] },
+    { word: "Algoritmi", answers: ["Алгоритм"], options: ["Песня", "Алгоритм", "Картина", "Танец"] },
+    { word: "Automaatio", answers: ["Автоматизация"], options: ["Ручной труд", "Автоматизация", "Ошибка", "Игра"] }
+  ],
+  170: [ // Босс 17: Современное общество
+    { word: "Infrastruktuuri", answers: ["Инфраструктура"], options: ["Природа", "Инфраструктура", "Лес", "Небо"] },
+    { word: "Urbanisaatio", answers: ["Урбанизация"], options: ["Сельская жизнь", "Урбанизация", "Лес", "Поле"] },
+    { word: "Globalisaatio", answers: ["Глобализация"], options: ["Изоляция", "Глобализация", "Граница", "Дом"] },
+    { word: "Monikulttuurisuus", answers: ["Мультикультурализм"], options: ["Одинаковость", "Мультикультурализм", "История", "Язык"] },
+    { word: "Kansalaisyhteiskunta", answers: ["Гражданское общество"], options: ["Армия", "Гражданское общество", "Тюрьма", "Завод"] }
+  ],
+  171: [
+    { word: "Ratkaiseva", answers: ["Решающий"], options: ["Слабый", "Решающий", "Мелкий", "Тихий"] },
+    { word: "Välttämätön", answers: ["Необходимый"], options: ["Лишний", "Необходимый", "Простой", "Быстрый"] },
+    { word: "Mahdollinen", answers: ["Возможный"], options: ["Возможный", "Невозможный", "Трудный", "Ясный"] },
+    { word: "Todennäköinen", answers: ["Вероятный"], options: ["Точный", "Вероятный", "Ложный", "Скрытый"] },
+    { word: "Epävarma", answers: ["Неуверенный"], options: ["Точный", "Ясный", "Неуверенный", "Сильный"] }
+  ],
+  172: [
+    { word: "Perustella", answers: ["Обосновывать"], options: ["Скрывать", "Обосновывать", "Врать", "Забывать"] },
+    { word: "Vertailla", answers: ["Сравнивать"], options: ["Сравнивать", "Разбивать", "Соединять", "Брать"] },
+    { word: "Analysoida", answers: ["Анализировать"], options: ["Играть", "Анализировать", "Спешить", "Спать"] },
+    { word: "Yhteenveto", answers: ["Итог/Резюме"], options: ["Начало", "Итог/Резюме", "Спор", "Вопрос"] },
+    { word: "Tulkinta", answers: ["Интерпретация"], options: ["Факт", "Интерпретация", "Звук", "Свет"] }
+  ],
+  173: [
+    { word: "Havaita", answers: ["Замечать/Обнаруживать"], options: ["Игнорировать", "Замечать/Обнаруживать", "Терять", "Прятать"] },
+    { word: "Olettaa", answers: ["Предполагать"], options: ["Знать точно", "Предполагать", "Слышать", "Видеть"] },
+    { word: "Päätellä", answers: ["Делать вывод"], options: ["Начинать", "Делать вывод", "Спрашивать", "Ждать"] },
+    { word: "Varmistaa", answers: ["Убеждаться"], options: ["Сомневаться", "Убеждаться", "Рисковать", "Забывать"] },
+    { word: "Todeta", answers: ["Констатировать"], options: ["Констатировать", "Спрашивать", "Просить", "Петь"] }
+  ],
+  174: [
+    { word: "Periaate", answers: ["Принцип"], options: ["Принцип", "Шутка", "Мнение", "Слух"] },
+    { word: "Käsitys", answers: ["Представление/Понимание"], options: ["Представление/Понимание", "Незнание", "Глаз", "Рука"] },
+    { word: "Näkökulma", answers: ["Точка зрения"], options: ["Окно", "Точка зрения", "Дорога", "Стена"] },
+    { word: "Asenne", answers: ["Отношение/Установка"], options: ["Сила", "Отношение/Установка", "Рост", "Вес"] },
+    { word: "Uskomus", answers: ["Убеждение/Верование"], options: ["Факт", "Убеждение/Верование", "Ложь", "Число"] }
+  ],
+  175: [
+    { word: "Vuorovaikutus", answers: ["Взаимодействие"], options: ["Взаимодействие", "Тишина", "Спор", "Одиночество"] },
+    { word: "Viesti", answers: ["Сообщение"], options: ["Голос", "Сообщение", "Картина", "Свет"] },
+    { word: "Palaute", answers: ["Обратная связь"], options: ["Молчание", "Обратная связь", "Вопрос", "Штраф"] },
+    { word: "Vaikutus", answers: ["Влияние"], options: ["Влияние", "Причина", "Цвет", "Звук"] },
+    { word: "Suhde", answers: ["Отношение"], options: ["Ссора", "Отношение", "Разрыв", "Конец"] }
+  ],
+  176: [
+    { word: "Tunnistaa", answers: ["Распознавать"], options: ["Забывать", "Распознавать", "Прятать", "Искать"] },
+    { word: "Luokitella", answers: ["Классифицировать"], options: ["Путать", "Классифицировать", "Терять", "Брать"] },
+    { word: "Yhdistää", answers: ["Соединять"], options: ["Разделять", "Соединять", "Ломать", "Бросать"] },
+    { word: "Erottaa", answers: ["Различать"], options: ["Смешивать", "Различать", "Забывать", "Любить"] },
+    { word: "Määritellä", answers: ["Определять"], options: ["Забывать", "Определять", "Молчать", "Спешить"] }
+  ],
+  177: [
+    { word: "Tarkka", answers: ["Точный"], options: ["Приблизительный", "Точный", "Грубый", "Слабый"] },
+    { word: "Yleinen", answers: ["Общий"], options: ["Частный", "Общий", "Редкий", "Новый"] },
+    { word: "Erityinen", answers: ["Особенный"], options: ["Обычный", "Особенный", "Старый", "Скучный"] } ,
+    { word: "Olennainen", answers: ["Существенный"], options: ["Лишний", "Существенный", "Мелкий", "Тихий"] },
+    { word: "Monimutkainen", answers: ["Сложный"], options: ["Простой", "Сложный", "Ясный", "Быстрый"] }
+  ],
+  178: [
+    { word: "Mahdollisuus", answers: ["Возможность"], options: ["Возможность", "Запрет", "Преграда", "Конец"] },
+    { word: "Haaste", answers: ["Вызов"], options: ["Отдых", "Вызов", "Легкость", "Удача"] },
+    { word: "Ratkaisu", answers: ["Решение"], options: ["Проблема", "Вопрос", "Решение", "Спор"] },
+    { word: "Tavoite", answers: ["Цель"], options: ["Прошлое", "Цель", "Сон", "Случай"] },
+    { word: "Tulos", answers: ["Результат"], options: ["Начало", "Процесс", "Результат", "Ошибка"] }
+  ],
+  179: [
+    { word: "Yhteistyö", answers: ["Сотрудничество"], options: ["Вражда", "Сотрудничество", "Одиночество", "Спор"] },
+    { word: "Sopimus", answers: ["Договор"], options: ["Договор", "Ссора", "Отказ", "Штраф"] },
+    { word: "Vastuu", answers: ["Ответственность"], options: ["Право", "Ответственность", "Подарок", "Сон"] },
+    { word: "Velvollisuus", answers: ["Обязанность"], options: ["Свобода", "Обязанность", "Хобби", "Мечта"] },
+    { word: "Oikeus", answers: ["Право"], options: ["Долг", "Запрет", "Право", "Наказание"] }
+  ],
+  180: [ // Босс 18: Философия жизни в 2026
+    { word: "Hyvinvointi", answers: ["Благополучие"], options: ["Благополучие", "Бедность", "Болезнь", "Гнев"] },
+    { word: "Onnellisuus", answers: ["Счастье"], options: ["Грусть", "Счастье", "Страх", "Зависть"] },
+    { word: "Merkitys", answers: ["Смысл"], options: ["Звук", "Форма", "Смысл", "Цвет"] },
+    { word: "Arvo", answers: ["Ценность"], options: ["Цена", "Ценность", "Вес", "Длина"] },
+    { word: "Tulevaisuus", answers: ["Будущее"], options: ["Прошлое", "Настоящее", "Будущее", "Вечность"] }
+  ],
+  181: [
+  { word: "Työpäivä", answers: ["Рабочий день"], options: ["Выходной", "Перерыв", "Рабочий день", "Отпуск"] },
+  { word: "Aikataulu", answers: ["Расписание"], options: ["Скорость", "Итог", "Расписание", "Случай"] },
+  { word: "Tehtävä", answers: ["Задача"], options: ["Подарок", "Шутка", "Угол", "Задача"] },
+  { word: "Palaveri", answers: ["Совещание"], options: ["Покупка", "Совещание", "Ссора", "Песня"] },
+  { word: "Tavoitteet", answers: ["Цели"], options: ["Сны", "Ошибки", "Цели", "Случаи"] }
+ ],
+ 182: [
+  { word: "Kauppakassi", answers: ["Пакет из магазина"], options: ["Рюкзак", "Кошелёк", "Пакет из магазина", "Чемодан"] },
+  { word: "Kuitti", answers: ["Чек"], options: ["Пароль", "Билет", "Чек", "Письмо"] },
+  { word: "Kassa", answers: ["Касса"], options: ["Кровать", "Кухня", "Гейт", "Касса"] },
+  { word: "Tarjous", answers: ["Акция/Предложение"], options: ["Традиция", "Штраф", "Вызов", "Акция/Предложение"] },
+  { word: "Vaihto", answers: ["Обмен"], options: ["Сон", "Обмен", "Боль", "Победа"] }
+ ],
+ 183: [
+  { word: "Sähkö", answers: ["Электричество"], options: ["Огонь", "Вода", "Камень", "Электричество"] },
+  { word: "Katkos", answers: ["Отключение"], options: ["Скидка", "Отключение", "Обновление", "Реформа"] },
+  { word: "Laturi", answers: ["Зарядка"], options: ["Экран", "Сеть", "Зарядка", "Пароль"] },
+  { word: "Vika", answers: ["Неисправность"], options: ["Праздник", "Дружба", "Неисправность", "Удача"] },
+  { word: "Korjata", answers: ["Ремонтировать/Исправлять"], options: ["Побеждать", "Забывать", "Ремонтировать/Исправлять", "Пугаться"] }
+ ],
+ 184: [
+  { word: "Mielipide", answers: ["Мнение"], options: ["Слух", "Крик", "Факт", "Мнение"] },
+  { word: "Perustelu", answers: ["Обоснование"], options: ["Погода", "Конец", "Игра", "Обоснование"] },
+  { word: "Esimerkki", answers: ["Пример"], options: ["Цена", "Память", "Пример", "Скорость"] },
+  { word: "Väite", answers: ["Утверждение"], options: ["Ключ", "Утверждение", "Остров", "Подарок"] },
+  { word: "Johtopäätös", answers: ["Вывод"], options: ["Стиль", "Вывод", "Досмотр", "Штраф"] }
+ ],
+ 185: [
+  { word: "Tervehtyä", answers: ["Поздороваться"], options: ["Поспешить", "Отменить", "Поздороваться", "Упасть"] },
+  { word: "Kiittää", answers: ["Благодарить"], options: ["Запрещать", "Обвинять", "Благодарить", "Сравнивать"] },
+  { word: "Pyytää", answers: ["Просить"], options: ["Смеяться", "Резать", "Лететь", "Просить"] },
+  { word: "Selittää", answers: ["Объяснять"], options: ["Покупать", "Объяснять", "Спать", "Прятать"] },
+  { word: "Ymmärrys", answers: ["Понимание"], options: ["Лес", "Понимание", "Штора", "Смерть"] }
+ ],
+ 186: [
+  { word: "Sopimus", answers: ["Договор"], options: ["Ошибка", "Договор", "Разговор", "Решение"] },
+  { word: "Vastuu", answers: ["Ответственность"], options: ["Усталость", "Опасность", "Ответственность", "Польза"] },
+  { word: "Päätös", answers: ["Решение"], options: ["Начало", "Проблема", "Решение", "Вопрос"] },
+  { word: "Ehto", answers: ["Условие"], options: ["Выбор", "Причина", "Идея", "Условие"] },
+  { word: "Luottamus", answers: ["Доверие"], options: ["Сомнение", "Шанс", "Доверие", "Страх"] }
+ ],
+ 187: [
+  { word: "Hakemus", answers: ["Заявление"], options: ["Документ", "Анкета", "Письмо", "Заявление"] },
+  { word: "Todistus", answers: ["Справка"], options: ["Паспорт", "Справка", "Договор", "Рецепт"] },
+  { word: "Lomake", answers: ["Бланк"], options: ["Инструкция", "Папка", "Бланк", "Пакет"] },
+  { word: "Allekirjoitus", answers: ["Подпись"], options: ["Печать", "Дата", "Имя", "Подпись"] },
+  { word: "Liite", answers: ["Приложение"], options: ["Комментарий", "Вопрос", "Приложение", "Ответ"] }
+ ],
+ 188: [
+  { word: "Mahdollisuus", answers: ["Возможность"], options: ["Проблема", "Возможность", "Опасность", "Ошибка"] },
+  { word: "Vaihtoehto", answers: ["Альтернатива"], options: ["Случай", "Правило", "Альтернатива", "Причина"] },
+  { word: "Riskit", answers: ["Риски"], options: ["Причины", "Выгоды", "Шансы", "Риски"] },
+  { word: "Hyöty", answers: ["Польза"], options: ["Убыток", "Цена", "Польза", "Время"] },
+  { word: "Haitta", answers: ["Вред"], options: ["Радость", "Шанс", "Вред", "Успех"] }
+ ],
+ 189: [
+  { word: "Kokemus", answers: ["Опыт"], options: ["Память", "Навык", "Ошибка", "Опыт"] },
+  { word: "Taito", answers: ["Навык"], options: ["Навык", "Страх", "Совет", "План"] },
+  { word: "Osaaminen", answers: ["Компетенция"], options: ["Усталость", "Слабость", "Компетенция", "Лень"] },
+  { word: "Kehitys", answers: ["Развитие"], options: ["Конец", "Падение", "Развитие", "Ошибка"] },
+  { word: "Tulos", answers: ["Результат"], options: ["Вопрос", "Причина", "Начало", "Результат"] }
+ ],
+ 190: [
+  { word: "Mieliala", answers: ["Настроение"], options: ["Факт", "Мысль", "Настроение", "Решение"] },
+  { word: "Stressi", answers: ["Стресс"], options: ["Радость", "Сон", "Отдых", "Стресс"] },
+  { word: "Rentoutua", answers: ["Расслабляться"], options: ["Работать", "Бояться", "Спешить", "Расслабляться"] },
+  { word: "Väsymys", answers: ["Усталость"], options: ["Энергия", "Сила", "Усталость", "Радость"] },
+  { word: "Motivaatio", answers: ["Мотивация"], options: ["Страх", "Сомнение", "Лень", "Мотивация"] }
+ ],
+ 191: [
+  { word: "Tarvitsen apua", answers: ["Мне нужна помощь"], options: ["Я устал", "Мне нужна помощь", "Я согласен", "Я готов"] },
+  { word: "Minulla on aikaa", answers: ["У меня есть время"], options: ["У меня нет денег", "Я занят", "У меня есть время", "Я опоздал"] },
+  { word: "Olen myöhässä", answers: ["Я опаздываю"], options: ["Я готов", "Я опаздываю", "Я дома", "Я устал"] },
+  { word: "Se on hyvä idea", answers: ["Это хорошая идея"], options: ["Это ошибка", "Это сложно", "Это хорошая идея", "Это дорого"] },
+  { word: "En tiedä", answers: ["Я не знаю"], options: ["Я уверен", "Я не знаю", "Я согласен", "Я понял"] }
+ ],
+ 192: [
+  { word: "Voinko auttaa?", answers: ["Могу помочь?"], options: ["Ты готов?", "Я занят", "Могу помочь?", "Где ты?"] },
+  { word: "Olen väsynyt", answers: ["Я устал"], options: ["Я зол", "Я устал", "Я счастлив", "Я готов"] },
+  { word: "Minulla ei ole aikaa", answers: ["У меня нет времени"], options: ["Я свободен", "Я опоздал", "У меня нет времени", "Я готов"] },
+  { word: "Se on liian kallis", answers: ["Это слишком дорого"], options: ["Это бесплатно", "Это сложно", "Это слишком дорого", "Это просто"] },
+  { word: "Ymmärrän", answers: ["Я понимаю"], options: ["Я сомневаюсь", "Я понимаю", "Я забыл", "Я не знаю"] }
+ ],
+ 193: [
+  { word: "Missä olet?", answers: ["Где ты?"], options: ["Кто ты?", "Где ты?", "Почему?", "Когда?"] },
+  { word: "Olen matkalla", answers: ["Я в пути"], options: ["Я дома", "Я в пути", "Я опоздал", "Я устал"] },
+  { word: "Odotan sinua", answers: ["Я жду тебя"], options: ["Я вижу тебя", "Я забыл", "Я жду тебя", "Я ищу тебя"] },
+  { word: "Kaikki on hyvin", answers: ["Всё хорошо"], options: ["Всё плохо", "Всё хорошо", "Я устал", "Я не знаю"] },
+  { word: "Ei ongelmaa", answers: ["Без проблем"], options: ["Это сложно", "Без проблем", "Я занят", "Я не могу"] }
+ ],
+ 194: [
+  { word: "Minun mielestäni", answers: ["По моему мнению"], options: ["Случайно", "По моему мнению", "Иногда", "Возможно"] },
+  { word: "Se riippuu", answers: ["Это зависит"], options: ["Это точно", "Это ошибка", "Это зависит", "Это просто"] },
+  { word: "Olen samaa mieltä", answers: ["Я согласен"], options: ["Я сомневаюсь", "Я не знаю", "Я согласен", "Я устал"] },
+  { word: "En ole varma", answers: ["Я не уверен"], options: ["Я готов", "Я уверен", "Я не уверен", "Я согласен"] },
+  { word: "Kuulostaa hyvältä", answers: ["Звучит хорошо"], options: ["Это странно", "Звучит хорошо", "Это плохо", "Это опасно"] }
+ ],
+ 195: [
+  { word: "Voinko kysyä?", answers: ["Могу спросить?"], options: ["Я понимаю", "Могу спросить?", "Я готов", "Я устал"] },
+  { word: "Tarvitsen aikaa", answers: ["Мне нужно время"], options: ["Мне нужна еда", "Мне нужно время", "Я готов", "Я ухожу"] },
+  { word: "Se ei ole helppoa", answers: ["Это нелегко"], options: ["Это просто", "Это быстро", "Это нелегко", "Это бесплатно"] },
+  { word: "Olen valmis", answers: ["Я готов"], options: ["Я боюсь", "Я устал", "Я готов", "Я сомневаюсь"] },
+  { word: "Kaikki selvä", answers: ["Всё понятно"], options: ["Я не понял", "Всё понятно", "Я не знаю", "Это сложно"] }
+ ],
+ 196: [
+   { word: "Aikataulu", answers: ["Расписание"], options: ["Скорость", "Идея", "Расписание", "Причина"] },
+   { word: "Tehtävä", answers: ["Задача"], options: ["Подарок", "Задача", "Мечта", "Шум"] },
+   { word: "Tulos", answers: ["Результат"], options: ["Начало", "Ошибка", "Результат", "Случай"] },
+   { word: "Palaveri", answers: ["Совещание"], options: ["Песня", "Совещание", "Покупка", "Погода"] },
+   { word: "Tavoite", answers: ["Цель"], options: ["Случай", "Мечта", "Причина", "Цель"] }
+ ],
+ 197: [
+   { word: "Kuulostaa hyvältä", answers: ["Звучит хорошо"], options: ["Это странно", "Звучит хорошо", "Это плохо", "Это опасно"] },
+   { word: "Ei kiirettä", answers: ["Не спеши"], options: ["Позже", "Не спеши", "Сейчас", "Никогда"] },
+   { word: "Olen valmis", answers: ["Я готов"], options: ["Я устал", "Я боюсь", "Я готов", "Я сомневаюсь"] },
+   { word: "Selvä juttu", answers: ["Понятно"], options: ["Ошибка", "Понятно", "Сложно", "Может быть"] },
+   { word: "Ei hätää", answers: ["Не волнуйся"], options: ["Не волнуйся", "Уходи", "Беги", "Жди"] }
+ ],
+ 198: [
+   { word: "Ilmoitus", answers: ["Объявление"], options: ["Сообщение", "Объявление", "Документ", "Разговор"] },
+   { word: "Uutinen", answers: ["Новость"], options: ["Слух", "Новость", "Ошибка", "Шум"] },
+   { word: "Lähde", answers: ["Источник"], options: ["Причина", "Источник", "Ответ", "Путь"] },
+   { word: "Artikkeli", answers: ["Статья"], options: ["Реклама", "Пост", "Статья", "Рассказ"] },
+   { word: "Kommentti", answers: ["Комментарий"], options: ["Ошибка", "Мнение", "Комментарий", "Тишина"] }
+ ],
+ 199: [
+   { word: "Yrittää", answers: ["Пытаться"], options: ["Сдаваться", "Пытаться", "Спать", "Бояться"] },
+   { word: "Onnistua", answers: ["Добиться успеха"], options: ["Проиграть", "Сдаться", "Добиться успеха", "Уйти"] },
+   { word: "Epäonnistua", answers: ["Потерпеть неудачу"], options: ["Победить", "Потерпеть неудачу", "Отдохнуть", "Узнать"] },
+   { word: "Harjoitella", answers: ["Тренироваться"], options: ["Забывать", "Тренироваться", "Бояться", "Лежать"] },
+   { word: "Oppia", answers: ["Учиться"], options: ["Спать", "Учиться", "Бежать", "Прыгать"] }
+ ],
+ 200: [
+   { word: "Mielipide", answers: ["Мнение"], options: ["Факт", "Мнение", "Шум", "Крик"] },
+   { word: "Ajatus", answers: ["Мысль"], options: ["Идея", "Слово", "Мысль", "Ответ"] },
+   { word: "Muistaa", answers: ["Помнить"], options: ["Забывать", "Бояться", "Помнить", "Смеяться"] },
+   { word: "Unohtaa", answers: ["Забывать"], options: ["Знать", "Писать", "Забывать", "Читать"] },
+   { word: "Ymmärtää", answers: ["Понимать"], options: ["Бежать", "Понимать", "Слушать", "Рисовать"] }
+ ],
+ 201: [
+   { word: "On myöhä", answers: ["Поздно"], options: ["Рано", "Сейчас", "Поздно", "Скоро"] },
+   { word: "On ajoissa", answers: ["Вовремя"], options: ["Слишком поздно", "Вовремя", "Случайно", "Редко"] },
+   { word: "Tasan", answers: ["Ровно"], options: ["Примерно", "Ровно", "Позже", "Рано"] },
+   { word: "Heti", answers: ["Сразу"], options: ["Позже", "Сразу", "Редко", "Иногда"] },
+   { word: "Pian", answers: ["Скоро"], options: ["Никогда", "Скоро", "Вчера", "Редко"] }
+ ],
+ 202: [
+   { word: "Tarjous", answers: ["Предложение"], options: ["Штраф", "Предложение", "Ошибка", "Причина"] },
+   { word: "Alennus", answers: ["Скидка"], options: ["Налог", "Скидка", "Цена", "Счет"] },
+   { word: "Hinta", answers: ["Цена"], options: ["Польза", "Срок", "Цена", "Путь"] },
+   { word: "Laatu", answers: ["Качество"], options: ["Вес", "Качество", "Шум", "Форма"] },
+   { word: "Valita", answers: ["Выбирать"], options: ["Терять", "Выбирать", "Бросать", "Резать"] }
+ ],
+ 203: [
+   { word: "Väsyttää", answers: ["Хочется спать"], options: ["Холодно", "Болит", "Хочется спать", "Весело"] },
+   { word: "Harmittaa", answers: ["Досадно"], options: ["Весело", "Досадно", "Смешно", "Легко"] },
+   { word: "Jännittää", answers: ["Волноваться"], options: ["Спать", "Волноваться", "Есть", "Прыгать"] },
+   { word: "Pelottaa", answers: ["Страшно"], options: ["Радостно", "Страшно", "Спокойно", "Смешно"] },
+   { word: "Iloinen", answers: ["Радостный"], options: ["Злой", "Грустный", "Радостный", "Тихий"] }
+ ],
+ 204: [
+   { word: "Terveys", answers: ["Здоровье"], options: ["Болезнь", "Здоровье", "Сила", "Скорость"] },
+   { word: "Lepo", answers: ["Отдых"], options: ["Бег", "Работа", "Отдых", "Шум"] },
+   { word: "Uni", answers: ["Сон"], options: ["Сон", "Еда", "Бег", "Разговор"] },
+   { word: "Vatten", answers: ["Вода"], options: ["Сок", "Молоко", "Вода", "Чай"] },
+   { word: "Ruoka", answers: ["Еда"], options: ["Еда", "Сон", "Шум", "Работа"] }
+ ],
+ 205: [
+   { word: "Olen samaa mieltä", answers: ["Я согласен"], options: ["Я не знаю", "Я согласен", "Я устал", "Я боюсь"] },
+   { word: "Ehkä", answers: ["Может быть"], options: ["Точно", "Никогда", "Может быть", "Всегда"] },
+   { word: "Varmaan", answers: ["Наверное"], options: ["Точно", "Наверное", "Редко", "Нет"] },
+   { word: "En ole varma", answers: ["Я не уверен"], options: ["Я уверен", "Я не уверен", "Я готов", "Я сплю"] },
+   { word: "Totta", answers: ["Правда"], options: ["Ложь", "Слух", "Правда", "Миф"] }
+ ],
+ 206: [
+   { word: "Keskustella", answers: ["Обсуждать"], options: ["Обсуждать", "Бежать", "Молчать", "Прыгать"] },
+   { word: "Selittää", answers: ["Объяснять"], options: ["Скрывать", "Резать", "Объяснять", "Терять"] },
+   { word: "Kysyä", answers: ["Спрашивать"], options: ["Отвечать", "Писать", "Спрашивать", "Слушать"] },
+   { word: "Vastata", answers: ["Отвечать"], options: ["Спать", "Бежать", "Отвечать", "Рисовать"] },
+   { word: "Ymmärrys", answers: ["Понимание"], options: ["Страх", "Понимание", "Скорость", "Цена"] }
+ ],
+ 207: [
+   { word: "Päivitys", answers: ["Обновление"], options: ["Отмена", "Ошибка", "Обновление", "Ответ"] },
+   { word: "Versio", answers: ["Версия"], options: ["Форма", "Копия", "Папка", "Версия"] },
+   { word: "Asetukset", answers: ["Настройки"], options: ["Кнопки", "Настройки", "Файлы", "Пароли"] },
+   { word: "Ilmoitus", answers: ["Уведомление"], options: ["Звонок", "Письмо", "Уведомление", "Сообщение"] },
+   { word: "Virhe", answers: ["Ошибка"], options: ["Успех", "Ответ", "Ошибка", "Решение"] }
+ ],
+ 208: [
+   { word: "Olen kirjautunut sisään", answers: ["Я вошёл в систему"], options: ["Я вышел", "Я зарегистрировался", "Я вошёл в систему", "Я забыл пароль"] },
+   { word: "Unohdin salasanan", answers: ["Я забыл пароль"], options: ["Я сменил пароль", "Я вошёл", "Я вспомнил", "Я забыл пароль"] },
+   { word: "Yhteys katkesi", answers: ["Соединение прервалось"], options: ["Всё работает", "Я готов", "Соединение прервалось", "Это нормально"] },
+   { word: "Lataus kestää", answers: ["Загрузка продолжается"], options: ["Это ошибка", "Я ухожу", "Всё готово", "Загрузка продолжается"] },
+   { word: "Se ei vastaa", answers: ["Это не отвечает"], options: ["Это готово", "Это работает", "Это легко", "Это не отвечает"] }
+ ],
+ 209: [
+   { word: "Minulla on ongelma", answers: ["У меня проблема"], options: ["Я согласен", "Я устал", "У меня проблема", "У меня идея"] },
+   { word: "Tarvitsen ratkaisun", answers: ["Мне нужно решение"], options: ["Мне всё равно", "Мне нужен отдых", "Мне нужно решение", "Я не знаю"] },
+   { word: "Se ei ole mahdollista", answers: ["Это невозможно"], options: ["Это легко", "Это просто", "Это невозможно", "Это бесплатно"] },
+   { word: "Kaikki on sekaisin", answers: ["Всё перепуталось"], options: ["Всё понятно", "Всё готово", "Всё перепуталось", "Всё хорошо"] },
+   { word: "Tarvitsen tauon", answers: ["Мне нужен перерыв"], options: ["Я готов", "Я спешу", "Я ухожу", "Мне нужен перерыв"] }
+ ],
+ 210: [
+   { word: "Sovellus", answers: ["Приложение"], options: ["Файл", "Сайт", "Программа", "Приложение"] },
+   { word: "Tiedosto", answers: ["Файл"], options: ["Ссылка", "Файл", "Папка", "Пароль"] },
+   { word: "Kansio", answers: ["Папка"], options: ["Текст", "Экран", "Кнопка", "Папка"] },
+   { word: "Tallentaa", answers: ["Сохранять"], options: ["Удалять", "Печатать", "Сохранять", "Закрывать"] },
+   { word: "Poistaa", answers: ["Удалять"], options: ["Копировать", "Менять", "Открывать", "Удалять"] }
+ ],
+ 211: [
+   { word: "Se vie aikaa", answers: ["Это займёт время"], options: ["Это быстро", "Это бесплатно", "Это невозможно", "Это займёт время"] },
+   { word: "Teen parhaani", answers: ["Я сделаю всё возможное"], options: ["Я не знаю", "Я ухожу", "Я устал", "Я сделаю всё возможное"] },
+   { word: "Luotan sinuun", answers: ["Я тебе доверяю"], options: ["Я боюсь", "Я готов", "Я сомневаюсь", "Я тебе доверяю"] },
+   { word: "Olen varma", answers: ["Я уверен"], options: ["Я не знаю", "Я уверен", "Я устал", "Я сомневаюсь"] },
+   { word: "En ole valmis", answers: ["Я не готов"], options: ["Я готов", "Я согласен", "Я не готов", "Я понял"] }
+ ],
+ 212: [
+   { word: "Tilaisuus", answers: ["Возможность"], options: ["Ошибка", "Риск", "Возможность", "Проблема"] },
+   { word: "Uhka", answers: ["Угроза"], options: ["Ответ", "Шанс", "Угроза", "Пауза"] },
+   { word: "Seuraukset", answers: ["Последствия"], options: ["Ошибки", "Результаты", "Последствия", "Причины"] },
+   { word: "Hyväksyä", answers: ["Принимать"], options: ["Отказывать", "Менять", "Спешить", "Принимать"] },
+   { word: "Kieltäytyä", answers: ["Отказываться"], options: ["Начинать", "Соглашаться", "Отказываться", "Помогать"] }
+ ],
+ 213: [
+   { word: "Se on järkevää", answers: ["Это разумно"], options: ["Это странно", "Это опасно", "Это глупо", "Это разумно"] },
+   { word: "Se ei ole reilua", answers: ["Это несправедливо"], options: ["Это нормально", "Это правильно", "Это несправедливо", "Это честно"] },
+   { word: "Olen eri mieltä", answers: ["Я не согласен"], options: ["Я готов", "Я согласен", "Я не согласен", "Я уверен"] },
+   { word: "Se kuulostaa hyvältä", answers: ["Звучит хорошо"], options: ["Это плохо", "Звучит хорошо", "Это рискованно", "Это странно"] },
+   { word: "Se ei vakuuta minua", answers: ["Это меня не убеждает"], options: ["Я согласен", "Это отлично", "Я уверен", "Это меня не убеждает"] }
+ ],
+ 214: [
+   { word: "Kehittyä", answers: ["Развиваться"], options: ["Ломаться", "Стоять", "Развиваться", "Падать"] },
+   { word: "Parantaa", answers: ["Улучшать"], options: ["Удалять", "Ломать", "Улучшать", "Ухудшать"] },
+   { word: "Heikentyä", answers: ["Ухудшаться"], options: ["Расти", "Исчезать", "Ухудшаться", "Улучшаться"] },
+   { word: "Muuttua", answers: ["Меняться"], options: ["Прятаться", "Меняться", "Повторять", "Оставаться"] },
+   { word: "Vaikuttaa", answers: ["Влиять"], options: ["Следовать", "Убегать", "Влиять", "Игнорировать"] }
+ ],
+ 215: [
+   { word: "En voi luvata", answers: ["Я не могу обещать"], options: ["Я согласен", "Я уверен", "Я готов", "Я не могу обещать"] },
+   { word: "Katsotaan myöhemmin", answers: ["Посмотрим позже"], options: ["Сейчас же", "Я устал", "Посмотрим позже", "Я ухожу"] },
+   { word: "Tämä vaatii aikaa", answers: ["Это требует времени"], options: ["Это легко", "Это требует времени", "Это быстро", "Это бесплатно"] },
+   { word: "Olen vastuussa", answers: ["Я несу ответственность"], options: ["Я согласен", "Я устал", "Я несу ответственность", "Я не знаю"] },
+   { word: "Se ei riitä", answers: ["Этого недостаточно"], options: ["Это идеально", "Этого недостаточно", "Это много", "Это отлично"] }
+ ],
+ 216: [
+   { word: "Ehdotus", answers: ["Предложение"], options: ["Пауза", "Ошибка", "Предложение", "Угроза"] },
+   { word: "Vastaväite", answers: ["Возражение"], options: ["Поддержка", "Пауза", "Возражение", "Решение"] },
+   { word: "Perustella", answers: ["Обосновывать"], options: ["Прятать", "Сравнивать", "Обосновывать", "Игнорировать"] },
+   { word: "Todiste", answers: ["Доказательство"], options: ["Мнение", "Догадка", "Слух", "Доказательство"] },
+   { word: "Johtaa", answers: ["Приводить к"], options: ["Избегать", "Отменять", "Прятать", "Приводить к"] }
+ ],
+ 217: [
+  { word: "Työpäivä", answers: ["Рабочий день"], options: ["Выходной", "Перерыв", "Рабочий день", "Отпуск"] },
+  { word: "Aikataulu", answers: ["Расписание"], options: ["Случай", "Расписание", "Скорость", "Итог"] },
+  { word: "Tehtävä", answers: ["Задача"], options: ["Подарок", "Задача", "Шутка", "Угол"] },
+  { word: "Palaveri", answers: ["Совещание"], options: ["Песня", "Покупка", "Совещание", "Ссора"] },
+  { word: "Tavoite", answers: ["Цель"], options: ["Ошибки", "Сны", "Цель", "Случаи"] }
+ ],
+ 218: [
+  { word: "Kauppakassi", answers: ["Пакет из магазина"], options: ["Чемодан", "Пакет из магазина", "Кошелёк", "Рюкзак"] },
+  { word: "Kuitti", answers: ["Чек"], options: ["Билет", "Письмо", "Чек", "Пароль"] },
+  { word: "Kassa", answers: ["Касса"], options: ["Кухня", "Гейт", "Касса", "Кровать"] },
+  { word: "Vaihto", answers: ["Обмен"], options: ["Боль", "Победа", "Обмен", "Сон"] },
+  { word: "Palautus", answers: ["Возврат"], options: ["Возврат", "Скидка", "Налог", "Срок"] }
+ ],
+ 219: [
+  { word: "Sähkö", answers: ["Электричество"], options: ["Огонь", "Вода", "Электричество", "Камень"] },
+  { word: "Katkos", answers: ["Отключение"], options: ["Скидка", "Реформа", "Отключение", "Обновление"] },
+  { word: "Laturi", answers: ["Зарядка"], options: ["Сеть", "Зарядка", "Пароль", "Экран"] },
+  { word: "Vika", answers: ["Неисправность"], options: ["Удача", "Праздник", "Неисправность", "Дружба"] },
+  { word: "Korjata", answers: ["Ремонтировать/Исправлять"], options: ["Забывать", "Ремонтировать/Исправлять", "Побеждать", "Пугаться"] }
+ ],
+ 220: [
+  { word: "Mielipide", answers: ["Мнение"], options: ["Факт", "Слух", "Мнение", "Крик"] },
+  { word: "Perustelu", answers: ["Обоснование"], options: ["Игра", "Погода", "Обоснование", "Конец"] },
+  { word: "Esimerkki", answers: ["Пример"], options: ["Память", "Цена", "Пример", "Скорость"] },
+  { word: "Väite", answers: ["Утверждение"], options: ["Ключ", "Утверждение", "Подарок", "Остров"] },
+  { word: "Johtopäätös", answers: ["Вывод"], options: ["Досмотр", "Стиль", "Вывод", "Штраф"] }
+ ],
+ 221: [
+  { word: "Tervehtyä", answers: ["Поздороваться"], options: ["Поспешить", "Отменить", "Поздороваться", "Упасть"] },
+  { word: "Kiittää", answers: ["Благодарить"], options: ["Обвинять", "Запрещать", "Благодарить", "Сравнивать"] },
+  { word: "Pyytää", answers: ["Просить"], options: ["Смеяться", "Просить", "Лететь", "Резать"] },
+  { word: "Selittää", answers: ["Объяснять"], options: ["Покупать", "Прятать", "Спать", "Объяснять"] },
+  { word: "Ymmärrys", answers: ["Понимание"], options: ["Лес", "Понимание", "Смерть", "Штора"] }
+ ],
+ 222: [
+  { word: "Sopimus", answers: ["Договор"], options: ["Ошибка", "Разговор", "Договор", "Решение"] },
+  { word: "Vastuu", answers: ["Ответственность"], options: ["Польза", "Ответственность", "Опасность", "Усталость"] },
+  { word: "Ehto", answers: ["Условие"], options: ["Идея", "Условие", "Причина", "Выбор"] },
+  { word: "Luottamus", answers: ["Доверие"], options: ["Доверие", "Страх", "Шанс", "Сомнение"] },
+  { word: "Sitoumus", answers: ["Обязательство"], options: ["Отказ", "Обязательство", "Пауза", "Случай"] }
+ ],
+ 223: [
+  { word: "Hakemus", answers: ["Заявление"], options: ["Анкета", "Письмо", "Заявление", "Документ"] },
+  { word: "Lomake", answers: ["Бланк"], options: ["Инструкция", "Бланк", "Папка", "Пакет"] },
+  { word: "Allekirjoitus", answers: ["Подпись"], options: ["Подпись", "Имя", "Дата", "Печать"] },
+  { word: "Liite", answers: ["Приложение"], options: ["Комментарий", "Ответ", "Приложение", "Вопрос"] },
+  { word: "Todistus", answers: ["Справка"], options: ["Паспорт", "Справка", "Рецепт", "Договор"] }
+ ],
+ 224: [
+  { word: "Hyöty", answers: ["Польза"], options: ["Цена", "Убыток", "Польза", "Время"] },
+  { word: "Haitta", answers: ["Вред"], options: ["Успех", "Шанс", "Вред", "Радость"] },
+  { word: "Riski", answers: ["Риск"], options: ["Причина", "Риск", "Сон", "План"] },
+  { word: "Vaihtoehto", answers: ["Альтернатива"], options: ["Случай", "Правило", "Альтернатива", "Причина"] },
+  { word: "Mahdollisuus", answers: ["Возможность"], options: ["Опасность", "Ошибка", "Возможность", "Проблема"] }
+ ],
+ 225: [
+  { word: "Taito", answers: ["Навык"], options: ["Навык", "Страх", "Совет", "План"] },
+  { word: "Kokemus", answers: ["Опыт"], options: ["Память", "Навык", "Ошибка", "Опыт"] },
+  { word: "Osaaminen", answers: ["Компетенция"], options: ["Слабость", "Лень", "Компетенция", "Усталость"] },
+  { word: "Kehitys", answers: ["Развитие"], options: ["Конец", "Развитие", "Падение", "Ошибка"] },
+  { word: "Saavutus", answers: ["Достижение"], options: ["Достижение", "Потеря", "Сомнение", "Слух"] }
+ ],
+ 226: [
+  { word: "Stressi", answers: ["Стресс"], options: ["Радость", "Сон", "Стресс", "Покой"] },
+  { word: "Väsymys", answers: ["Усталость"], options: ["Сила", "Усталость", "Энергия", "Смех"] },
+  { word: "Motivaatio", answers: ["Мотивация"], options: ["Лень", "Страх", "Мотивация", "Сомнение"] },
+  { word: "Rentoutua", answers: ["Расслабляться"], options: ["Бояться", "Спешить", "Работать", "Расслабляться"] },
+  { word: "Keskittyä", answers: ["Сосредоточиться"], options: ["Смеяться", "Сосредоточиться", "Уходить", "Спать"] }
+ ],
+ 227: [
+  { word: "Olen myöhässä", answers: ["Я опаздываю"], options: ["Я готов", "Я опаздываю", "Я дома", "Я устал"] },
+  { word: "Ei kiirettä", answers: ["Не спеши"], options: ["Сейчас", "Никогда", "Не спеши", "Вчера"] },
+  { word: "Selvä juttu", answers: ["Понятно"], options: ["Ошибка", "Понятно", "Сложно", "Может быть"] },
+  { word: "Ei hätää", answers: ["Не волнуйся"], options: ["Беги", "Не волнуйся", "Уходи", "Жди"] },
+  { word: "Sopii", answers: ["Подходит/Ок"], options: ["Подходит/Ок", "Нельзя", "Позже", "Странно"] }
+ ],
+ 228: [
+  { word: "Uutinen", answers: ["Новость"], options: ["Слух", "Новость", "Ошибка", "Шум"] },
+  { word: "Ilmoitus", answers: ["Объявление"], options: ["Сообщение", "Документ", "Объявление", "Разговор"] },
+  { word: "Artikkeli", answers: ["Статья"], options: ["Рассказ", "Пост", "Статья", "Реклама"] },
+  { word: "Kommentti", answers: ["Комментарий"], options: ["Комментарий", "Тишина", "Мнение", "Ошибка"] },
+  { word: "Otsikko", answers: ["Заголовок"], options: ["Картинка", "Заголовок", "Ссылка", "Смысл"] }
+ ],
+ 229: [
+  { word: "Yrittää", answers: ["Пытаться"], options: ["Пытаться", "Сдаваться", "Спать", "Бояться"] },
+  { word: "Onnistua", answers: ["Добиться успеха"], options: ["Сдаться", "Проиграть", "Добиться успеха", "Уйти"] },
+  { word: "Epäonnistua", answers: ["Потерпеть неудачу"], options: ["Победить", "Потерпеть неудачу", "Отдохнуть", "Узнать"] },
+  { word: "Harjoitella", answers: ["Тренироваться"], options: ["Забывать", "Тренироваться", "Бояться", "Лежать"] },
+  { word: "Edistyä", answers: ["Продвигаться/Прогрессировать"], options: ["Спадать", "Останавливаться", "Продвигаться/Прогрессировать", "Ломаться"] }
+ ],
+ 230: [
+  { word: "Ajatus", answers: ["Мысль"], options: ["Ответ", "Мысль", "Идея", "Слово"] },
+  { word: "Muistaa", answers: ["Помнить"], options: ["Забывать", "Бояться", "Помнить", "Смеяться"] },
+  { word: "Unohtaa", answers: ["Забывать"], options: ["Забывать", "Писать", "Знать", "Читать"] },
+  { word: "Ymmärtää", answers: ["Понимать"], options: ["Слушать", "Понимать", "Бежать", "Рисовать"] },
+  { word: "Arvata", answers: ["Угадать"], options: ["Видеть", "Слышать", "Угадать", "Знать"] }
+ ],
+ 231: [
+  { word: "Heti", answers: ["Сразу"], options: ["Позже", "Сразу", "Редко", "Иногда"] },
+  { word: "Pian", answers: ["Скоро"], options: ["Скоро", "Никогда", "Вчера", "Редко"] },
+  { word: "Tasan", answers: ["Ровно"], options: ["Примерно", "Ровно", "Рано", "Позже"] },
+  { word: "Viimeistään", answers: ["Не позднее чем"], options: ["Не позднее чем", "Случайно", "Иногда", "Вряд ли"] },
+  { word: "Ajoissa", answers: ["Вовремя"], options: ["Слишком поздно", "Вовремя", "Случайно", "Редко"] }
+ ],
+ 232: [
+  { word: "Laatu", answers: ["Качество"], options: ["Вес", "Качество", "Шум", "Форма"] },
+  { word: "Valita", answers: ["Выбирать"], options: ["Терять", "Выбирать", "Бросать", "Резать"] },
+  { word: "Vertailla", answers: ["Сравнивать"], options: ["Сравнивать", "Прятать", "Игнорировать", "Удалять"] },
+  { word: "Suositus", answers: ["Рекомендация"], options: ["Рекомендация", "Штраф", "Срок", "Сомнение"] },
+  { word: "Arvostelu", answers: ["Отзыв/Рецензия"], options: ["Вопрос", "Отзыв/Рецензия", "Ответ", "Молчание"] }
+ ],
+ 233: [
+  { word: "Jännittää", answers: ["Волноваться"], options: ["Спать", "Волноваться", "Есть", "Прыгать"] },
+  { word: "Harmittaa", answers: ["Досадно"], options: ["Весело", "Досадно", "Смешно", "Легко"] },
+  { word: "Pelottaa", answers: ["Страшно"], options: ["Радостно", "Страшно", "Спокойно", "Смешно"] },
+  { word: "Helpottunut", answers: ["Облегчённый"], options: ["Злой", "Облегчённый", "Голодный", "Сонный"] },
+  { word: "Yllättynyt", answers: ["Удивлённый"], options: ["Удивлённый", "Уверенный", "Уставший", "Грустный"] }
+ ],
+ 234: [
+  { word: "Lepo", answers: ["Отдых"], options: ["Бег", "Работа", "Отдых", "Шум"] },
+  { word: "Uni", answers: ["Сон"], options: ["Сон", "Еда", "Бег", "Разговор"] },
+  { word: "Nesteytys", answers: ["Гидратация"], options: ["Гидратация", "Штраф", "Скорость", "Ссора"] },
+  { word: "Oire", answers: ["Симптом"], options: ["Лечение", "Симптом", "Рецепт", "Болезнь"] },
+  { word: "Parantua", answers: ["Выздоравливать"], options: ["Болеть", "Выздоравливать", "Уставать", "Лечить"] }
+ ],
+ 235: [
+  { word: "Ehkä", answers: ["Может быть"], options: ["Точно", "Никогда", "Может быть", "Всегда"] },
+  { word: "Varmaan", answers: ["Наверное"], options: ["Редко", "Наверное", "Точно", "Нет"] },
+  { word: "Luultavasti", answers: ["Вероятно"], options: ["Вероятно", "Никогда", "Сейчас", "Вчера"] },
+  { word: "Totta", answers: ["Правда"], options: ["Ложь", "Слух", "Правда", "Миф"] },
+  { word: "Valhe", answers: ["Ложь"], options: ["Секрет", "Ложь", "Правда", "Новость"] }
+ ],
+ 236: [
+  { word: "Keskustella", answers: ["Обсуждать"], options: ["Обсуждать", "Молчать", "Бежать", "Прыгать"] },
+  { word: "Kysyä", answers: ["Спрашивать"], options: ["Писать", "Слушать", "Спрашивать", "Отвечать"] },
+  { word: "Vastata", answers: ["Отвечать"], options: ["Спать", "Рисовать", "Отвечать", "Бежать"] },
+  { word: "Selventää", answers: ["Прояснять"], options: ["Удалять", "Прояснять", "Путать", "Прятать"] },
+  { word: "Sopia", answers: ["Договариваться/Подходить"], options: ["Ломать", "Договариваться/Подходить", "Забывать", "Уходить"] }
+ ],
 
 };
